@@ -1,0 +1,1999 @@
+{
+  "schemaVersion": "1.0.0",
+  "classificationPolicy": {
+    "target": "contextual-reachability",
+    "positiveTiers": [
+      "CRITICAL",
+      "HIGH"
+    ],
+    "negativeTiers": [
+      "MEDIUM",
+      "LOW",
+      "NONE"
+    ],
+    "negativeMeaning": "no-demonstrated-path",
+    "baseline": "npm-audit-presence",
+    "binaryIdentityFields": [
+      "projectId",
+      "packageName",
+      "sourceFile",
+      "component"
+    ],
+    "secondaryFields": [
+      "tier",
+      "sinkRuleId",
+      "reasonCode"
+    ],
+    "unexpectedPositiveFindings": "manual-review-required"
+  },
+  "projects": [
+    {
+      "id": "effectiveness-core",
+      "name": "Controlled effectiveness core",
+      "root": "corpus/effectiveness-core",
+      "purpose": "effectiveness",
+      "vulnerablePackages": [
+        {
+          "name": "marked",
+          "version": "0.3.19",
+          "auditSeverity": "high"
+        }
+      ]
+    },
+    {
+      "id": "adversarial-holdout",
+      "name": "Adversarial holdout corpus",
+      "root": "corpus/adversarial-holdout",
+      "purpose": "effectiveness",
+      "vulnerablePackages": [
+        {
+          "name": "marked",
+          "version": "0.3.19",
+          "auditSeverity": "high"
+        }
+      ]
+    },
+    {
+      "id": "robustness-multipackage",
+      "name": "Supplemental multi-package robustness corpus",
+      "root": "corpus/robustness-multipackage",
+      "purpose": "effectiveness",
+      "vulnerablePackages": [
+        {
+          "name": "dompurify",
+          "version": "2.4.0",
+          "auditSeverity": "critical"
+        },
+        {
+          "name": "serialize-javascript",
+          "version": "2.1.1",
+          "auditSeverity": "high"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "direct-inner-html",
+      "projectId": "effectiveness-core",
+      "description": "A statically imported vulnerable binding is used directly in dangerouslySetInnerHTML.",
+      "category": "direct-sink-flow",
+      "packageName": "marked",
+      "sourceFile": "src/DirectInnerHtml.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "DirectInnerHtml",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "rationale": "The marked binding occurs directly inside the value expression of the inner-html sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "static-import",
+        "jsx-sink",
+        "direct-flow"
+      ]
+    },
+    {
+      "id": "local-variable-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output reaches dangerouslySetInnerHTML through a local variable.",
+      "category": "local-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/LocalPropagation.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "LocalPropagation",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 5
+          }
+        ],
+        "rationale": "The rendered variable is assigned from marked(input) and then passed to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "static-import",
+        "jsx-sink",
+        "local-propagation"
+      ]
+    },
+    {
+      "id": "inter-component-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output crosses a React prop boundary before reaching dangerouslySetInnerHTML.",
+      "category": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/InterComponentPropagation.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "InterComponentPropagation",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 4
+          },
+          {
+            "start": 8,
+            "end": 9
+          }
+        ],
+        "rationale": "The parent passes rendered as the html prop and HtmlView uses that prop in the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "props",
+        "jsx-sink",
+        "inter-component"
+      ]
+    },
+    {
+      "id": "require-direct-eval",
+      "projectId": "effectiveness-core",
+      "description": "A CommonJS binding is passed directly to eval.",
+      "category": "direct-sink-flow",
+      "packageName": "marked",
+      "sourceFile": "src/RequireDirectEval.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "RequireDirectEval",
+        "sinkRuleId": "eval"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "rationale": "The require binding is used directly inside the eval argument."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "require",
+        "code-execution",
+        "direct-flow"
+      ]
+    },
+    {
+      "id": "unused-static-import",
+      "projectId": "effectiveness-core",
+      "description": "The vulnerable dependency is imported but never referenced by a component.",
+      "category": "unused-import",
+      "packageName": "marked",
+      "sourceFile": "src/UnusedImport.jsx",
+      "expected": {
+        "tier": "NONE",
+        "contextuallyReachable": false,
+        "reasonCode": "UNUSED_IMPORT"
+      },
+      "matching": {
+        "component": null,
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "rationale": "No reference to the marked binding exists inside the component."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "static-import",
+        "unused-import"
+      ]
+    },
+    {
+      "id": "component-without-sink",
+      "projectId": "effectiveness-core",
+      "description": "The dependency is used by a component that contains no registered security sink.",
+      "category": "component-without-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ComponentWithoutSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "ComponentWithoutSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 5
+          }
+        ],
+        "rationale": "The output is rendered as a normal JSX text child and no configured sink is present."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "static-import",
+        "no-sink"
+      ]
+    },
+    {
+      "id": "unrelated-sink",
+      "projectId": "effectiveness-core",
+      "description": "The component has a sink, but it receives a value unrelated to the dependency output.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "UnrelatedSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 8
+          }
+        ],
+        "rationale": "marked(input) reaches only the pre element; the inner-html sink receives trustedHtml."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "static-import",
+        "unrelated-sink"
+      ]
+    },
+    {
+      "id": "dynamic-import-no-binding",
+      "projectId": "effectiveness-core",
+      "description": "A dynamic import is invoked without capturing the returned module binding.",
+      "category": "no-binding",
+      "packageName": "marked",
+      "sourceFile": "src/DynamicImportNoBinding.jsx",
+      "expected": {
+        "tier": "LOW",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_BINDING"
+      },
+      "matching": {
+        "component": null,
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "rationale": "The import promise is not assigned, so no local binding can be propagated to a sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "dynamic-import",
+        "no-binding"
+      ]
+    },
+    {
+      "id": "use-state-initial-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output initialises React state and the state value reaches dangerouslySetInnerHTML.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseStateInitial.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "UseStateInitial",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 6
+          }
+        ],
+        "rationale": "The useState initial value derives from marked(input), and html is passed to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "hook",
+        "use-state",
+        "initial-value"
+      ]
+    },
+    {
+      "id": "use-state-setter-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output reaches React state through its setter before the state reaches a sink.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseStateSetter.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "UseStateSetter",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 7
+          }
+        ],
+        "rationale": "setHtml receives marked(input), making the html state value tainted before it reaches the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "hook",
+        "use-state",
+        "setter"
+      ]
+    },
+    {
+      "id": "use-memo-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output is propagated through useMemo into dangerouslySetInnerHTML.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseMemoPropagation.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "UseMemoPropagation",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 6
+          }
+        ],
+        "rationale": "The memoised html value is derived from marked(input) and is then passed to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "hook",
+        "use-memo"
+      ]
+    },
+    {
+      "id": "cross-file-inter-component-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output crosses a prop boundary into a sink component declared in another file.",
+      "category": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/cross-file-positive/CrossFileParent.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "CrossFileParent",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 6
+          },
+          {
+            "file": "src/cross-file-positive/HtmlSink.jsx",
+            "start": 1,
+            "end": 2
+          }
+        ],
+        "rationale": "CrossFileParent passes marked output as html; HtmlSink receives that prop and uses it in the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "props",
+        "cross-file",
+        "import-resolution"
+      ]
+    },
+    {
+      "id": "direct-jsx-url",
+      "projectId": "effectiveness-core",
+      "description": "The vulnerable binding is used directly in a dynamic anchor href sink.",
+      "category": "direct-sink-flow",
+      "packageName": "marked",
+      "sourceFile": "src/DirectJsxUrl.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "DirectJsxUrl",
+        "sinkRuleId": "jsx-url"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 3,
+            "end": 4
+          }
+        ],
+        "rationale": "marked(input) occurs directly in the expression assigned to the anchor href sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "jsx-url",
+        "navigation",
+        "direct-flow"
+      ]
+    },
+    {
+      "id": "direct-dom-ref-html",
+      "projectId": "effectiveness-core",
+      "description": "The vulnerable binding is assigned directly to innerHTML through a React ref.",
+      "category": "direct-sink-flow",
+      "packageName": "marked",
+      "sourceFile": "src/DirectDomRef.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "DirectDomRef",
+        "sinkRuleId": "dom-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 7
+          }
+        ],
+        "rationale": "marked(input) is the right-hand side of the ref.current.innerHTML assignment."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "react-ref",
+        "dom-html",
+        "direct-flow"
+      ]
+    },
+    {
+      "id": "scope-shadowing-blocks-flow",
+      "projectId": "effectiveness-core",
+      "description": "A nested parameter shadows the vulnerable import at an eval sink.",
+      "category": "scope-shadowing",
+      "packageName": "marked",
+      "sourceFile": "src/ScopeShadowing.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "ScopeShadowing",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 8
+          }
+        ],
+        "rationale": "The eval argument resolves to the nested marked parameter, not to the vulnerable imported binding."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "shadowing",
+        "binding-identity",
+        "eval"
+      ]
+    },
+    {
+      "id": "unrelated-location-sink",
+      "projectId": "effectiveness-core",
+      "description": "A location sink receives trusted input while dependency output is rendered separately.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedLocationSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "UnrelatedLocationSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 6
+          }
+        ],
+        "rationale": "The location assignment uses trustedUrl, while marked output only reaches the pre element."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "location",
+        "navigation",
+        "unrelated-sink"
+      ]
+    },
+    {
+      "id": "side-effect-require-no-binding",
+      "projectId": "effectiveness-core",
+      "description": "A bare CommonJS require loads the vulnerable package without capturing a binding.",
+      "category": "no-binding",
+      "packageName": "marked",
+      "sourceFile": "src/SideEffectRequire.jsx",
+      "expected": {
+        "tier": "LOW",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_BINDING"
+      },
+      "matching": {
+        "component": null,
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "rationale": "The return value of require(\"marked\") is not assigned to any local identifier."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "require",
+        "side-effect",
+        "no-binding"
+      ]
+    },
+    {
+      "id": "unrelated-jsx-url-sink",
+      "projectId": "effectiveness-core",
+      "description": "A JSX URL sink receives trusted input while dependency output is rendered separately.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedJsxUrl.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "UnrelatedJsxUrl",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 8
+          }
+        ],
+        "rationale": "The href expression references trustedUrl, while the marked-derived value reaches only pre."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "jsx-url",
+        "navigation",
+        "unrelated-sink"
+      ]
+    },
+    {
+      "id": "cross-file-safe-import-resolution",
+      "projectId": "effectiveness-core",
+      "description": "Relative import resolution selects a safe child despite a dangerous same-named component elsewhere.",
+      "category": "other-controlled",
+      "packageName": "marked",
+      "sourceFile": "src/cross-file-safe/SafeParent.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "SafeParent",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 6
+          },
+          {
+            "file": "src/cross-file-safe/Target.jsx",
+            "start": 1,
+            "end": 2
+          },
+          {
+            "file": "src/cross-file-danger/Target.jsx",
+            "start": 1,
+            "end": 2
+          }
+        ],
+        "rationale": "SafeParent explicitly imports the safe Target; the unrelated same-named dangerous Target must not create an edge."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "cross-file",
+        "import-resolution",
+        "duplicate-component-name"
+      ]
+    },
+    {
+      "id": "class-component-without-sink",
+      "projectId": "effectiveness-core",
+      "description": "A React class component uses dependency output only in a normal JSX text position.",
+      "category": "component-without-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ClassWithoutSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "ClassWithoutSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 7
+          }
+        ],
+        "rationale": "The class render method uses marked output as a JSX text child and contains no configured sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "class-component",
+        "no-sink"
+      ]
+    },
+    {
+      "id": "use-reducer-initial-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output is used as the initial React reducer state and reaches a sink.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseReducerInitial.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "UseReducerInitial",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 6
+          }
+        ],
+        "rationale": "The useReducer initial state derives from marked(input), and the resulting html state reaches the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "hook",
+        "use-reducer",
+        "initial-state"
+      ]
+    },
+    {
+      "id": "use-callback-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output propagates through a memoised callback and a local value into a sink.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseCallbackPropagation.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "UseCallbackPropagation",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 7
+          }
+        ],
+        "rationale": "makeHtml closes over marked(input); its return value is assigned to html and then reaches the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "hook",
+        "use-callback",
+        "local-propagation"
+      ]
+    },
+    {
+      "id": "direct-new-function",
+      "projectId": "effectiveness-core",
+      "description": "The vulnerable binding is passed directly to the global Function constructor.",
+      "category": "direct-sink-flow",
+      "packageName": "marked",
+      "sourceFile": "src/DirectNewFunction.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "DirectNewFunction",
+        "sinkRuleId": "new-function"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 3,
+            "end": 5
+          }
+        ],
+        "rationale": "marked(input) occurs directly in the final argument of the global Function constructor."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "new-function",
+        "code-execution",
+        "direct-flow"
+      ]
+    },
+    {
+      "id": "insert-adjacent-html-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output reaches insertAdjacentHTML through a local variable.",
+      "category": "local-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/InsertAdjacentHtmlPropagation.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "InsertAdjacentHtmlPropagation",
+        "sinkRuleId": "insert-adjacent-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 8
+          }
+        ],
+        "rationale": "html derives from marked(input) and is passed as the content argument of insertAdjacentHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "react-ref",
+        "insert-adjacent-html",
+        "local-propagation"
+      ]
+    },
+    {
+      "id": "multi-hop-component-propagation",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output crosses two component prop boundaries before reaching a sink.",
+      "category": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/MultiHopPropagation.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "MultiHopPropagation",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 3,
+            "end": 8
+          },
+          {
+            "start": 11,
+            "end": 13
+          }
+        ],
+        "rationale": "MultiHopPropagation passes rendered to IntermediateComponent, which forwards it to FinalHtmlSink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "props",
+        "multi-hop",
+        "inter-component"
+      ]
+    },
+    {
+      "id": "unrelated-use-reducer-sink",
+      "projectId": "effectiveness-core",
+      "description": "A reducer supplies trusted data to a sink while dependency output is rendered separately.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedUseReducer.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "UnrelatedUseReducer",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 10
+          }
+        ],
+        "rationale": "safeHtml derives from trustedHtml; the marked-derived rendered value reaches only the pre element."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "hook",
+        "use-reducer",
+        "unrelated-sink"
+      ]
+    },
+    {
+      "id": "shadowed-eval-is-not-global-sink",
+      "projectId": "effectiveness-core",
+      "description": "A locally bound eval identifier must not be treated as the global eval sink.",
+      "category": "scope-shadowing",
+      "packageName": "marked",
+      "sourceFile": "src/ShadowedEvalSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "ShadowedEvalSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 4,
+            "end": 7
+          }
+        ],
+        "rationale": "eval resolves to the local safeEval binding, so the component contains no registered global eval sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "shadowing",
+        "eval",
+        "sink-identity"
+      ]
+    },
+    {
+      "id": "unrelated-insert-adjacent-html",
+      "projectId": "effectiveness-core",
+      "description": "insertAdjacentHTML receives trusted data while dependency output is rendered separately.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedInsertAdjacentHtml.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "UnrelatedInsertAdjacentHtml",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 5,
+            "end": 8
+          }
+        ],
+        "rationale": "The sink receives trustedHtml, while marked(input) is assigned to rendered and used only as JSX text."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "react-ref",
+        "insert-adjacent-html",
+        "unrelated-sink"
+      ]
+    },
+    {
+      "id": "require-destructured-without-sink",
+      "projectId": "effectiveness-core",
+      "description": "A destructured CommonJS binding is used in a component without a security sink.",
+      "category": "component-without-sink",
+      "packageName": "marked",
+      "sourceFile": "src/RequireDestructuredWithoutSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "RequireDestructuredWithoutSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          }
+        ],
+        "rationale": "The parse binding derives from require(\"marked\") but its output is used only as a JSX text child."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "require",
+        "destructuring",
+        "no-sink"
+      ]
+    },
+    {
+      "id": "multi-hop-safe-terminal",
+      "projectId": "effectiveness-core",
+      "description": "Dependency output crosses two prop boundaries but terminates in a normal JSX text position.",
+      "category": "other-controlled",
+      "packageName": "marked",
+      "sourceFile": "src/MultiHopSafeTerminal.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "MultiHopSafeTerminal",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 3,
+            "end": 8
+          },
+          {
+            "start": 11,
+            "end": 13
+          }
+        ],
+        "rationale": "The value is forwarded through SafeIntermediate to SafeTerminal, which contains no registered sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "props",
+        "multi-hop",
+        "safe-terminal"
+      ]
+    },
+    {
+      "id": "holdout-custom-hook-flow",
+      "projectId": "adversarial-holdout",
+      "description": "Dependency output reaches a sink through a custom hook-like function.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/CustomHookFlow.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "CustomHookFlow",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "rationale": "useRenderedMarkdown returns marked(input); CustomHookFlow assigns that return value to html and passes it to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "adversarial-holdout",
+        "custom-hook",
+        "function-return"
+      ]
+    },
+    {
+      "id": "holdout-cross-file-helper-flow",
+      "projectId": "adversarial-holdout",
+      "description": "Dependency output reaches a component sink through a helper function imported from another file.",
+      "category": "other-controlled",
+      "packageName": "marked",
+      "sourceFile": "src/helper/renderMarkdown.js",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "HelperFunctionFlow",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 4
+          },
+          {
+            "file": "src/HelperFunctionFlow.jsx",
+            "start": 1,
+            "end": 5
+          }
+        ],
+        "rationale": "renderMarkdown returns marked(input); HelperFunctionFlow imports it, receives the returned html and passes it to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "adversarial-holdout",
+        "cross-file",
+        "helper-function"
+      ]
+    },
+    {
+      "id": "holdout-react-context-flow",
+      "projectId": "adversarial-holdout",
+      "description": "Dependency output crosses from a context provider to a consumer sink.",
+      "category": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/ContextFlow.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "ContextProvider",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 16
+          }
+        ],
+        "rationale": "ContextProvider stores marked output in the provider value; ContextConsumer reads that value and passes it to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "adversarial-holdout",
+        "react-context",
+        "inter-component"
+      ]
+    },
+    {
+      "id": "holdout-member-mutation-flow",
+      "projectId": "adversarial-holdout",
+      "description": "Dependency output reaches a sink after assignment to an object member.",
+      "category": "local-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/MemberMutationFlow.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "MemberMutationFlow",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 6
+          }
+        ],
+        "rationale": "payload.html is assigned marked(input), and the same member is subsequently passed to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "adversarial-holdout",
+        "member-assignment",
+        "object-flow"
+      ]
+    },
+    {
+      "id": "holdout-array-mutation-flow",
+      "projectId": "adversarial-holdout",
+      "description": "Dependency output reaches a sink through array mutation and indexed retrieval.",
+      "category": "local-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/ArrayMutationFlow.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "ArrayMutationFlow",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 7
+          }
+        ],
+        "rationale": "marked(input) is pushed into values; values[0] is assigned to html and then passed to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "adversarial-holdout",
+        "array-mutation",
+        "indexed-flow"
+      ]
+    },
+    {
+      "id": "holdout-async-state-setter-flow",
+      "projectId": "adversarial-holdout",
+      "description": "Dependency output reaches state and a sink from inside a Promise callback.",
+      "category": "hook-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/AsyncSetterFlow.jsx",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "AsyncSetterFlow",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 7
+          }
+        ],
+        "rationale": "The Promise callback passes marked(value) to setHtml, and the corresponding html state is used in the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "adversarial-holdout",
+        "promise",
+        "async-callback",
+        "use-state"
+      ]
+    },
+    {
+      "id": "holdout-overwritten-binding",
+      "projectId": "adversarial-holdout",
+      "description": "A tainted local binding is overwritten with trusted data before reaching the sink.",
+      "category": "other-controlled",
+      "packageName": "marked",
+      "sourceFile": "src/OverwrittenBinding.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "OverwrittenBinding",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 6
+          }
+        ],
+        "rationale": "Although html initially receives marked output, the unconditional trustedHtml assignment is the last write before the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "adversarial-holdout",
+        "overwrite",
+        "flow-kill"
+      ]
+    },
+    {
+      "id": "holdout-generic-props-unrelated",
+      "projectId": "adversarial-holdout",
+      "description": "A child receives one tainted prop but its sink reads a distinct trusted prop through the generic props object.",
+      "category": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/GenericPropsUnrelated.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "GenericPropsParent",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "rationale": "unsafe carries marked output, but the child sink reads only props.trustedHtml; the properties are distinct."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "adversarial-holdout",
+        "generic-props",
+        "property-separation"
+      ]
+    },
+    {
+      "id": "holdout-rest-props-unrelated",
+      "projectId": "adversarial-holdout",
+      "description": "A rest-props object contains both tainted and trusted properties, while the sink reads only the trusted property.",
+      "category": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/RestPropsUnrelated.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "RestPropsParent",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "rationale": "rest.unsafe carries marked output, but the sink specifically reads rest.trustedHtml."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "adversarial-holdout",
+        "rest-props",
+        "property-separation"
+      ]
+    },
+    {
+      "id": "holdout-object-property-separation",
+      "projectId": "adversarial-holdout",
+      "description": "An object contains a tainted property and a separate trusted property used by the sink.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ObjectPropertySeparation.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "ObjectPropertySeparation",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 8
+          }
+        ],
+        "rationale": "payload.unsafe contains marked output, whereas the sink reads only payload.safe, which contains trustedHtml."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "adversarial-holdout",
+        "object-property",
+        "property-separation"
+      ]
+    },
+    {
+      "id": "holdout-destructured-property-separation",
+      "projectId": "adversarial-holdout",
+      "description": "Only the trusted property is destructured from an object that also contains a tainted property.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/DestructuredPropertySeparation.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "DestructuredPropertySeparation",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "rationale": "safe is destructured from payload.safe, which is trustedHtml; payload.unsafe is the only marked-derived property."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "adversarial-holdout",
+        "destructuring",
+        "property-separation"
+      ]
+    },
+    {
+      "id": "holdout-array-index-separation",
+      "projectId": "adversarial-holdout",
+      "description": "An array contains tainted and trusted entries, while the sink reads only the trusted index.",
+      "category": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ArrayIndexSeparation.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "ArrayIndexSeparation",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          }
+        ],
+        "rationale": "values[0] contains marked output, but the sink reads values[1], which contains only trustedHtml."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "adversarial-holdout",
+        "array-index",
+        "index-separation"
+      ]
+    },
+    {
+      "id": "robustness-dompurify-direct-inner-html",
+      "projectId": "robustness-multipackage",
+      "description": "DOMPurify output is used directly by a React inner-HTML sink.",
+      "category": "direct-sink-flow",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "DompurifyDirectInnerHtml",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          }
+        ],
+        "rationale": "The vulnerable sanitizer binding is called inside the value supplied directly to dangerouslySetInnerHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "robustness",
+        "complexity-simple",
+        "default-import",
+        "xss",
+        "inner-html"
+      ]
+    },
+    {
+      "id": "robustness-dompurify-local-dom-html",
+      "projectId": "robustness-multipackage",
+      "description": "DOMPurify output reaches a DOM innerHTML assignment through a local binding.",
+      "category": "local-propagation",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-local-dom-html/sanitizer.js",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "DompurifyLocalDomHtml",
+        "sinkRuleId": "dom-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          },
+          {
+            "file": "src/scenarios/dompurify-local-dom-html/DompurifyLocalDomHtml.jsx",
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "rationale": "sanitizeHtml returns DOMPurify output; DompurifyLocalDomHtml imports the service and assigns its result to contentRef.current.innerHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "robustness",
+        "complexity-intermediate",
+        "service-wrapper",
+        "local-flow",
+        "dom-html"
+      ]
+    },
+    {
+      "id": "robustness-dompurify-inter-component",
+      "projectId": "robustness-multipackage",
+      "description": "DOMPurify output crosses a component props boundary before reaching an inner-HTML sink.",
+      "category": "inter-component-propagation",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-article-flow/services/sanitizer.js",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "ArticlePage",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          },
+          {
+            "file": "src/scenarios/dompurify-article-flow/hooks/useSanitizedArticle.js",
+            "start": 1,
+            "end": 6
+          },
+          {
+            "file": "src/scenarios/dompurify-article-flow/ArticlePage.jsx",
+            "start": 1,
+            "end": 7
+          },
+          {
+            "file": "src/scenarios/dompurify-article-flow/components/ArticleContent.jsx",
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "rationale": "The sanitizer service feeds a custom hook; ArticlePage passes the hook result to ArticleContent, which consumes it with dangerouslySetInnerHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "robustness",
+        "complexity-realistic",
+        "service-wrapper",
+        "custom-hook",
+        "props",
+        "inner-html"
+      ]
+    },
+    {
+      "id": "robustness-dompurify-unused-import",
+      "projectId": "robustness-multipackage",
+      "description": "DOMPurify is imported but never referenced.",
+      "category": "unused-import",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+      "expected": {
+        "tier": "NONE",
+        "contextuallyReachable": false,
+        "reasonCode": "UNUSED_IMPORT"
+      },
+      "matching": {
+        "component": null,
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          }
+        ],
+        "rationale": "No reference to the imported DOMPurify binding exists in the source file."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "robustness",
+        "complexity-simple",
+        "default-import",
+        "unused-import"
+      ]
+    },
+    {
+      "id": "robustness-dompurify-overwritten-binding",
+      "projectId": "robustness-multipackage",
+      "description": "A DOMPurify-derived local is unconditionally overwritten before the sink.",
+      "category": "other-controlled",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "DompurifyOverwrittenBinding",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 8
+          },
+          {
+            "file": "src/scenarios/dompurify-overwritten-binding/contentPolicy.js",
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "rationale": "The last write to html calls a policy function that returns reviewed static content, so the dependency output has no demonstrated path to the sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "robustness",
+        "complexity-intermediate",
+        "policy-module",
+        "overwrite",
+        "flow-kill"
+      ]
+    },
+    {
+      "id": "robustness-dompurify-property-separation",
+      "projectId": "robustness-multipackage",
+      "description": "A DOMPurify-derived object property is separate from the reviewed property consumed by the sink.",
+      "category": "unrelated-sink",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-property-separation/services/sanitizer.js",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "DompurifyPropertySeparation",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 8
+          },
+          {
+            "file": "src/scenarios/dompurify-property-separation/policies/contentPolicy.js",
+            "start": 1,
+            "end": 3
+          },
+          {
+            "file": "src/scenarios/dompurify-property-separation/DompurifyPropertySeparation.jsx",
+            "start": 1,
+            "end": 8
+          },
+          {
+            "file": "src/scenarios/dompurify-property-separation/components/ArticleContent.jsx",
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "rationale": "The service stores DOMPurify output in payload.dependencyOutput, whereas the page forwards only payload.reviewedHtml from the policy module to ArticleContent."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "robustness",
+        "complexity-realistic",
+        "service-wrapper",
+        "policy-module",
+        "object-property",
+        "property-separation"
+      ]
+    },
+    {
+      "id": "robustness-serialize-direct-script-html",
+      "projectId": "robustness-multipackage",
+      "description": "serialize-javascript output is embedded directly in the contents of a script element.",
+      "category": "direct-sink-flow",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+      "expected": {
+        "tier": "CRITICAL",
+        "contextuallyReachable": true,
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "matching": {
+        "component": "SerializeDirectScriptHtml",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          }
+        ],
+        "rationale": "The vulnerable serializer call occurs inside the template literal passed directly to dangerouslySetInnerHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "robustness",
+        "complexity-simple",
+        "commonjs",
+        "serialization",
+        "inner-html"
+      ]
+    },
+    {
+      "id": "robustness-serialize-local-insert-adjacent",
+      "projectId": "robustness-multipackage",
+      "description": "serialize-javascript output reaches insertAdjacentHTML through a local script body.",
+      "category": "local-propagation",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "SerializeLocalInsertAdjacent",
+        "sinkRuleId": "insert-adjacent-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          },
+          {
+            "file": "src/scenarios/serialize-bootstrap-hook/state/loadInitialState.js",
+            "start": 1,
+            "end": 3
+          },
+          {
+            "file": "src/scenarios/serialize-bootstrap-hook/hooks/useBootstrapScript.js",
+            "start": 1,
+            "end": 7
+          },
+          {
+            "file": "src/scenarios/serialize-bootstrap-hook/SerializeLocalInsertAdjacent.jsx",
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "rationale": "The state loader feeds the serializer service through a custom hook; the page interpolates the resulting scriptBody into insertAdjacentHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "robustness",
+        "complexity-realistic",
+        "state-loader",
+        "service-wrapper",
+        "custom-hook",
+        "insert-adjacent-html"
+      ]
+    },
+    {
+      "id": "robustness-serialize-cross-file-helper",
+      "projectId": "robustness-multipackage",
+      "description": "serialize-javascript output reaches a component sink through an imported helper function.",
+      "category": "other-controlled",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-app-shell/serialization/serializeState.js",
+      "expected": {
+        "tier": "HIGH",
+        "contextuallyReachable": true,
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "matching": {
+        "component": "SerializeHelperFunctionFlow",
+        "sinkRuleId": "inner-html"
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 5
+          },
+          {
+            "file": "src/scenarios/serialize-app-shell/state/normalizeState.js",
+            "start": 1,
+            "end": 3
+          },
+          {
+            "file": "src/scenarios/serialize-app-shell/bootstrap/buildBootstrapScript.js",
+            "start": 1,
+            "end": 6
+          },
+          {
+            "file": "src/scenarios/serialize-app-shell/SerializeHelperFunctionFlow.jsx",
+            "start": 1,
+            "end": 6
+          }
+        ],
+        "rationale": "The app-shell path normalizes state, serializes it in a dedicated service, builds a bootstrap script and supplies that result to dangerouslySetInnerHTML."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "positive",
+        "robustness",
+        "complexity-realistic",
+        "state-normalization",
+        "service-wrapper",
+        "cross-file",
+        "helper-function",
+        "inner-html"
+      ]
+    },
+    {
+      "id": "robustness-serialize-component-without-sink",
+      "projectId": "robustness-multipackage",
+      "description": "serialize-javascript is used in a component that has no registered sink.",
+      "category": "component-without-sink",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "matching": {
+        "component": "SerializeComponentWithoutSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 7
+          },
+          {
+            "file": "src/scenarios/serialize-component-without-sink/StatePreview.jsx",
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "rationale": "The page passes serialized state to a presentation component that renders only a normal JSX text child; neither component has a configured sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "robustness",
+        "complexity-intermediate",
+        "default-import",
+        "presentation-component",
+        "no-sink"
+      ]
+    },
+    {
+      "id": "robustness-serialize-unrelated-sink",
+      "projectId": "robustness-multipackage",
+      "description": "The component contains serializer output and a separate sink that consumes only reviewed content.",
+      "category": "unrelated-sink",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+      "expected": {
+        "tier": "MEDIUM",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "matching": {
+        "component": "SerializeUnrelatedSink",
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 14
+          },
+          {
+            "file": "src/scenarios/serialize-unrelated-sink/StatePreview.jsx",
+            "start": 1,
+            "end": 3
+          },
+          {
+            "file": "src/scenarios/serialize-unrelated-sink/reviewedBootstrap.js",
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "rationale": "Serialized state reaches only StatePreview; the script sink receives an independent value returned by the reviewed-bootstrap policy."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "robustness",
+        "complexity-intermediate",
+        "default-import",
+        "presentation-component",
+        "policy-module",
+        "unrelated-sink"
+      ]
+    },
+    {
+      "id": "robustness-serialize-dynamic-import-no-binding",
+      "projectId": "robustness-multipackage",
+      "description": "serialize-javascript is dynamically imported without capturing a module binding.",
+      "category": "no-binding",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+      "expected": {
+        "tier": "LOW",
+        "contextuallyReachable": false,
+        "reasonCode": "NO_BINDING"
+      },
+      "matching": {
+        "component": null,
+        "sinkRuleId": null
+      },
+      "evidence": {
+        "lines": [
+          {
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "rationale": "The dynamic import promise is not captured, so no dependency binding can reach a sink."
+      },
+      "npmAuditBaselinePositive": true,
+      "tags": [
+        "negative",
+        "robustness",
+        "complexity-simple",
+        "dynamic-import",
+        "no-binding"
+      ]
+    }
+  ]
+}

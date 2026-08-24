@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reactreach.local/schemas/ground-truth-v1.json",
+  "title": "ReactReach RQ04 Ground Truth",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "classificationPolicy", "projects", "scenarios"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "classificationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "positiveTiers",
+        "negativeTiers",
+        "negativeMeaning",
+        "baseline",
+        "binaryIdentityFields",
+        "secondaryFields",
+        "unexpectedPositiveFindings"
+      ],
+      "properties": {
+        "target": { "const": "contextual-reachability" },
+        "positiveTiers": { "type": "array", "const": ["CRITICAL", "HIGH"] },
+        "negativeTiers": { "type": "array", "const": ["MEDIUM", "LOW", "NONE"] },
+        "negativeMeaning": { "const": "no-demonstrated-path" },
+        "baseline": { "const": "npm-audit-presence" },
+        "binaryIdentityFields": {
+          "type": "array",
+          "const": ["projectId", "packageName", "sourceFile", "component"]
+        },
+        "secondaryFields": {
+          "type": "array",
+          "const": ["tier", "sinkRuleId", "reasonCode"]
+        },
+        "unexpectedPositiveFindings": { "const": "manual-review-required" }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/project" }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 30,
+      "items": { "$ref": "#/$defs/scenario" },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": ["expected"],
+            "properties": {
+              "expected": {
+                "type": "object",
+                "required": ["contextuallyReachable"],
+                "properties": { "contextuallyReachable": { "const": true } }
+              }
+            }
+          },
+          "minContains": 10
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["expected"],
+            "properties": {
+              "expected": {
+                "type": "object",
+                "required": ["contextuallyReachable"],
+                "properties": { "contextuallyReachable": { "const": false } }
+              }
+            }
+          },
+          "minContains": 10
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "root", "purpose", "vulnerablePackages"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "root": { "type": "string", "minLength": 1 },
+        "purpose": { "enum": ["effectiveness", "performance", "both"] },
+        "targetSourceFiles": { "type": "integer", "minimum": 1 },
+        "vulnerablePackages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "version", "auditSeverity"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "version": { "type": "string", "minLength": 1 },
+              "auditSeverity": { "enum": ["low", "moderate", "high", "critical", "unknown"] }
+            }
+          }
+        }
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "expected": {
+                "type": "object",
+                "properties": { "tier": { "enum": ["CRITICAL", "HIGH"] } },
+                "required": ["tier"]
+              }
+            },
+            "required": ["expected"]
+          },
+          "then": {
+            "properties": {
+              "expected": {
+                "type": "object",
+                "properties": { "contextuallyReachable": { "const": true } },
+                "required": ["contextuallyReachable"]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "expected": {
+                "type": "object",
+                "properties": { "tier": { "enum": ["MEDIUM", "LOW", "NONE"] } },
+                "required": ["tier"]
+              }
+            },
+            "required": ["expected"]
+          },
+          "then": {
+            "properties": {
+              "expected": {
+                "type": "object",
+                "properties": { "contextuallyReachable": { "const": false } },
+                "required": ["contextuallyReachable"]
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "id",
+        "projectId",
+        "description",
+        "category",
+        "packageName",
+        "sourceFile",
+        "expected",
+        "matching",
+        "evidence",
+        "npmAuditBaselinePositive",
+        "tags"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "projectId": { "$ref": "#/$defs/id" },
+        "description": { "type": "string", "minLength": 1 },
+        "category": {
+          "enum": [
+            "direct-sink-flow",
+            "local-propagation",
+            "hook-propagation",
+            "inter-component-propagation",
+            "unused-import",
+            "no-binding",
+            "component-without-sink",
+            "unrelated-sink",
+            "scope-shadowing",
+            "other-controlled"
+          ]
+        },
+        "packageName": { "type": "string", "minLength": 1 },
+        "sourceFile": { "type": "string", "minLength": 1 },
+        "expected": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tier", "contextuallyReachable", "reasonCode"],
+          "properties": {
+            "tier": { "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "NONE"] },
+            "contextuallyReachable": { "type": "boolean" },
+            "reasonCode": { "type": "string", "minLength": 1 }
+          }
+        },
+        "matching": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["component", "sinkRuleId"],
+          "properties": {
+            "component": { "type": ["string", "null"] },
+            "sinkRuleId": { "type": ["string", "null"] }
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lines", "rationale"],
+          "properties": {
+            "lines": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["start", "end"],
+                "properties": {
+                  "file": {
+                    "description": "Project-relative evidence file; defaults to scenario.sourceFile when omitted.",
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "start": { "type": "integer", "minimum": 1 },
+                  "end": { "type": "integer", "minimum": 1 }
+                }
+              }
+            },
+            "rationale": { "type": "string", "minLength": 1 }
+          }
+        },
+        "npmAuditBaselinePositive": { "const": true },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    }
+  }
+}

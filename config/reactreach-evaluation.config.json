@@ -1,0 +1,10 @@
+{
+  "sinks": null,
+  "excludeSinks": [],
+  "minSinkPriority": 0,
+  "sinkPriorities": {},
+  "sort": "reachability",
+  "maxTaintIterations": 100,
+  "includeDefaultSinks": true,
+  "sinkModules": []
+}

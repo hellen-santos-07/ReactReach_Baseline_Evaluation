@@ -1,0 +1,11 @@
+{
+  "name": "reactreach-rq04-robustness-multipackage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Supplemental multi-package robustness scenarios for ReactReach RQ04",
+  "dependencies": {
+    "dompurify": "2.4.0",
+    "react": "18.2.0",
+    "serialize-javascript": "2.1.1"
+  }
+}

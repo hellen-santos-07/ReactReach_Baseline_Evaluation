@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "coreProject": "corpus/effectiveness-core",
+  "coreSourceRoot": "corpus/effectiveness-core/src",
+  "generatedRoot": "generated-projects",
+  "benignTemplateVersion": "1.0.0",
+  "sourceExtensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx"
+  ],
+  "projects": [
+    {
+      "id": "performance-50",
+      "targetSourceFiles": 50
+    },
+    {
+      "id": "performance-250",
+      "targetSourceFiles": 250
+    },
+    {
+      "id": "performance-500",
+      "targetSourceFiles": 500
+    }
+  ]
+}

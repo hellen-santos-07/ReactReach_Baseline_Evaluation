@@ -1,0 +1,9 @@
+node_modules/
+generated-projects/
+results/raw/*
+results/processed/*
+!results/raw/.gitkeep
+!results/processed/.gitkeep
+*.log
+.DS_Store
+Thumbs.db

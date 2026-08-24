@@ -1,0 +1,46 @@
+{
+  "name": "reactreach-baseline-evaluation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public replication package for the ReactReach v1.0.0 baseline evaluation",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Hellen Santos",
+    "email": "1190007@isep.ipp.pt",
+    "url": "https://github.com/hellen-santos-07"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation.git"
+  },
+  "homepage": "https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation#readme",
+  "bugs": {
+    "url": "https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "ground-truth:validate": "node scripts/validateGroundTruth.js",
+    "ground-truth:hash": "node scripts/hashGroundTruth.js",
+    "evaluation:preflight": "node scripts/preflightEvaluation.js",
+    "evaluation:metadata:refresh": "node scripts/refreshEvaluationMetadata.js",
+    "evaluation:run": "node scripts/runFinalEvaluation.js",
+    "evaluation:verify": "node scripts/verifyEvaluationRun.js",
+    "performance:generate": "node scripts/generatePerformanceProjects.js",
+    "performance:check": "node scripts/generatePerformanceProjects.js --check",
+    "performance:preflight": "node scripts/preflightPerformance.js",
+    "performance:plan": "node scripts/runPerformanceCampaign.js --plan",
+    "performance:run": "node scripts/runPerformanceCampaign.js",
+    "performance:verify": "node scripts/verifyPerformanceRun.js",
+    "performance:repeatability:check": "node scripts/checkPerformanceRepeatability.js",
+    "results:verify": "node scripts/verifyFinalResults.js"
+  },
+  "dependencies": {
+    "reactreach": "file:../ReactReach"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

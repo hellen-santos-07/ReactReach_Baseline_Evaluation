@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "reactReach": {
+    "version": "1.0.0",
+    "tag": "v1.0.0",
+    "commit": "0202e2c451802ea449ca576beeda7695340687d0"
+  },
+  "evaluationCommit": "656d489a1462ac7431386db040acde821a4d1cb1",
+  "effectivenessRun": "20260824T192135965Z-eb90ec9e",
+  "performanceRuns": [
+    "20260824T192146961Z-eeb6de5a",
+    "20260824T192257612Z-07ac2678",
+    "20260824T192407201Z-62469cce"
+  ]
+}

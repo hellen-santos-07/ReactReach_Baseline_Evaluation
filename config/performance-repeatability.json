@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "requiredCampaigns": 3,
+  "selectionPolicy": "report-all-completed-campaigns",
+  "aggregationPolicy": "per-campaign-primary-pooled-descriptive-only",
+  "thresholdPolicy": "every-campaign-must-pass",
+  "campaigns": [
+    {
+      "sequence": 1,
+      "status": "completed",
+      "runId": "20260824T192146961Z-eeb6de5a",
+      "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0"
+    },
+    {
+      "sequence": 2,
+      "status": "completed",
+      "runId": "20260824T192257612Z-07ac2678",
+      "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0"
+    },
+    {
+      "sequence": 3,
+      "status": "completed",
+      "runId": "20260824T192407201Z-62469cce",
+      "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0"
+    }
+  ]
+}

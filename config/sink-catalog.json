@@ -1,0 +1,58 @@
+[
+  {
+    "id": "inner-html",
+    "name": "dangerouslySetInnerHTML",
+    "category": "html-injection",
+    "defaultPriority": 100,
+    "confidence": 100,
+    "nodeType": "JSXAttribute"
+  },
+  {
+    "id": "jsx-url",
+    "name": "Dynamic JSX URL attribute",
+    "category": "url-navigation",
+    "defaultPriority": 70,
+    "confidence": 80,
+    "nodeType": "JSXAttribute"
+  },
+  {
+    "id": "dom-html",
+    "name": "React ref HTML assignment",
+    "category": "html-injection",
+    "defaultPriority": 95,
+    "confidence": 95,
+    "nodeType": "AssignmentExpression"
+  },
+  {
+    "id": "insert-adjacent-html",
+    "name": "React ref insertAdjacentHTML",
+    "category": "html-injection",
+    "defaultPriority": 95,
+    "confidence": 95,
+    "nodeType": "CallExpression"
+  },
+  {
+    "id": "location",
+    "name": "Location assignment",
+    "category": "url-navigation",
+    "defaultPriority": 80,
+    "confidence": 90,
+    "nodeType": "AssignmentExpression"
+  },
+  {
+    "id": "eval",
+    "name": "Global eval",
+    "category": "code-execution",
+    "defaultPriority": 100,
+    "confidence": 100,
+    "nodeType": "CallExpression"
+  },
+  {
+    "id": "new-function",
+    "name": "Function constructor",
+    "category": "code-execution",
+    "defaultPriority": 100,
+    "confidence": 100,
+    "nodeType": "NewExpression"
+  }
+]

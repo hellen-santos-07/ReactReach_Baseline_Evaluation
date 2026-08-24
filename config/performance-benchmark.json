@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "executionModel": "fresh-process-per-sample",
+  "sequential": true,
+  "warmupRuns": 3,
+  "measuredRuns": 30,
+  "rssSampleIntervalMs": 5,
+  "sampleTimeoutMs": 120000,
+  "primaryDuration": "staticAnalysisMs",
+  "auditLatency": "frozen-local-injection-excluded",
+  "p95Method": "nearest-rank",
+  "sampleStandardDeviation": true,
+  "outliers": {
+    "method": "tukey-1.5-iqr",
+    "excludeAutomatically": false
+  },
+  "retainedTimings": [
+    "auditMs",
+    "parseMs",
+    "dependenciesMs",
+    "componentsMs",
+    "sinksMs",
+    "graphMs",
+    "reachabilityMs",
+    "staticAnalysisMs",
+    "reportMs",
+    "totalMs"
+  ],
+  "thresholds": {
+    "projectId": "performance-500",
+    "p95StaticAnalysisMsBelow": 30000,
+    "peakRssBytesBelow": 536870912
+  }
+}

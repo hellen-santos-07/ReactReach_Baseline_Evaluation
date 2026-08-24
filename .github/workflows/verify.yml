@@ -1,0 +1,55 @@
+name: Verify replication package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    name: Node 24.11.1 / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Check out evaluation repository
+        uses: actions/checkout@v4
+        with:
+          path: ReactReach_Baseline_Evaluation
+          fetch-depth: 0
+
+      - name: Check out ReactReach v1.0.0
+        uses: actions/checkout@v4
+        with:
+          repository: hellen-santos-07/ReactReach
+          ref: v1.0.0
+          path: ReactReach
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.11.1
+          cache: npm
+          cache-dependency-path: ReactReach_Baseline_Evaluation/package-lock.json
+
+      - name: Install locked dependencies
+        working-directory: ReactReach_Baseline_Evaluation
+        run: npm ci
+
+      - name: Run harness tests
+        working-directory: ReactReach_Baseline_Evaluation
+        run: npm test
+
+      - name: Generate and verify performance inputs
+        working-directory: ReactReach_Baseline_Evaluation
+        run: npm run performance:generate && npm run performance:check
+
+      - name: Verify frozen inputs
+        working-directory: ReactReach_Baseline_Evaluation
+        run: npm run evaluation:preflight && npm run performance:preflight
+
+      - name: Verify final raw and processed results
+        working-directory: ReactReach_Baseline_Evaluation
+        run: npm run results:verify

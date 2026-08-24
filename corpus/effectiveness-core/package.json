@@ -1,0 +1,10 @@
+{
+  "name": "reactreach-rq04-effectiveness-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Controlled ReactReach effectiveness scenarios for RQ04",
+  "dependencies": {
+    "marked": "0.3.19",
+    "react": "18.2.0"
+  }
+}
