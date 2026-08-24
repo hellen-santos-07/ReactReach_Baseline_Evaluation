@@ -8,7 +8,7 @@
 
 **ReactReach commit:** `0202e2c451802ea449ca576beeda7695340687d0`
 
-**Evaluation commit:** `656d489a1462ac7431386db040acde821a4d1cb1`
+**Evaluation commit:** `976f2b3c3c1c18bc05398a3c310f9a9118e870aa`
 
 ## Frozen identity
 
@@ -23,7 +23,7 @@
 
 ## Effectiveness
 
-Final run: `20260824T192135965Z-eb90ec9e`.
+Final run: `20260824T202157298Z-2aa39a3a`.
 
 The run contains 54 processed scenario records, the raw ReactReach JSON and
 SARIF outputs for all three projects, a per-scenario CSV, derived metrics,
@@ -66,33 +66,33 @@ Each campaign contains 3 projects x 30 measurements = 90 retained samples, in
 addition to three discarded warm-ups per project. All detected Tukey outliers
 remain included.
 
-### Campaign 1 — `20260824T192146961Z-eeb6de5a`
+### Campaign 1 — `20260824T202221487Z-8155975c`
 
 | Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 81.923 | 2.242 | 81.388 | 85.956 | 77.828–86.756 | 101.051 | 0 |
-| 250 | 229.353 | 5.789 | 229.468 | 238.229 | 219.019–239.892 | 111.668 | 0 |
-| 500 | 395.527 | 10.175 | 393.893 | 414.373 | 380.502–425.433 | 137.535 | 4 |
+| 50 | 79.197 | 2.291 | 78.750 | 83.534 | 75.095–84.391 | 100.027 | 0 |
+| 250 | 223.096 | 5.352 | 222.974 | 230.865 | 212.769–236.207 | 111.586 | 0 |
+| 500 | 388.788 | 13.653 | 386.101 | 422.584 | 372.331–435.380 | 137.273 | 3 |
 
-### Campaign 2 — `20260824T192257612Z-07ac2678`
-
-| Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 84.163 | 3.462 | 83.567 | 91.046 | 80.453–97.835 | 91.406 | 2 |
-| 250 | 230.073 | 7.519 | 228.841 | 245.097 | 218.343–252.723 | 111.961 | 3 |
-| 500 | 383.176 | 6.411 | 382.011 | 394.735 | 371.826–396.015 | 137.152 | 0 |
-
-### Campaign 3 — `20260824T192407201Z-62469cce`
+### Campaign 2 — `20260824T202331517Z-26f2fb51`
 
 | Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 80.973 | 2.180 | 80.534 | 84.572 | 77.743–86.187 | 92.246 | 0 |
-| 250 | 222.459 | 5.102 | 220.285 | 233.512 | 216.573–236.500 | 111.465 | 1 |
-| 500 | 382.347 | 7.104 | 380.195 | 397.367 | 372.614–401.348 | 136.297 | 0 |
+| 50 | 84.680 | 8.951 | 82.307 | 111.742 | 77.502–120.446 | 91.684 | 4 |
+| 250 | 227.650 | 9.243 | 225.654 | 247.307 | 217.689–264.159 | 110.816 | 2 |
+| 500 | 385.203 | 6.257 | 384.148 | 396.821 | 376.057–402.926 | 136.641 | 1 |
+
+### Campaign 3 — `20260824T202442081Z-13c94484`
+
+| Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 50 | 81.101 | 1.668 | 81.203 | 83.595 | 78.183–85.669 | 91.703 | 0 |
+| 250 | 225.665 | 7.933 | 224.177 | 232.900 | 217.439–263.508 | 111.906 | 1 |
+| 500 | 384.439 | 6.186 | 384.908 | 393.665 | 374.622–400.498 | 136.113 | 0 |
 
 All campaigns pass the 500-file thresholds of p95 below 30,000 ms and peak RSS
-below 512 MiB. The largest observed 500-file p95 is 414.373 ms, and the largest
-observed peak RSS is 137.535 MiB.
+below 512 MiB. The largest observed 500-file p95 is 422.584 ms, and the largest
+observed peak RSS is 137.273 MiB.
 
 ## Interpretation
 

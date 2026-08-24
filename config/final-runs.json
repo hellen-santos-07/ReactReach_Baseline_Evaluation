@@ -5,11 +5,11 @@
     "tag": "v1.0.0",
     "commit": "0202e2c451802ea449ca576beeda7695340687d0"
   },
-  "evaluationCommit": "656d489a1462ac7431386db040acde821a4d1cb1",
-  "effectivenessRun": "20260824T192135965Z-eb90ec9e",
+  "evaluationCommit": "976f2b3c3c1c18bc05398a3c310f9a9118e870aa",
+  "effectivenessRun": "20260824T202157298Z-2aa39a3a",
   "performanceRuns": [
-    "20260824T192146961Z-eeb6de5a",
-    "20260824T192257612Z-07ac2678",
-    "20260824T192407201Z-62469cce"
+    "20260824T202221487Z-8155975c",
+    "20260824T202331517Z-26f2fb51",
+    "20260824T202442081Z-13c94484"
   ]
 }

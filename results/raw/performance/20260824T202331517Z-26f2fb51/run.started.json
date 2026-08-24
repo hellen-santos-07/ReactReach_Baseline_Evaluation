@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260824T202331517Z-26f2fb51",
+  "status": "running",
+  "startedAt": "2026-08-24T20:23:31.517Z",
+  "protocol": "RQ04-performance",
+  "benchmarkConfig": {
+    "schemaVersion": "1.0.0",
+    "executionModel": "fresh-process-per-sample",
+    "sequential": true,
+    "warmupRuns": 3,
+    "measuredRuns": 30,
+    "rssSampleIntervalMs": 5,
+    "sampleTimeoutMs": 120000,
+    "primaryDuration": "staticAnalysisMs",
+    "auditLatency": "frozen-local-injection-excluded",
+    "p95Method": "nearest-rank",
+    "sampleStandardDeviation": true,
+    "outliers": {
+      "method": "tukey-1.5-iqr",
+      "excludeAutomatically": false
+    },
+    "retainedTimings": [
+      "auditMs",
+      "parseMs",
+      "dependenciesMs",
+      "componentsMs",
+      "sinksMs",
+      "graphMs",
+      "reachabilityMs",
+      "staticAnalysisMs",
+      "reportMs",
+      "totalMs"
+    ],
+    "thresholds": {
+      "projectId": "performance-500",
+      "p95StaticAnalysisMsBelow": 30000,
+      "peakRssBytesBelow": 536870912
+    }
+  },
+  "frozenInputs": {
+    "projects": [
+      {
+        "projectId": "performance-50",
+        "sourceFileCount": 50,
+        "coreSourceFiles": 33,
+        "benignSourceFiles": 17,
+        "sourceTreeSha256": "dbdbc1867a69a61dfd1b7bc9af7b06b60914cb17b0eec6ec15974d4eb3c0e539"
+      },
+      {
+        "projectId": "performance-250",
+        "sourceFileCount": 250,
+        "coreSourceFiles": 33,
+        "benignSourceFiles": 217,
+        "sourceTreeSha256": "9d11381021594d23c7d5f44a1849ede15f3a02aac7d7f5973b99b9a4245647fe"
+      },
+      {
+        "projectId": "performance-500",
+        "sourceFileCount": 500,
+        "coreSourceFiles": 33,
+        "benignSourceFiles": 467,
+        "sourceTreeSha256": "41214a29c8b0573eae898ebe96074ddaae61843d349658d526bacec8b0c50612"
+      }
+    ],
+    "coreSourceTreeSha256": "2f30db6dc1a9c564396d6f82d40abc2f821c3135fd587b2dc4dd27ff986852ae",
+    "dependencySetSha256": "733020bbeaa7bc7f8c527a3d50164c378763edb7a16f880eff3786facef5360f",
+    "auditDataSha256": "44252063881e2fe2e9225716ebc881bed0e8961b6b7ac3791605504acba41a4c",
+    "performanceConfigSha256": "9e53a344278c0d49ffd71d9cea91ad4c0885219c5083a5ac00c4e22b340210ea",
+    "performanceBenchmarkConfigSha256": "fdb6a6b343c4ab6ad7a4e85c8ea17c3e8342f9b52ace05f30464128f0348f8cb",
+    "generatorScriptSha256": "93abb0ccad679b545d42656af7c2bd4b854df9d2a0ee6984ad382f660b1fe816",
+    "evaluationConfigSha256": "1eee302e373fb3ffc9d112cc45a5705c3793232e3a161ca6ba335a4582a2f9e4",
+    "sinkCatalogSha256": "5330d6c10a2e320723e24cad6e4b780be7e4abeb31546bbdd3442d4b5262390a",
+    "groundTruthDatasetSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
+    "evaluationCommit": "976f2b3c3c1c18bc05398a3c310f9a9118e870aa",
+    "nodeVersion": "v24.11.1",
+    "npmVersion": "11.6.2",
+    "environment": {
+      "platform": "win32",
+      "release": "10.0.22631",
+      "architecture": "x64",
+      "cpuModel": "AMD Ryzen 5 5600X 6-Core Processor",
+      "logicalCpuCount": 12,
+      "totalMemoryBytes": 34282192896
+    },
+    "reactReachVersion": "1.0.0",
+    "reactReachTag": "v1.0.0",
+    "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0"
+  },
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "win32",
+    "release": "10.0.22631",
+    "architecture": "x64",
+    "cpuModel": "AMD Ryzen 5 5600X 6-Core Processor",
+    "logicalCpuCount": 12,
+    "totalMemoryBytes": 34282192896
+  }
+}

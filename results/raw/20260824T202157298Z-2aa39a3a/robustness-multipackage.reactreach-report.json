@@ -1,0 +1,652 @@
+{
+  "projectPath": "C:\\Users\\Hellen\\Documents\\MEI\\Thesis_Project\\ReactReach_Baseline_Evaluation\\corpus\\robustness-multipackage",
+  "scannedAt": "2026-08-24T20:21:57.450Z",
+  "configuration": {
+    "sinks": null,
+    "excludeSinks": [],
+    "minSinkPriority": 0,
+    "sinkPriorities": {},
+    "sort": "reachability",
+    "maxTaintIterations": 100,
+    "includeDefaultSinks": true,
+    "sinkModules": []
+  },
+  "diagnostics": [],
+  "timings": {
+    "auditMs": 0.005,
+    "parseMs": 8.343,
+    "dependenciesMs": 2.253,
+    "componentsMs": 1.135,
+    "sinksMs": 1.011,
+    "graphMs": 0.128,
+    "reachabilityMs": 0.483,
+    "staticAnalysisMs": 13.353,
+    "reportMs": 0.011,
+    "totalMs": 13.435
+  },
+  "summary": {
+    "vulnerablePackages": 2,
+    "sourceFiles": 29,
+    "components": 16,
+    "cogNodes": 16,
+    "cogEdges": 4,
+    "sinks": 9,
+    "findings": 12
+  },
+  "packages": [
+    {
+      "name": "dompurify",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1099597,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify allows tampering by prototype pollution",
+          "url": "https://github.com/advisories/GHSA-mmhx-hmjr-r674",
+          "severity": "high",
+          "cwe": [
+            "CWE-1321",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:L"
+          },
+          "range": "<2.5.4"
+        },
+        {
+          "source": 1105772,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify allows Cross-site Scripting (XSS)",
+          "url": "https://github.com/advisories/GHSA-vhxf-7vqr-mrjg",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 4.5,
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N"
+          },
+          "range": "<3.2.4"
+        },
+        {
+          "source": 1109546,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify vulnerable to tampering by prototype polution",
+          "url": "https://github.com/advisories/GHSA-p3vf-v8qc-cwcr",
+          "severity": "critical",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 9.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+          },
+          "range": "<2.4.2"
+        },
+        {
+          "source": 1109555,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMpurify has a nesting-based mXSS",
+          "url": "https://github.com/advisories/GHSA-gx9m-whjm-85jf",
+          "severity": "high",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 10,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:H"
+          },
+          "range": "<2.5.0"
+        },
+        {
+          "source": 1117138,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: FORBID_TAGS bypassed by function-based ADD_TAGS predicate (asymmetry with FORBID_ATTR fix)",
+          "url": "https://github.com/advisories/GHSA-h7mw-gpvr-xq4m",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79",
+            "CWE-183"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<3.4.0"
+        },
+        {
+          "source": 1117139,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify has a SAFE_FOR_TEMPLATES bypass in RETURN_DOM mode",
+          "url": "https://github.com/advisories/GHSA-crv5-9vww-q3g8",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79",
+            "CWE-1289"
+          ],
+          "cvss": {
+            "score": 6.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
+          },
+          "range": ">=1.0.10 <3.4.0"
+        },
+        {
+          "source": 1120802,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: Cross-realm IN_PLACE sanitization leaves executable markup intact via realm-bound `instanceof` checks",
+          "url": "https://github.com/advisories/GHSA-hpcv-96wg-7vj8",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79",
+            "CWE-501",
+            "CWE-693"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "<=3.4.5"
+        },
+        {
+          "source": 1120803,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: IN_PLACE mode preserves attributes of a clobbered root element, allowing XSS via attacker-controlled root DOM",
+          "url": "https://github.com/advisories/GHSA-r47g-fvhr-h676",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79",
+            "CWE-693",
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "<=3.4.5"
+        },
+        {
+          "source": 1120813,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify IN_PLACE Sanitization Bypass via Attached Shadow Root Inside <template>.content",
+          "url": "https://github.com/advisories/GHSA-rp9w-3fw7-7cwq",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.4.6"
+        },
+        {
+          "source": 1124022,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: `CUSTOM_ELEMENT_HANDLING` bypasses `afterSanitizeElements` for allowed custom elements.",
+          "url": "https://github.com/advisories/GHSA-c2j3-45gr-mqc4",
+          "severity": "low",
+          "cwe": [
+            "CWE-79",
+            "CWE-184",
+            "CWE-693"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.4.11"
+        },
+        {
+          "source": 1124233,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: Permanent `ALLOWED_ATTR` pollution via `setConfig()` bypassing the hook clone-guard (incomplete fix of the 3.4.7 hook-pollution patch)",
+          "url": "https://github.com/advisories/GHSA-cmwh-pvxp-8882",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79",
+            "CWE-471",
+            "CWE-665"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.4.10"
+        },
+        {
+          "source": 1124234,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: Trusted Types policy survives `clearConfig()` and can poison later `RETURN_TRUSTED_TYPE` output",
+          "url": "https://github.com/advisories/GHSA-vxr8-fq34-vvx9",
+          "severity": "low",
+          "cwe": [
+            "CWE-693"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<3.4.9"
+        },
+        {
+          "source": 1124236,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: `IN_PLACE` mode trusts attacker-controlled `nodeName` on live non-form nodes, allowing script retention and XSS via attacker-supplied DOM objects",
+          "url": "https://github.com/advisories/GHSA-x4vx-rjvf-j5p4",
+          "severity": "low",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.4.6"
+        },
+        {
+          "source": 1124237,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: Hook mutation of `data.allowedTags` / `data.allowedAttributes` permanently pollutes `DEFAULT_ALLOWED_TAGS` / `DEFAULT_ALLOWED_ATTR`",
+          "url": "https://github.com/advisories/GHSA-76mc-f452-cxcm",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-501",
+            "CWE-693"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "<3.4.7"
+        },
+        {
+          "source": 1124238,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify's ADD_TAGS function form bypasses FORBID_TAGS due to short-circuit evaluation",
+          "url": "https://github.com/advisories/GHSA-39q2-94rc-95cp",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-783"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.3.3"
+        },
+        {
+          "source": 1124239,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify ADD_ATTR predicate skips URI validation",
+          "url": "https://github.com/advisories/GHSA-cjmm-f4jc-qw8r",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-183"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.3.1"
+        },
+        {
+          "source": 1124240,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify USE_PROFILES prototype pollution allows event handlers",
+          "url": "https://github.com/advisories/GHSA-cj63-jhhr-wcxv",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.3.1"
+        },
+        {
+          "source": 1124241,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify is vulnerable to mutation-XSS via Re-Contextualization ",
+          "url": "https://github.com/advisories/GHSA-h8r8-wccr-v5f2",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<3.3.2"
+        },
+        {
+          "source": 1138538,
+          "name": "dompurify",
+          "dependency": "dompurify",
+          "title": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
+          "url": "https://github.com/advisories/GHSA-55q2-fjhq-7xh7",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.4.12"
+        }
+      ],
+      "effects": [],
+      "range": "<=3.4.12",
+      "nodes": [
+        "node_modules/dompurify"
+      ],
+      "fixAvailable": {
+        "name": "dompurify",
+        "version": "2.5.9",
+        "isSemVerMajor": false
+      }
+    },
+    {
+      "name": "serialize-javascript",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1095131,
+          "name": "serialize-javascript",
+          "dependency": "serialize-javascript",
+          "title": "Insecure serialization leading to RCE in serialize-javascript",
+          "url": "https://github.com/advisories/GHSA-hxcc-f52p-wc94",
+          "severity": "high",
+          "cwe": [
+            "CWE-502"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": "<3.1.0"
+        },
+        {
+          "source": 1113686,
+          "name": "serialize-javascript",
+          "dependency": "serialize-javascript",
+          "title": "Serialize JavaScript is Vulnerable to RCE via RegExp.flags and Date.prototype.toISOString()",
+          "url": "https://github.com/advisories/GHSA-5c6j-r48x-rmvq",
+          "severity": "high",
+          "cwe": [
+            "CWE-96"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": "<=7.0.2"
+        }
+      ],
+      "effects": [],
+      "range": "<=7.0.2",
+      "nodes": [
+        "node_modules/serialize-javascript"
+      ],
+      "fixAvailable": {
+        "name": "serialize-javascript",
+        "version": "7.1.0",
+        "isSemVerMajor": true
+      }
+    }
+  ],
+  "analyzedFiles": [
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-article-flow/ArticlePage.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-article-flow/components/ArticleContent.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-article-flow/hooks/useSanitizedArticle.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-article-flow/services/sanitizer.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-local-dom-html/DompurifyLocalDomHtml.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-local-dom-html/sanitizer.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-overwritten-binding/contentPolicy.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-property-separation/DompurifyPropertySeparation.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-property-separation/components/ArticleContent.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-property-separation/policies/contentPolicy.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-property-separation/services/sanitizer.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-app-shell/SerializeHelperFunctionFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-app-shell/bootstrap/buildBootstrapScript.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-app-shell/serialization/serializeState.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-app-shell/state/normalizeState.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-bootstrap-hook/SerializeLocalInsertAdjacent.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-bootstrap-hook/hooks/useBootstrapScript.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-bootstrap-hook/state/loadInitialState.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-component-without-sink/StatePreview.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-unrelated-sink/StatePreview.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-unrelated-sink/reviewedBootstrap.js"
+  ],
+  "findings": [
+    {
+      "packageName": "dompurify",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-article-flow/services/sanitizer.js",
+      "auditSeverity": "critical",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "dompurify",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+      "auditSeverity": "critical",
+      "reasonCode": "DIRECT_SINK_FLOW",
+      "reason": "Vulnerable dependency identifier flows directly into a security sink",
+      "reachability": "CRITICAL",
+      "component": "DompurifyDirectInnerHtml",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 4,
+          "column": 14,
+          "index": 106
+        },
+        "end": {
+          "line": 4,
+          "column": 79,
+          "index": 171
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "DOMPurify"
+      ]
+    },
+    {
+      "packageName": "dompurify",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-local-dom-html/sanitizer.js",
+      "auditSeverity": "critical",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "dompurify",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+      "auditSeverity": "critical",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "DompurifyOverwrittenBinding",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 7,
+          "column": 14,
+          "index": 238
+        },
+        "end": {
+          "line": 7,
+          "column": 56,
+          "index": 280
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "html"
+      ]
+    },
+    {
+      "packageName": "dompurify",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-property-separation/services/sanitizer.js",
+      "auditSeverity": "critical",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "dompurify",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+      "auditSeverity": "critical",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "serialize-javascript",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-app-shell/serialization/serializeState.js",
+      "auditSeverity": "high",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "serialize-javascript",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+      "auditSeverity": "high",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "serialize-javascript",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "SerializeComponentWithoutSink",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "serialize"
+      ]
+    },
+    {
+      "packageName": "serialize-javascript",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "DIRECT_SINK_FLOW",
+      "reason": "Vulnerable dependency identifier flows directly into a security sink",
+      "reachability": "CRITICAL",
+      "component": "SerializeDirectScriptHtml",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 4,
+          "column": 17,
+          "index": 131
+        },
+        "end": {
+          "line": 4,
+          "column": 100,
+          "index": 214
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "serialize"
+      ]
+    },
+    {
+      "packageName": "serialize-javascript",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "NO_BINDING",
+      "reason": "Vulnerable dependency imported but no binding name captured (dynamic import or bare require)",
+      "reachability": "LOW",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "serialize-javascript",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "NO_PROVEN_SINK_PATH",
+      "reason": "Vulnerable dependency used in a component with sinks, but no structural data path found",
+      "reachability": "MEDIUM",
+      "component": "SerializeUnrelatedSink",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "serialize"
+      ]
+    }
+  ]
+}

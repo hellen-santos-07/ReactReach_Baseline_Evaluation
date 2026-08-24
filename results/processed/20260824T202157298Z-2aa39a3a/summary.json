@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260824T202157298Z-2aa39a3a",
+  "status": "completed",
+  "semantics": {
+    "target": "contextual-reachability",
+    "negativeMeaning": "no-demonstrated-path",
+    "runtimeExploitationMeasured": false
+  },
+  "classificationPolicy": {
+    "target": "contextual-reachability",
+    "positiveTiers": [
+      "CRITICAL",
+      "HIGH"
+    ],
+    "negativeTiers": [
+      "MEDIUM",
+      "LOW",
+      "NONE"
+    ],
+    "negativeMeaning": "no-demonstrated-path",
+    "baseline": "npm-audit-presence",
+    "binaryIdentityFields": [
+      "projectId",
+      "packageName",
+      "sourceFile",
+      "component"
+    ],
+    "secondaryFields": [
+      "tier",
+      "sinkRuleId",
+      "reasonCode"
+    ],
+    "unexpectedPositiveFindings": "manual-review-required"
+  },
+  "frozenInputs": {
+    "projects": 3,
+    "scenarios": 54,
+    "groundTruthDatasetSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
+    "groundTruthFileSha256": "fa04fd3c2c2c9e4299f2cc229629bdc6dd001fdff41792386fc0836732031066",
+    "evaluationConfigSha256": "1eee302e373fb3ffc9d112cc45a5705c3793232e3a161ca6ba335a4582a2f9e4",
+    "sinkCatalogSha256": "5330d6c10a2e320723e24cad6e4b780be7e4abeb31546bbdd3442d4b5262390a",
+    "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0",
+    "reactReachVersion": "1.0.0",
+    "reactReachTag": "v1.0.0",
+    "evaluationCommit": "976f2b3c3c1c18bc05398a3c310f9a9118e870aa",
+    "nodeVersion": "v24.11.1",
+    "npmVersion": "11.6.2"
+  },
+  "groups": {
+    "characterization": {
+      "scenarioCount": 30,
+      "positiveCount": 15,
+      "negativeCount": 15,
+      "reactReach": {
+        "confusion": {
+          "TP": 15,
+          "FP": 0,
+          "TN": 15,
+          "FN": 0
+        },
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "accuracy": 1,
+        "specificity": 1,
+        "secondary": {
+          "tier": {
+            "matches": 30,
+            "total": 30,
+            "accuracy": 1
+          },
+          "sinkRule": {
+            "matches": 15,
+            "total": 15,
+            "accuracy": 1
+          },
+          "reasonCode": {
+            "matches": 30,
+            "total": 30,
+            "accuracy": 1
+          },
+          "exact": {
+            "matches": 30,
+            "total": 30,
+            "accuracy": 1
+          }
+        }
+      },
+      "baseline": {
+        "confusion": {
+          "TP": 15,
+          "FP": 15,
+          "TN": 0,
+          "FN": 0
+        },
+        "precision": 0.5,
+        "recall": 1,
+        "f1": 0.6666666666666666,
+        "accuracy": 0.5,
+        "specificity": 0
+      }
+    },
+    "holdout": {
+      "scenarioCount": 12,
+      "positiveCount": 6,
+      "negativeCount": 6,
+      "reactReach": {
+        "confusion": {
+          "TP": 1,
+          "FP": 6,
+          "TN": 0,
+          "FN": 5
+        },
+        "precision": 0.14285714285714285,
+        "recall": 0.16666666666666666,
+        "f1": 0.15384615384615383,
+        "accuracy": 0.08333333333333333,
+        "specificity": 0,
+        "secondary": {
+          "tier": {
+            "matches": 1,
+            "total": 12,
+            "accuracy": 0.08333333333333333
+          },
+          "sinkRule": {
+            "matches": 1,
+            "total": 6,
+            "accuracy": 0.16666666666666666
+          },
+          "reasonCode": {
+            "matches": 1,
+            "total": 12,
+            "accuracy": 0.08333333333333333
+          },
+          "exact": {
+            "matches": 1,
+            "total": 12,
+            "accuracy": 0.08333333333333333
+          }
+        }
+      },
+      "baseline": {
+        "confusion": {
+          "TP": 6,
+          "FP": 6,
+          "TN": 0,
+          "FN": 0
+        },
+        "precision": 0.5,
+        "recall": 1,
+        "f1": 0.6666666666666666,
+        "accuracy": 0.5,
+        "specificity": 0
+      }
+    },
+    "robustness": {
+      "scenarioCount": 12,
+      "positiveCount": 6,
+      "negativeCount": 6,
+      "reactReach": {
+        "confusion": {
+          "TP": 2,
+          "FP": 1,
+          "TN": 5,
+          "FN": 4
+        },
+        "precision": 0.6666666666666666,
+        "recall": 0.3333333333333333,
+        "f1": 0.4444444444444444,
+        "accuracy": 0.5833333333333334,
+        "specificity": 0.8333333333333334,
+        "secondary": {
+          "tier": {
+            "matches": 6,
+            "total": 12,
+            "accuracy": 0.5
+          },
+          "sinkRule": {
+            "matches": 2,
+            "total": 6,
+            "accuracy": 0.3333333333333333
+          },
+          "reasonCode": {
+            "matches": 6,
+            "total": 12,
+            "accuracy": 0.5
+          },
+          "exact": {
+            "matches": 6,
+            "total": 12,
+            "accuracy": 0.5
+          }
+        }
+      },
+      "baseline": {
+        "confusion": {
+          "TP": 6,
+          "FP": 6,
+          "TN": 0,
+          "FN": 0
+        },
+        "precision": 0.5,
+        "recall": 1,
+        "f1": 0.6666666666666666,
+        "accuracy": 0.5,
+        "specificity": 0
+      }
+    },
+    "primary": {
+      "scenarioCount": 42,
+      "positiveCount": 21,
+      "negativeCount": 21,
+      "reactReach": {
+        "confusion": {
+          "TP": 16,
+          "FP": 6,
+          "TN": 15,
+          "FN": 5
+        },
+        "precision": 0.7272727272727273,
+        "recall": 0.7619047619047619,
+        "f1": 0.7441860465116279,
+        "accuracy": 0.7380952380952381,
+        "specificity": 0.7142857142857143,
+        "secondary": {
+          "tier": {
+            "matches": 31,
+            "total": 42,
+            "accuracy": 0.7380952380952381
+          },
+          "sinkRule": {
+            "matches": 16,
+            "total": 21,
+            "accuracy": 0.7619047619047619
+          },
+          "reasonCode": {
+            "matches": 31,
+            "total": 42,
+            "accuracy": 0.7380952380952381
+          },
+          "exact": {
+            "matches": 31,
+            "total": 42,
+            "accuracy": 0.7380952380952381
+          }
+        }
+      },
+      "baseline": {
+        "confusion": {
+          "TP": 21,
+          "FP": 21,
+          "TN": 0,
+          "FN": 0
+        },
+        "precision": 0.5,
+        "recall": 1,
+        "f1": 0.6666666666666666,
+        "accuracy": 0.5,
+        "specificity": 0
+      }
+    },
+    "extended": {
+      "scenarioCount": 54,
+      "positiveCount": 27,
+      "negativeCount": 27,
+      "reactReach": {
+        "confusion": {
+          "TP": 18,
+          "FP": 7,
+          "TN": 20,
+          "FN": 9
+        },
+        "precision": 0.72,
+        "recall": 0.6666666666666666,
+        "f1": 0.6923076923076923,
+        "accuracy": 0.7037037037037037,
+        "specificity": 0.7407407407407407,
+        "secondary": {
+          "tier": {
+            "matches": 37,
+            "total": 54,
+            "accuracy": 0.6851851851851852
+          },
+          "sinkRule": {
+            "matches": 18,
+            "total": 27,
+            "accuracy": 0.6666666666666666
+          },
+          "reasonCode": {
+            "matches": 37,
+            "total": 54,
+            "accuracy": 0.6851851851851852
+          },
+          "exact": {
+            "matches": 37,
+            "total": 54,
+            "accuracy": 0.6851851851851852
+          }
+        }
+      },
+      "baseline": {
+        "confusion": {
+          "TP": 27,
+          "FP": 27,
+          "TN": 0,
+          "FN": 0
+        },
+        "precision": 0.5,
+        "recall": 1,
+        "f1": 0.6666666666666666,
+        "accuracy": 0.5,
+        "specificity": 0
+      }
+    }
+  },
+  "projects": [
+    {
+      "projectId": "effectiveness-core",
+      "cohort": "characterization",
+      "scenarioCount": 30,
+      "findingCount": 33,
+      "timings": {
+        "auditMs": 0.03,
+        "parseMs": 39.968,
+        "dependenciesMs": 9.829,
+        "componentsMs": 4.449,
+        "sinksMs": 5.154,
+        "graphMs": 0.807,
+        "reachabilityMs": 5.273,
+        "staticAnalysisMs": 65.48,
+        "reportMs": 0.094,
+        "totalMs": 65.867
+      },
+      "diagnostics": [],
+      "reviewRequired": false,
+      "unexpectedPositiveFindingCount": 0
+    },
+    {
+      "projectId": "adversarial-holdout",
+      "cohort": "holdout",
+      "scenarioCount": 12,
+      "findingCount": 14,
+      "timings": {
+        "auditMs": 0.004,
+        "parseMs": 4.564,
+        "dependenciesMs": 1.613,
+        "componentsMs": 1.016,
+        "sinksMs": 0.779,
+        "graphMs": 0.141,
+        "reachabilityMs": 0.95,
+        "staticAnalysisMs": 9.063,
+        "reportMs": 0.01,
+        "totalMs": 9.167
+      },
+      "diagnostics": [],
+      "reviewRequired": false,
+      "unexpectedPositiveFindingCount": 0
+    },
+    {
+      "projectId": "robustness-multipackage",
+      "cohort": "robustness",
+      "scenarioCount": 12,
+      "findingCount": 12,
+      "timings": {
+        "auditMs": 0.005,
+        "parseMs": 8.343,
+        "dependenciesMs": 2.253,
+        "componentsMs": 1.135,
+        "sinksMs": 1.011,
+        "graphMs": 0.128,
+        "reachabilityMs": 0.483,
+        "staticAnalysisMs": 13.353,
+        "reportMs": 0.011,
+        "totalMs": 13.435
+      },
+      "diagnostics": [],
+      "reviewRequired": false,
+      "unexpectedPositiveFindingCount": 0
+    }
+  ],
+  "reviewRequired": false,
+  "unexpectedPositiveFindings": []
+}

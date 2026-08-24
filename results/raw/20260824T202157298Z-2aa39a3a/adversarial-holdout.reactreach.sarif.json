@@ -1,0 +1,986 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ReactReach",
+          "version": "1.0.0",
+          "informationUri": "https://github.com/hellen-santos-07/ReactReach",
+          "rules": [
+            {
+              "id": "RR-CRITICAL",
+              "name": "CriticalDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency identifier flows directly into a security sink"
+              },
+              "fullDescription": {
+                "text": "A vulnerable third-party dependency's imported identifier is passed without transformation directly to a security-sensitive sink (e.g. dangerouslySetInnerHTML, eval). This represents the highest likelihood of exploitability within the component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTRA",
+              "name": "HighDependencyReachabilityIntraComponent",
+              "shortDescription": {
+                "text": "Variable derived from vulnerable dependency reaches a security sink via intra-component propagation"
+              },
+              "fullDescription": {
+                "text": "Output from a vulnerable dependency is stored in a local variable or React state (via useState, useMemo, useCallback, or useReducer) and then flows into a security-sensitive sink within the same component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTER",
+              "name": "HighDependencyReachabilityInterComponent",
+              "shortDescription": {
+                "text": "Tainted data from vulnerable dependency flows through a props boundary into a child component security sink"
+              },
+              "fullDescription": {
+                "text": "A parent component passes tainted output from a vulnerable dependency as a prop to a child component, where that prop reaches a security-sensitive sink. The vulnerability crosses at least one component boundary."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Sanitise tainted data before passing it as props, or restructure the component hierarchy to avoid the data flow reaching the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability",
+                  "inter-component"
+                ]
+              }
+            },
+            {
+              "id": "RR-MEDIUM",
+              "name": "MediumDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency used in a component but no structural data path to a security sink was found"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is actively used inside a React component, but the analysis could not establish a structural data-flow path from its output to a security sink. Manual review is advised."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "Review how the dependency output is used. If it influences rendering or DOM interaction, consider patching or sanitising it."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-LOW",
+              "name": "LowDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but no binding name could be captured"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported but the analysis could not capture a binding name (e.g. dynamic import, bare side-effect import). The vulnerability may still be triggered at runtime."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "help": {
+                "text": "Review the import pattern and determine whether the vulnerable code path can be triggered."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            },
+            {
+              "id": "RR-NONE",
+              "name": "DeadDependencyImport",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but its identifier is never referenced in any component"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported at the module level but its bound identifier is never referenced inside any React component body. The vulnerability is structurally unreachable under the current analysis model."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Remove the unused import. If the import is intentional (side-effect), evaluate whether the side effect can trigger the vulnerability."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "%SRCROOT%": {
+          "uri": "file:///C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/ArrayIndexSeparation.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/ArrayMutationFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/AsyncSetterFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/ContextFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/CustomHookFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/DestructuredPropertySeparation.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/GenericPropsUnrelated.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/HelperFunctionFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/MemberMutationFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/ObjectPropertySeparation.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/OverwrittenBinding.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/RestPropsUnrelated.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/helper/renderMarkdown.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: values."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ArrayIndexSeparation.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ArrayIndexSeparation",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "ArrayIndexSeparation",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "values"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'marked' (audit severity: high): Vulnerable dependency used in a component with sinks, but no structural data path found. Taint path: marked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ArrayMutationFlow.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ArrayMutationFlow",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "component": "ArrayMutationFlow",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "marked"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: html."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/AsyncSetterFlow.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "AsyncSetterFlow",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "AsyncSetterFlow",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "html"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'marked' (audit severity: high): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: marked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ContextFlow.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ContextProvider",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ContextProvider",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "marked"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'marked' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/CustomHookFlow.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: safe."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/DestructuredPropertySeparation.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "DestructuredPropertySeparation",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "DestructuredPropertySeparation",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "safe"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'marked' (audit severity: high): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: marked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/GenericPropsUnrelated.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GenericPropsParent",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "GenericPropsParent",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "marked"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTER",
+          "rule": {
+            "id": "RR-HIGH-INTER",
+            "index": 2
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Tainted data from vulnerable dependency flows through component props boundary into a security sink in a child component. Sink: dangerouslySetInnerHTML. Taint path: unsafe -> props."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/GenericPropsUnrelated.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GenericPropsParent -> GenericPropsChild",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "component": "GenericPropsParent",
+            "childComponent": "GenericPropsChild",
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "unsafe",
+              "props"
+            ],
+            "propagationType": "inter-component",
+            "componentPath": [
+              "GenericPropsParent",
+              "GenericPropsChild"
+            ],
+            "propagationPath": [
+              {
+                "from": "GenericPropsParent",
+                "to": "GenericPropsChild",
+                "props": [
+                  "unsafe"
+                ],
+                "resolution": "same-file"
+              }
+            ],
+            "componentResolutionConfidence": 100
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'marked' (audit severity: high): Vulnerable dependency used in a component with sinks, but no structural data path found. Taint path: marked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/MemberMutationFlow.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "MemberMutationFlow",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "component": "MemberMutationFlow",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "marked"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: payload."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ObjectPropertySeparation.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ObjectPropertySeparation",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "ObjectPropertySeparation",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "payload"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: html."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/OverwrittenBinding.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "OverwrittenBinding",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "OverwrittenBinding",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "html"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'marked' (audit severity: high): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: marked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/RestPropsUnrelated.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "RestPropsParent",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "RestPropsParent",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "marked"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTER",
+          "rule": {
+            "id": "RR-HIGH-INTER",
+            "index": 2
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'marked' (audit severity: high): Tainted data from vulnerable dependency flows through component props boundary into a security sink in a child component. Sink: dangerouslySetInnerHTML. Taint path: unsafe -> rest."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/RestPropsUnrelated.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "RestPropsParent -> RestPropsChild",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "HIGH",
+            "auditSeverity": "high",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "component": "RestPropsParent",
+            "childComponent": "RestPropsChild",
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "unsafe",
+              "rest"
+            ],
+            "propagationType": "inter-component",
+            "componentPath": [
+              "RestPropsParent",
+              "RestPropsChild"
+            ],
+            "propagationPath": [
+              {
+                "from": "RestPropsParent",
+                "to": "RestPropsChild",
+                "props": [
+                  "unsafe"
+                ],
+                "resolution": "same-file"
+              }
+            ],
+            "componentResolutionConfidence": 100
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'marked' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/helper/renderMarkdown.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "marked",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        }
+      ],
+      "properties": {
+        "scannedAt": "2026-08-24T20:21:57.434Z",
+        "summary": {
+          "vulnerablePackages": 1,
+          "sourceFiles": 13,
+          "components": 15,
+          "cogNodes": 15,
+          "cogEdges": 3,
+          "sinks": 12,
+          "findings": 14
+        },
+        "diagnostics": [],
+        "timings": {
+          "auditMs": 0.004,
+          "parseMs": 4.564,
+          "dependenciesMs": 1.613,
+          "componentsMs": 1.016,
+          "sinksMs": 0.779,
+          "graphMs": 0.141,
+          "reachabilityMs": 0.95,
+          "staticAnalysisMs": 9.063,
+          "reportMs": 0.01,
+          "totalMs": 9.167
+        },
+        "vulnerablePackages": [
+          {
+            "name": "marked",
+            "severity": "high",
+            "isDirect": true,
+            "range": null,
+            "fixAvailable": false
+          }
+        ]
+      }
+    }
+  ]
+}

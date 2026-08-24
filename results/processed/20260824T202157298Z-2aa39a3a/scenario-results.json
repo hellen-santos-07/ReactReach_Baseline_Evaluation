@@ -1,0 +1,2670 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260824T202157298Z-2aa39a3a",
+  "groundTruthDatasetSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
+  "scenarios": [
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-inner-html",
+      "packageName": "marked",
+      "sourceFile": "src/DirectInnerHtml.jsx",
+      "component": "DirectInnerHtml",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/DirectInnerHtml.jsx",
+            "component": "DirectInnerHtml",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "direct-inner-html",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/DirectInnerHtml.jsx",
+        "component": "DirectInnerHtml",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "local-variable-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/LocalPropagation.jsx",
+      "component": "LocalPropagation",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/LocalPropagation.jsx",
+            "component": "LocalPropagation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "local-variable-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/LocalPropagation.jsx",
+        "component": "LocalPropagation",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/InterComponentPropagation.jsx",
+      "component": "InterComponentPropagation",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 2,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/InterComponentPropagation.jsx",
+            "component": "InterComponentPropagation",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          },
+          {
+            "packageName": "marked",
+            "sourceFile": "src/InterComponentPropagation.jsx",
+            "component": "InterComponentPropagation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "inter-component-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/InterComponentPropagation.jsx",
+        "component": "InterComponentPropagation",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "require-direct-eval",
+      "packageName": "marked",
+      "sourceFile": "src/RequireDirectEval.jsx",
+      "component": "RequireDirectEval",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "eval",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/RequireDirectEval.jsx",
+            "component": "RequireDirectEval",
+            "sinkRuleId": "eval",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "require-direct-eval",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/RequireDirectEval.jsx",
+        "component": "RequireDirectEval",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unused-static-import",
+      "packageName": "marked",
+      "sourceFile": "src/UnusedImport.jsx",
+      "component": null,
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "NONE",
+        "sinkRuleId": null,
+        "reasonCode": "UNUSED_IMPORT"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "NONE",
+        "predictedTiers": [
+          "NONE"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UnusedImport.jsx",
+            "component": null,
+            "sinkRuleId": null,
+            "reasonCode": "UNUSED_IMPORT",
+            "tier": "NONE"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "unused-static-import",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UnusedImport.jsx",
+        "component": null,
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "component-without-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ComponentWithoutSink.jsx",
+      "component": "ComponentWithoutSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ComponentWithoutSink.jsx",
+            "component": "ComponentWithoutSink",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "component-without-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/ComponentWithoutSink.jsx",
+        "component": "ComponentWithoutSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedSink.jsx",
+      "component": "UnrelatedSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UnrelatedSink.jsx",
+            "component": "UnrelatedSink",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "unrelated-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UnrelatedSink.jsx",
+        "component": "UnrelatedSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "dynamic-import-no-binding",
+      "packageName": "marked",
+      "sourceFile": "src/DynamicImportNoBinding.jsx",
+      "component": null,
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "LOW",
+        "sinkRuleId": null,
+        "reasonCode": "NO_BINDING"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "LOW",
+        "predictedTiers": [
+          "LOW"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/DynamicImportNoBinding.jsx",
+            "component": null,
+            "sinkRuleId": null,
+            "reasonCode": "NO_BINDING",
+            "tier": "LOW"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "dynamic-import-no-binding",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/DynamicImportNoBinding.jsx",
+        "component": null,
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-state-initial-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseStateInitial.jsx",
+      "component": "UseStateInitial",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UseStateInitial.jsx",
+            "component": "UseStateInitial",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "use-state-initial-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UseStateInitial.jsx",
+        "component": "UseStateInitial",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-state-setter-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseStateSetter.jsx",
+      "component": "UseStateSetter",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UseStateSetter.jsx",
+            "component": "UseStateSetter",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "use-state-setter-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UseStateSetter.jsx",
+        "component": "UseStateSetter",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-memo-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseMemoPropagation.jsx",
+      "component": "UseMemoPropagation",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UseMemoPropagation.jsx",
+            "component": "UseMemoPropagation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "use-memo-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UseMemoPropagation.jsx",
+        "component": "UseMemoPropagation",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "cross-file-inter-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/cross-file-positive/CrossFileParent.jsx",
+      "component": "CrossFileParent",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 2,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/cross-file-positive/CrossFileParent.jsx",
+            "component": "CrossFileParent",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          },
+          {
+            "packageName": "marked",
+            "sourceFile": "src/cross-file-positive/CrossFileParent.jsx",
+            "component": "CrossFileParent",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "cross-file-inter-component-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/cross-file-positive/CrossFileParent.jsx",
+        "component": "CrossFileParent",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-jsx-url",
+      "packageName": "marked",
+      "sourceFile": "src/DirectJsxUrl.jsx",
+      "component": "DirectJsxUrl",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "jsx-url",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/DirectJsxUrl.jsx",
+            "component": "DirectJsxUrl",
+            "sinkRuleId": "jsx-url",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "direct-jsx-url",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/DirectJsxUrl.jsx",
+        "component": "DirectJsxUrl",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-dom-ref-html",
+      "packageName": "marked",
+      "sourceFile": "src/DirectDomRef.jsx",
+      "component": "DirectDomRef",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "dom-html",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/DirectDomRef.jsx",
+            "component": "DirectDomRef",
+            "sinkRuleId": "dom-html",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "direct-dom-ref-html",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/DirectDomRef.jsx",
+        "component": "DirectDomRef",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "scope-shadowing-blocks-flow",
+      "packageName": "marked",
+      "sourceFile": "src/ScopeShadowing.jsx",
+      "component": "ScopeShadowing",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ScopeShadowing.jsx",
+            "component": "ScopeShadowing",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "scope-shadowing-blocks-flow",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/ScopeShadowing.jsx",
+        "component": "ScopeShadowing",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-location-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedLocationSink.jsx",
+      "component": "UnrelatedLocationSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UnrelatedLocationSink.jsx",
+            "component": "UnrelatedLocationSink",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "unrelated-location-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UnrelatedLocationSink.jsx",
+        "component": "UnrelatedLocationSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "side-effect-require-no-binding",
+      "packageName": "marked",
+      "sourceFile": "src/SideEffectRequire.jsx",
+      "component": null,
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "LOW",
+        "sinkRuleId": null,
+        "reasonCode": "NO_BINDING"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "LOW",
+        "predictedTiers": [
+          "LOW"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/SideEffectRequire.jsx",
+            "component": null,
+            "sinkRuleId": null,
+            "reasonCode": "NO_BINDING",
+            "tier": "LOW"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "side-effect-require-no-binding",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/SideEffectRequire.jsx",
+        "component": null,
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-jsx-url-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedJsxUrl.jsx",
+      "component": "UnrelatedJsxUrl",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UnrelatedJsxUrl.jsx",
+            "component": "UnrelatedJsxUrl",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "unrelated-jsx-url-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UnrelatedJsxUrl.jsx",
+        "component": "UnrelatedJsxUrl",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "cross-file-safe-import-resolution",
+      "packageName": "marked",
+      "sourceFile": "src/cross-file-safe/SafeParent.jsx",
+      "component": "SafeParent",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/cross-file-safe/SafeParent.jsx",
+            "component": "SafeParent",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "cross-file-safe-import-resolution",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/cross-file-safe/SafeParent.jsx",
+        "component": "SafeParent",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "class-component-without-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ClassWithoutSink.jsx",
+      "component": "ClassWithoutSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ClassWithoutSink.jsx",
+            "component": "ClassWithoutSink",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "class-component-without-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/ClassWithoutSink.jsx",
+        "component": "ClassWithoutSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-reducer-initial-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseReducerInitial.jsx",
+      "component": "UseReducerInitial",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UseReducerInitial.jsx",
+            "component": "UseReducerInitial",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "use-reducer-initial-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UseReducerInitial.jsx",
+        "component": "UseReducerInitial",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-callback-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/UseCallbackPropagation.jsx",
+      "component": "UseCallbackPropagation",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UseCallbackPropagation.jsx",
+            "component": "UseCallbackPropagation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "use-callback-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UseCallbackPropagation.jsx",
+        "component": "UseCallbackPropagation",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-new-function",
+      "packageName": "marked",
+      "sourceFile": "src/DirectNewFunction.jsx",
+      "component": "DirectNewFunction",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "new-function",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/DirectNewFunction.jsx",
+            "component": "DirectNewFunction",
+            "sinkRuleId": "new-function",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "direct-new-function",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/DirectNewFunction.jsx",
+        "component": "DirectNewFunction",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "insert-adjacent-html-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/InsertAdjacentHtmlPropagation.jsx",
+      "component": "InsertAdjacentHtmlPropagation",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "insert-adjacent-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/InsertAdjacentHtmlPropagation.jsx",
+            "component": "InsertAdjacentHtmlPropagation",
+            "sinkRuleId": "insert-adjacent-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "insert-adjacent-html-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/InsertAdjacentHtmlPropagation.jsx",
+        "component": "InsertAdjacentHtmlPropagation",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "multi-hop-component-propagation",
+      "packageName": "marked",
+      "sourceFile": "src/MultiHopPropagation.jsx",
+      "component": "MultiHopPropagation",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 2,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/MultiHopPropagation.jsx",
+            "component": "MultiHopPropagation",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          },
+          {
+            "packageName": "marked",
+            "sourceFile": "src/MultiHopPropagation.jsx",
+            "component": "MultiHopPropagation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "multi-hop-component-propagation",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/MultiHopPropagation.jsx",
+        "component": "MultiHopPropagation",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-use-reducer-sink",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedUseReducer.jsx",
+      "component": "UnrelatedUseReducer",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UnrelatedUseReducer.jsx",
+            "component": "UnrelatedUseReducer",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "unrelated-use-reducer-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UnrelatedUseReducer.jsx",
+        "component": "UnrelatedUseReducer",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "shadowed-eval-is-not-global-sink",
+      "packageName": "marked",
+      "sourceFile": "src/ShadowedEvalSink.jsx",
+      "component": "ShadowedEvalSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ShadowedEvalSink.jsx",
+            "component": "ShadowedEvalSink",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "shadowed-eval-is-not-global-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/ShadowedEvalSink.jsx",
+        "component": "ShadowedEvalSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-insert-adjacent-html",
+      "packageName": "marked",
+      "sourceFile": "src/UnrelatedInsertAdjacentHtml.jsx",
+      "component": "UnrelatedInsertAdjacentHtml",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/UnrelatedInsertAdjacentHtml.jsx",
+            "component": "UnrelatedInsertAdjacentHtml",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "unrelated-insert-adjacent-html",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/UnrelatedInsertAdjacentHtml.jsx",
+        "component": "UnrelatedInsertAdjacentHtml",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "require-destructured-without-sink",
+      "packageName": "marked",
+      "sourceFile": "src/RequireDestructuredWithoutSink.jsx",
+      "component": "RequireDestructuredWithoutSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/RequireDestructuredWithoutSink.jsx",
+            "component": "RequireDestructuredWithoutSink",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "require-destructured-without-sink",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/RequireDestructuredWithoutSink.jsx",
+        "component": "RequireDestructuredWithoutSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "multi-hop-safe-terminal",
+      "packageName": "marked",
+      "sourceFile": "src/MultiHopSafeTerminal.jsx",
+      "component": "MultiHopSafeTerminal",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/MultiHopSafeTerminal.jsx",
+            "component": "MultiHopSafeTerminal",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "multi-hop-safe-terminal",
+        "projectId": "effectiveness-core",
+        "packageName": "marked",
+        "sourceFile": "src/MultiHopSafeTerminal.jsx",
+        "component": "MultiHopSafeTerminal",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-custom-hook-flow",
+      "packageName": "marked",
+      "sourceFile": "src/CustomHookFlow.jsx",
+      "component": "CustomHookFlow",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "holdout-custom-hook-flow",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/CustomHookFlow.jsx",
+        "component": "CustomHookFlow",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-cross-file-helper-flow",
+      "packageName": "marked",
+      "sourceFile": "src/helper/renderMarkdown.js",
+      "component": "HelperFunctionFlow",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "holdout-cross-file-helper-flow",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/helper/renderMarkdown.js",
+        "component": "HelperFunctionFlow",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-react-context-flow",
+      "packageName": "marked",
+      "sourceFile": "src/ContextFlow.jsx",
+      "component": "ContextProvider",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ContextFlow.jsx",
+            "component": "ContextProvider",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-react-context-flow",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/ContextFlow.jsx",
+        "component": "ContextProvider",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-member-mutation-flow",
+      "packageName": "marked",
+      "sourceFile": "src/MemberMutationFlow.jsx",
+      "component": "MemberMutationFlow",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/MemberMutationFlow.jsx",
+            "component": "MemberMutationFlow",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-member-mutation-flow",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/MemberMutationFlow.jsx",
+        "component": "MemberMutationFlow",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-array-mutation-flow",
+      "packageName": "marked",
+      "sourceFile": "src/ArrayMutationFlow.jsx",
+      "component": "ArrayMutationFlow",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ArrayMutationFlow.jsx",
+            "component": "ArrayMutationFlow",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-array-mutation-flow",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/ArrayMutationFlow.jsx",
+        "component": "ArrayMutationFlow",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-async-state-setter-flow",
+      "packageName": "marked",
+      "sourceFile": "src/AsyncSetterFlow.jsx",
+      "component": "AsyncSetterFlow",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/AsyncSetterFlow.jsx",
+            "component": "AsyncSetterFlow",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-async-state-setter-flow",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/AsyncSetterFlow.jsx",
+        "component": "AsyncSetterFlow",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-overwritten-binding",
+      "packageName": "marked",
+      "sourceFile": "src/OverwrittenBinding.jsx",
+      "component": "OverwrittenBinding",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/OverwrittenBinding.jsx",
+            "component": "OverwrittenBinding",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-overwritten-binding",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/OverwrittenBinding.jsx",
+        "component": "OverwrittenBinding",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-generic-props-unrelated",
+      "packageName": "marked",
+      "sourceFile": "src/GenericPropsUnrelated.jsx",
+      "component": "GenericPropsParent",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 2,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/GenericPropsUnrelated.jsx",
+            "component": "GenericPropsParent",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          },
+          {
+            "packageName": "marked",
+            "sourceFile": "src/GenericPropsUnrelated.jsx",
+            "component": "GenericPropsParent",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-generic-props-unrelated",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/GenericPropsUnrelated.jsx",
+        "component": "GenericPropsParent",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-rest-props-unrelated",
+      "packageName": "marked",
+      "sourceFile": "src/RestPropsUnrelated.jsx",
+      "component": "RestPropsParent",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 2,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/RestPropsUnrelated.jsx",
+            "component": "RestPropsParent",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          },
+          {
+            "packageName": "marked",
+            "sourceFile": "src/RestPropsUnrelated.jsx",
+            "component": "RestPropsParent",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-rest-props-unrelated",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/RestPropsUnrelated.jsx",
+        "component": "RestPropsParent",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-object-property-separation",
+      "packageName": "marked",
+      "sourceFile": "src/ObjectPropertySeparation.jsx",
+      "component": "ObjectPropertySeparation",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ObjectPropertySeparation.jsx",
+            "component": "ObjectPropertySeparation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-object-property-separation",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/ObjectPropertySeparation.jsx",
+        "component": "ObjectPropertySeparation",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-destructured-property-separation",
+      "packageName": "marked",
+      "sourceFile": "src/DestructuredPropertySeparation.jsx",
+      "component": "DestructuredPropertySeparation",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/DestructuredPropertySeparation.jsx",
+            "component": "DestructuredPropertySeparation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-destructured-property-separation",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/DestructuredPropertySeparation.jsx",
+        "component": "DestructuredPropertySeparation",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-array-index-separation",
+      "packageName": "marked",
+      "sourceFile": "src/ArrayIndexSeparation.jsx",
+      "component": "ArrayIndexSeparation",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "marked",
+            "sourceFile": "src/ArrayIndexSeparation.jsx",
+            "component": "ArrayIndexSeparation",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "holdout-array-index-separation",
+        "projectId": "adversarial-holdout",
+        "packageName": "marked",
+        "sourceFile": "src/ArrayIndexSeparation.jsx",
+        "component": "ArrayIndexSeparation",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-direct-inner-html",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+      "component": "DompurifyDirectInnerHtml",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "dompurify",
+            "sourceFile": "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+            "component": "DompurifyDirectInnerHtml",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-dompurify-direct-inner-html",
+        "projectId": "robustness-multipackage",
+        "packageName": "dompurify",
+        "sourceFile": "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+        "component": "DompurifyDirectInnerHtml",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-local-dom-html",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-local-dom-html/sanitizer.js",
+      "component": "DompurifyLocalDomHtml",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "dom-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "robustness-dompurify-local-dom-html",
+        "projectId": "robustness-multipackage",
+        "packageName": "dompurify",
+        "sourceFile": "src/scenarios/dompurify-local-dom-html/sanitizer.js",
+        "component": "DompurifyLocalDomHtml",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-inter-component",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-article-flow/services/sanitizer.js",
+      "component": "ArticlePage",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "INTER_COMPONENT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "robustness-dompurify-inter-component",
+        "projectId": "robustness-multipackage",
+        "packageName": "dompurify",
+        "sourceFile": "src/scenarios/dompurify-article-flow/services/sanitizer.js",
+        "component": "ArticlePage",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-unused-import",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+      "component": null,
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "NONE",
+        "sinkRuleId": null,
+        "reasonCode": "UNUSED_IMPORT"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "NONE",
+        "predictedTiers": [
+          "NONE"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "dompurify",
+            "sourceFile": "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+            "component": null,
+            "sinkRuleId": null,
+            "reasonCode": "UNUSED_IMPORT",
+            "tier": "NONE"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-dompurify-unused-import",
+        "projectId": "robustness-multipackage",
+        "packageName": "dompurify",
+        "sourceFile": "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+        "component": null,
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-overwritten-binding",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+      "component": "DompurifyOverwrittenBinding",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "HIGH",
+        "predictedTiers": [
+          "HIGH"
+        ],
+        "outcome": "FP",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "dompurify",
+            "sourceFile": "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+            "component": "DompurifyOverwrittenBinding",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "tier": "HIGH"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-dompurify-overwritten-binding",
+        "projectId": "robustness-multipackage",
+        "packageName": "dompurify",
+        "sourceFile": "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+        "component": "DompurifyOverwrittenBinding",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-property-separation",
+      "packageName": "dompurify",
+      "sourceFile": "src/scenarios/dompurify-property-separation/services/sanitizer.js",
+      "component": "DompurifyPropertySeparation",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "robustness-dompurify-property-separation",
+        "projectId": "robustness-multipackage",
+        "packageName": "dompurify",
+        "sourceFile": "src/scenarios/dompurify-property-separation/services/sanitizer.js",
+        "component": "DompurifyPropertySeparation",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-direct-script-html",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+      "component": "SerializeDirectScriptHtml",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "CRITICAL",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "DIRECT_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": true,
+        "predictedTier": "CRITICAL",
+        "predictedTiers": [
+          "CRITICAL"
+        ],
+        "outcome": "TP",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": true,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 1,
+        "findings": [
+          {
+            "packageName": "serialize-javascript",
+            "sourceFile": "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+            "component": "SerializeDirectScriptHtml",
+            "sinkRuleId": "inner-html",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "tier": "CRITICAL"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-serialize-direct-script-html",
+        "projectId": "robustness-multipackage",
+        "packageName": "serialize-javascript",
+        "sourceFile": "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+        "component": "SerializeDirectScriptHtml",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-local-insert-adjacent",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+      "component": "SerializeLocalInsertAdjacent",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "insert-adjacent-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "robustness-serialize-local-insert-adjacent",
+        "projectId": "robustness-multipackage",
+        "packageName": "serialize-javascript",
+        "sourceFile": "src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+        "component": "SerializeLocalInsertAdjacent",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-cross-file-helper",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-app-shell/serialization/serializeState.js",
+      "component": "SerializeHelperFunctionFlow",
+      "expected": {
+        "contextuallyReachable": true,
+        "tier": "HIGH",
+        "sinkRuleId": "inner-html",
+        "reasonCode": "PROPAGATED_SINK_FLOW"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": null,
+        "predictedTiers": [],
+        "outcome": "FN",
+        "secondary": {
+          "tierMatch": false,
+          "sinkRuleMatch": false,
+          "reasonCodeMatch": false,
+          "exactMatch": false
+        },
+        "findingCount": 0,
+        "positiveFindingCount": 0,
+        "findings": []
+      },
+      "baseline": {
+        "scenarioId": "robustness-serialize-cross-file-helper",
+        "projectId": "robustness-multipackage",
+        "packageName": "serialize-javascript",
+        "sourceFile": "src/scenarios/serialize-app-shell/serialization/serializeState.js",
+        "component": "SerializeHelperFunctionFlow",
+        "expectedPositive": true,
+        "predictedPositive": true,
+        "outcome": "TP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-component-without-sink",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+      "component": "SerializeComponentWithoutSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "COMPONENT_WITHOUT_SINK"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "serialize-javascript",
+            "sourceFile": "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+            "component": "SerializeComponentWithoutSink",
+            "sinkRuleId": null,
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-serialize-component-without-sink",
+        "projectId": "robustness-multipackage",
+        "packageName": "serialize-javascript",
+        "sourceFile": "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+        "component": "SerializeComponentWithoutSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-unrelated-sink",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+      "component": "SerializeUnrelatedSink",
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "MEDIUM",
+        "sinkRuleId": null,
+        "reasonCode": "NO_PROVEN_SINK_PATH"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "MEDIUM",
+        "predictedTiers": [
+          "MEDIUM"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "serialize-javascript",
+            "sourceFile": "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+            "component": "SerializeUnrelatedSink",
+            "sinkRuleId": null,
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "tier": "MEDIUM"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-serialize-unrelated-sink",
+        "projectId": "robustness-multipackage",
+        "packageName": "serialize-javascript",
+        "sourceFile": "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+        "component": "SerializeUnrelatedSink",
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-dynamic-import-no-binding",
+      "packageName": "serialize-javascript",
+      "sourceFile": "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+      "component": null,
+      "expected": {
+        "contextuallyReachable": false,
+        "tier": "LOW",
+        "sinkRuleId": null,
+        "reasonCode": "NO_BINDING"
+      },
+      "reactReach": {
+        "predictedPositive": false,
+        "predictedTier": "LOW",
+        "predictedTiers": [
+          "LOW"
+        ],
+        "outcome": "TN",
+        "secondary": {
+          "tierMatch": true,
+          "sinkRuleMatch": null,
+          "reasonCodeMatch": true,
+          "exactMatch": true
+        },
+        "findingCount": 1,
+        "positiveFindingCount": 0,
+        "findings": [
+          {
+            "packageName": "serialize-javascript",
+            "sourceFile": "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+            "component": null,
+            "sinkRuleId": null,
+            "reasonCode": "NO_BINDING",
+            "tier": "LOW"
+          }
+        ]
+      },
+      "baseline": {
+        "scenarioId": "robustness-serialize-dynamic-import-no-binding",
+        "projectId": "robustness-multipackage",
+        "packageName": "serialize-javascript",
+        "sourceFile": "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+        "component": null,
+        "expectedPositive": false,
+        "predictedPositive": true,
+        "outcome": "FP"
+      }
+    }
+  ]
+}

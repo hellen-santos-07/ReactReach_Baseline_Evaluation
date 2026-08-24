@@ -1,0 +1,452 @@
+{
+  "projectPath": "C:\\Users\\Hellen\\Documents\\MEI\\Thesis_Project\\ReactReach_Baseline_Evaluation\\corpus\\adversarial-holdout",
+  "scannedAt": "2026-08-24T20:21:57.434Z",
+  "configuration": {
+    "sinks": null,
+    "excludeSinks": [],
+    "minSinkPriority": 0,
+    "sinkPriorities": {},
+    "sort": "reachability",
+    "maxTaintIterations": 100,
+    "includeDefaultSinks": true,
+    "sinkModules": []
+  },
+  "diagnostics": [],
+  "timings": {
+    "auditMs": 0.004,
+    "parseMs": 4.564,
+    "dependenciesMs": 1.613,
+    "componentsMs": 1.016,
+    "sinksMs": 0.779,
+    "graphMs": 0.141,
+    "reachabilityMs": 0.95,
+    "staticAnalysisMs": 9.063,
+    "reportMs": 0.01,
+    "totalMs": 9.167
+  },
+  "summary": {
+    "vulnerablePackages": 1,
+    "sourceFiles": 13,
+    "components": 15,
+    "cogNodes": 15,
+    "cogEdges": 3,
+    "sinks": 12,
+    "findings": 14
+  },
+  "packages": [
+    {
+      "name": "marked",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1088022,
+          "name": "marked",
+          "dependency": "marked",
+          "title": "Marked ReDoS due to email addresses being evaluated in quadratic time",
+          "url": "https://github.com/advisories/GHSA-xf5p-87ch-gxw2",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=0.3.14 <0.6.2"
+        },
+        {
+          "source": 1095051,
+          "name": "marked",
+          "dependency": "marked",
+          "title": "Inefficient Regular Expression Complexity in marked",
+          "url": "https://github.com/advisories/GHSA-rrrm-qjm4-v8hf",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<4.0.10"
+        },
+        {
+          "source": 1095052,
+          "name": "marked",
+          "dependency": "marked",
+          "title": "Inefficient Regular Expression Complexity in marked",
+          "url": "https://github.com/advisories/GHSA-5v2h-r2cx-5xgj",
+          "severity": "high",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<4.0.10"
+        }
+      ],
+      "effects": [],
+      "range": null,
+      "nodes": [
+        "node_modules/marked"
+      ],
+      "fixAvailable": false
+    }
+  ],
+  "analyzedFiles": [
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ArrayIndexSeparation.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ArrayMutationFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/AsyncSetterFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ContextFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/CustomHookFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/DestructuredPropertySeparation.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/GenericPropsUnrelated.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/HelperFunctionFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/MemberMutationFlow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ObjectPropertySeparation.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/OverwrittenBinding.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/RestPropsUnrelated.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/helper/renderMarkdown.js"
+  ],
+  "findings": [
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ArrayIndexSeparation.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "ArrayIndexSeparation",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 5,
+          "column": 14,
+          "index": 154
+        },
+        "end": {
+          "line": 5,
+          "column": 61,
+          "index": 201
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "values"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ArrayMutationFlow.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "NO_PROVEN_SINK_PATH",
+      "reason": "Vulnerable dependency used in a component with sinks, but no structural data path found",
+      "reachability": "MEDIUM",
+      "component": "ArrayMutationFlow",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "marked"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/AsyncSetterFlow.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "AsyncSetterFlow",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 7,
+          "column": 14,
+          "index": 229
+        },
+        "end": {
+          "line": 7,
+          "column": 56,
+          "index": 271
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "html"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ContextFlow.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ContextProvider",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "marked"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/CustomHookFlow.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/DestructuredPropertySeparation.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "DestructuredPropertySeparation",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 9,
+          "column": 14,
+          "index": 220
+        },
+        "end": {
+          "line": 9,
+          "column": 56,
+          "index": 262
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "safe"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/GenericPropsUnrelated.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "GenericPropsParent",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "marked"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/GenericPropsUnrelated.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+      "reason": "Tainted data from vulnerable dependency flows through component props boundary into a security sink in a child component",
+      "reachability": "HIGH",
+      "component": "GenericPropsParent",
+      "childComponent": "GenericPropsChild",
+      "componentPath": [
+        "GenericPropsParent",
+        "GenericPropsChild"
+      ],
+      "propagationPath": [
+        {
+          "from": "GenericPropsParent",
+          "to": "GenericPropsChild",
+          "props": [
+            "unsafe"
+          ],
+          "resolution": "same-file"
+        }
+      ],
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 4,
+          "column": 14,
+          "index": 80
+        },
+        "end": {
+          "line": 4,
+          "column": 69,
+          "index": 135
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "componentResolutionConfidence": 100,
+      "sinkFilePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/GenericPropsUnrelated.jsx",
+      "taintedPath": [
+        "unsafe",
+        "props"
+      ],
+      "propagationType": "inter-component"
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/MemberMutationFlow.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "NO_PROVEN_SINK_PATH",
+      "reason": "Vulnerable dependency used in a component with sinks, but no structural data path found",
+      "reachability": "MEDIUM",
+      "component": "MemberMutationFlow",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "marked"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/ObjectPropertySeparation.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "ObjectPropertySeparation",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 8,
+          "column": 14,
+          "index": 186
+        },
+        "end": {
+          "line": 8,
+          "column": 64,
+          "index": 236
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "payload"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/OverwrittenBinding.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "OverwrittenBinding",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 6,
+          "column": 14,
+          "index": 155
+        },
+        "end": {
+          "line": 6,
+          "column": 56,
+          "index": 197
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "html"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/RestPropsUnrelated.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "RestPropsParent",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "marked"
+      ]
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/RestPropsUnrelated.jsx",
+      "auditSeverity": "high",
+      "reasonCode": "INTER_COMPONENT_SINK_FLOW",
+      "reason": "Tainted data from vulnerable dependency flows through component props boundary into a security sink in a child component",
+      "reachability": "HIGH",
+      "component": "RestPropsParent",
+      "childComponent": "RestPropsChild",
+      "componentPath": [
+        "RestPropsParent",
+        "RestPropsChild"
+      ],
+      "propagationPath": [
+        {
+          "from": "RestPropsParent",
+          "to": "RestPropsChild",
+          "props": [
+            "unsafe"
+          ],
+          "resolution": "same-file"
+        }
+      ],
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 4,
+          "column": 14,
+          "index": 83
+        },
+        "end": {
+          "line": 4,
+          "column": 68,
+          "index": 137
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "componentResolutionConfidence": 100,
+      "sinkFilePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/RestPropsUnrelated.jsx",
+      "taintedPath": [
+        "unsafe",
+        "rest"
+      ],
+      "propagationType": "inter-component"
+    },
+    {
+      "packageName": "marked",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/adversarial-holdout/src/helper/renderMarkdown.js",
+      "auditSeverity": "high",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260824T202157298Z-2aa39a3a",
+  "status": "completed",
+  "startedAt": "2026-08-24T20:21:57.298Z",
+  "completedAt": "2026-08-24T20:21:57.466Z",
+  "reviewRequired": false,
+  "rawArtifacts": [
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/run.started.json",
+      "bytes": 1192,
+      "sha256": "597e22ada413d6739c06fc9bddfb5970f6759e19b74f62fa6ec4aab00209a23d"
+    },
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/effectiveness-core.reactreach-report.json",
+      "bytes": 32465,
+      "sha256": "d7dbb53fab47861d7dc0edef2802c095b9914f7c464d3f55fb460f5e03af96f7"
+    },
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/effectiveness-core.reactreach.sarif.json",
+      "bytes": 67259,
+      "sha256": "d13863a3b7853734f45e74520bd9231095fc6df5310dcd127b0ced1518928ff4"
+    },
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/adversarial-holdout.reactreach-report.json",
+      "bytes": 15879,
+      "sha256": "bbd7c16914a2b9d5a501939b54559b96d1ea41fc93a314111fcca68a6d3bfd41"
+    },
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/adversarial-holdout.reactreach.sarif.json",
+      "bytes": 33118,
+      "sha256": "cdabc12deec7ba60e83ed2db148b8b166123ae2e6b2ea7473b291704a9ced26e"
+    },
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/robustness-multipackage.reactreach-report.json",
+      "bytes": 26111,
+      "sha256": "6d9ca95510c6a0df3ccf681ec36a68651b54dd343fbae6e27cee20bfea220e67"
+    },
+    {
+      "path": "results/raw/20260824T202157298Z-2aa39a3a/robustness-multipackage.reactreach.sarif.json",
+      "bytes": 32555,
+      "sha256": "bb0fe228ffafa22cafcf5cac06e51c04b71f332d272626d4ac163d81148e7ba2"
+    }
+  ],
+  "processedArtifacts": [
+    {
+      "path": "results/processed/20260824T202157298Z-2aa39a3a/scenario-results.json",
+      "bytes": 81944,
+      "sha256": "cdcdeac3455e42f7e25e34c355a80060086d36856939aa2a860d6dee73dc59ef"
+    },
+    {
+      "path": "results/processed/20260824T202157298Z-2aa39a3a/scenario-results.csv",
+      "bytes": 14623,
+      "sha256": "5d53039a7680eb3a9aa02fd27ce042b9540800d86588d930e039cee90b18901c"
+    },
+    {
+      "path": "results/processed/20260824T202157298Z-2aa39a3a/summary.json",
+      "bytes": 9387,
+      "sha256": "ab9a2ed08dc530bf39e7f43a4560cb689866a72a47cfce18485ba02fc602f75c"
+    }
+  ]
+}

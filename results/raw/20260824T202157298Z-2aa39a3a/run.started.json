@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260824T202157298Z-2aa39a3a",
+  "status": "running",
+  "startedAt": "2026-08-24T20:21:57.298Z",
+  "protocol": "RQ04-contextual-reachability-effectiveness",
+  "environment": {
+    "node": "v24.11.1",
+    "npm": "11.6.2",
+    "platform": "win32",
+    "release": "10.0.22631",
+    "architecture": "x64",
+    "cpuModel": "AMD Ryzen 5 5600X 6-Core Processor             ",
+    "logicalCpuCount": 12,
+    "totalMemoryBytes": 34282192896
+  },
+  "frozenInputs": {
+    "projects": 3,
+    "scenarios": 54,
+    "groundTruthDatasetSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
+    "groundTruthFileSha256": "fa04fd3c2c2c9e4299f2cc229629bdc6dd001fdff41792386fc0836732031066",
+    "evaluationConfigSha256": "1eee302e373fb3ffc9d112cc45a5705c3793232e3a161ca6ba335a4582a2f9e4",
+    "sinkCatalogSha256": "5330d6c10a2e320723e24cad6e4b780be7e4abeb31546bbdd3442d4b5262390a",
+    "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0",
+    "reactReachVersion": "1.0.0",
+    "reactReachTag": "v1.0.0",
+    "evaluationCommit": "976f2b3c3c1c18bc05398a3c310f9a9118e870aa",
+    "nodeVersion": "v24.11.1",
+    "npmVersion": "11.6.2"
+  }
+}

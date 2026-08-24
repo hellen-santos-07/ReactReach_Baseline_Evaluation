@@ -1,0 +1,951 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ReactReach",
+          "version": "1.0.0",
+          "informationUri": "https://github.com/hellen-santos-07/ReactReach",
+          "rules": [
+            {
+              "id": "RR-CRITICAL",
+              "name": "CriticalDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency identifier flows directly into a security sink"
+              },
+              "fullDescription": {
+                "text": "A vulnerable third-party dependency's imported identifier is passed without transformation directly to a security-sensitive sink (e.g. dangerouslySetInnerHTML, eval). This represents the highest likelihood of exploitability within the component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTRA",
+              "name": "HighDependencyReachabilityIntraComponent",
+              "shortDescription": {
+                "text": "Variable derived from vulnerable dependency reaches a security sink via intra-component propagation"
+              },
+              "fullDescription": {
+                "text": "Output from a vulnerable dependency is stored in a local variable or React state (via useState, useMemo, useCallback, or useReducer) and then flows into a security-sensitive sink within the same component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTER",
+              "name": "HighDependencyReachabilityInterComponent",
+              "shortDescription": {
+                "text": "Tainted data from vulnerable dependency flows through a props boundary into a child component security sink"
+              },
+              "fullDescription": {
+                "text": "A parent component passes tainted output from a vulnerable dependency as a prop to a child component, where that prop reaches a security-sensitive sink. The vulnerability crosses at least one component boundary."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Sanitise tainted data before passing it as props, or restructure the component hierarchy to avoid the data flow reaching the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability",
+                  "inter-component"
+                ]
+              }
+            },
+            {
+              "id": "RR-MEDIUM",
+              "name": "MediumDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency used in a component but no structural data path to a security sink was found"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is actively used inside a React component, but the analysis could not establish a structural data-flow path from its output to a security sink. Manual review is advised."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "Review how the dependency output is used. If it influences rendering or DOM interaction, consider patching or sanitising it."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-LOW",
+              "name": "LowDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but no binding name could be captured"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported but the analysis could not capture a binding name (e.g. dynamic import, bare side-effect import). The vulnerability may still be triggered at runtime."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "help": {
+                "text": "Review the import pattern and determine whether the vulnerable code path can be triggered."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            },
+            {
+              "id": "RR-NONE",
+              "name": "DeadDependencyImport",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but its identifier is never referenced in any component"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported at the module level but its bound identifier is never referenced inside any React component body. The vulnerability is structurally unreachable under the current analysis model."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Remove the unused import. If the import is intentional (side-effect), evaluate whether the side effect can trigger the vulnerability."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "%SRCROOT%": {
+          "uri": "file:///C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/corpus/robustness-multipackage/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-article-flow/ArticlePage.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-article-flow/components/ArticleContent.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-article-flow/hooks/useSanitizedArticle.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-article-flow/services/sanitizer.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-local-dom-html/DompurifyLocalDomHtml.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-local-dom-html/sanitizer.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-overwritten-binding/contentPolicy.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-property-separation/DompurifyPropertySeparation.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-property-separation/components/ArticleContent.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-property-separation/policies/contentPolicy.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-property-separation/services/sanitizer.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-app-shell/SerializeHelperFunctionFlow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-app-shell/bootstrap/buildBootstrapScript.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-app-shell/serialization/serializeState.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-app-shell/state/normalizeState.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-bootstrap-hook/SerializeLocalInsertAdjacent.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-bootstrap-hook/hooks/useBootstrapScript.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-bootstrap-hook/state/loadInitialState.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-component-without-sink/StatePreview.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-unrelated-sink/StatePreview.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/scenarios/serialize-unrelated-sink/reviewedBootstrap.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'dompurify' (audit severity: critical): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/dompurify-article-flow/services/sanitizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "dompurify",
+            "reachability": "NONE",
+            "auditSeverity": "critical",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-CRITICAL",
+          "rule": {
+            "id": "RR-CRITICAL",
+            "index": 0
+          },
+          "level": "error",
+          "message": {
+            "text": "[CRITICAL] Package 'dompurify' (audit severity: critical): Vulnerable dependency identifier flows directly into a security sink. Sink: dangerouslySetInnerHTML. Taint path: DOMPurify."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "DompurifyDirectInnerHtml",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "dompurify",
+            "reachability": "CRITICAL",
+            "auditSeverity": "critical",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "component": "DompurifyDirectInnerHtml",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "DOMPurify"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'dompurify' (audit severity: critical): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/dompurify-local-dom-html/sanitizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "dompurify",
+            "reachability": "NONE",
+            "auditSeverity": "critical",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'dompurify' (audit severity: critical): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: html."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "DompurifyOverwrittenBinding",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "dompurify",
+            "reachability": "HIGH",
+            "auditSeverity": "critical",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "DompurifyOverwrittenBinding",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "html"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'dompurify' (audit severity: critical): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/dompurify-property-separation/services/sanitizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "dompurify",
+            "reachability": "NONE",
+            "auditSeverity": "critical",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'dompurify' (audit severity: critical): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "dompurify",
+            "reachability": "NONE",
+            "auditSeverity": "critical",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'serialize-javascript' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/serialize-app-shell/serialization/serializeState.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "serialize-javascript",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'serialize-javascript' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "serialize-javascript",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'serialize-javascript' (audit severity: high): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: serialize."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SerializeComponentWithoutSink",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "serialize-javascript",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "SerializeComponentWithoutSink",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "serialize"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-CRITICAL",
+          "rule": {
+            "id": "RR-CRITICAL",
+            "index": 0
+          },
+          "level": "error",
+          "message": {
+            "text": "[CRITICAL] Package 'serialize-javascript' (audit severity: high): Vulnerable dependency identifier flows directly into a security sink. Sink: dangerouslySetInnerHTML. Taint path: serialize."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 18
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SerializeDirectScriptHtml",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "serialize-javascript",
+            "reachability": "CRITICAL",
+            "auditSeverity": "high",
+            "reasonCode": "DIRECT_SINK_FLOW",
+            "component": "SerializeDirectScriptHtml",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "serialize"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-LOW",
+          "rule": {
+            "id": "RR-LOW",
+            "index": 4
+          },
+          "level": "note",
+          "message": {
+            "text": "[LOW] Package 'serialize-javascript' (audit severity: high): Vulnerable dependency imported but no binding name captured (dynamic import or bare require)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "serialize-javascript",
+            "reachability": "LOW",
+            "auditSeverity": "high",
+            "reasonCode": "NO_BINDING",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'serialize-javascript' (audit severity: high): Vulnerable dependency used in a component with sinks, but no structural data path found. Taint path: serialize."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SerializeUnrelatedSink",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "serialize-javascript",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "component": "SerializeUnrelatedSink",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "serialize"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        }
+      ],
+      "properties": {
+        "scannedAt": "2026-08-24T20:21:57.450Z",
+        "summary": {
+          "vulnerablePackages": 2,
+          "sourceFiles": 29,
+          "components": 16,
+          "cogNodes": 16,
+          "cogEdges": 4,
+          "sinks": 9,
+          "findings": 12
+        },
+        "diagnostics": [],
+        "timings": {
+          "auditMs": 0.005,
+          "parseMs": 8.343,
+          "dependenciesMs": 2.253,
+          "componentsMs": 1.135,
+          "sinksMs": 1.011,
+          "graphMs": 0.128,
+          "reachabilityMs": 0.483,
+          "staticAnalysisMs": 13.353,
+          "reportMs": 0.011,
+          "totalMs": 13.435
+        },
+        "vulnerablePackages": [
+          {
+            "name": "dompurify",
+            "severity": "critical",
+            "isDirect": true,
+            "range": "<=3.4.12",
+            "fixAvailable": {
+              "name": "dompurify",
+              "version": "2.5.9",
+              "isSemVerMajor": false
+            }
+          },
+          {
+            "name": "serialize-javascript",
+            "severity": "high",
+            "isDirect": true,
+            "range": "<=7.0.2",
+            "fixAvailable": {
+              "name": "serialize-javascript",
+              "version": "7.1.0",
+              "isSemVerMajor": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -59,7 +59,7 @@ The complete method is specified in
 
 ## Published final results
 
-The final effectiveness run is `20260824T192135965Z-eb90ec9e`.
+The final effectiveness run is `20260824T202157298Z-2aa39a3a`.
 
 | Cohort | TP | FP | TN | FN | Precision | Recall | F1 | Accuracy |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -78,12 +78,12 @@ pass both frozen thresholds. Their 500-file results are:
 
 | Campaign | p95 static analysis | Peak RSS | Status |
 |---|---:|---:|---|
-| `20260824T192146961Z-eeb6de5a` | 414.373 ms | 137.535 MiB | PASS |
-| `20260824T192257612Z-07ac2678` | 394.735 ms | 137.152 MiB | PASS |
-| `20260824T192407201Z-62469cce` | 397.367 ms | 136.297 MiB | PASS |
+| `20260824T202221487Z-8155975c` | 422.584 ms | 137.273 MiB | PASS |
+| `20260824T202331517Z-26f2fb51` | 396.821 ms | 136.641 MiB | PASS |
+| `20260824T202442081Z-13c94484` | 393.665 ms | 136.113 MiB | PASS |
 
 All four executions used evaluation commit
-`656d489a1462ac7431386db040acde821a4d1cb1`. Later commits only add the
+`976f2b3c3c1c18bc05398a3c310f9a9118e870aa`. Later commits only add the
 published result artefacts, documentation and verification metadata.
 
 See [`docs/results.md`](docs/results.md) for the complete tables and
