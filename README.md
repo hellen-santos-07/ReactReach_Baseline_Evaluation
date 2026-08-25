@@ -126,6 +126,7 @@ git clone https://github.com/hellen-santos-07/ReactReach.git
 git -C ReactReach checkout v1.0.0
 git clone https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation.git
 cd ReactReach_Baseline_Evaluation
+npm.cmd --prefix ..\ReactReach ci --no-bin-links
 npm.cmd ci
 ```
 
@@ -137,12 +138,14 @@ On Linux or macOS, replace `npm.cmd` with `npm`.
 npm.cmd test
 npm.cmd run ground-truth:validate
 npm.cmd run ground-truth:hash
-npm.cmd run performance:generate
 npm.cmd run performance:check
 npm.cmd run evaluation:preflight
 npm.cmd run performance:preflight
 npm.cmd run results:verify
 ```
+
+`npm test` generates the deterministic performance projects before executing
+the test suite. The generated directory is intentionally excluded from Git.
 
 `results:verify` recalculates hashes, scenario metrics, performance statistics
 and thresholds from the committed raw data, and confirms that the recorded

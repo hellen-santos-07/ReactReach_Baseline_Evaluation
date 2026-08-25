@@ -38,7 +38,7 @@ jobs:
 
       - name: Install ReactReach locked dependencies
         working-directory: ReactReach
-        run: npm ci
+        run: npm ci --no-bin-links
 
       - name: Install evaluation locked dependencies
         working-directory: ReactReach_Baseline_Evaluation
@@ -48,9 +48,9 @@ jobs:
         working-directory: ReactReach_Baseline_Evaluation
         run: npm test
 
-      - name: Generate and verify performance inputs
+      - name: Verify generated performance inputs
         working-directory: ReactReach_Baseline_Evaluation
-        run: npm run performance:generate && npm run performance:check
+        run: npm run performance:check
 
       - name: Verify frozen inputs
         working-directory: ReactReach_Baseline_Evaluation

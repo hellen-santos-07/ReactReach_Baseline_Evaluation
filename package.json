@@ -21,6 +21,7 @@
     "node": ">=24"
   },
   "scripts": {
+    "pretest": "npm run performance:generate",
     "test": "node --test test/*.test.js",
     "ground-truth:validate": "node scripts/validateGroundTruth.js",
     "ground-truth:hash": "node scripts/hashGroundTruth.js",
