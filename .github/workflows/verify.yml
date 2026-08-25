@@ -42,7 +42,9 @@ jobs:
 
       - name: Install evaluation locked dependencies
         working-directory: ReactReach_Baseline_Evaluation
-        run: npm ci
+        # ReactReach is a linked local dependency. On Unix, npm's bin-link setup
+        # chmods its src/cli.js target and makes the frozen checkout appear dirty.
+        run: npm ci --no-bin-links
 
       - name: Run harness tests
         working-directory: ReactReach_Baseline_Evaluation
