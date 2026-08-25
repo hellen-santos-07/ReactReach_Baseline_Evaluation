@@ -32,9 +32,15 @@ jobs:
         with:
           node-version: 24.11.1
           cache: npm
-          cache-dependency-path: ReactReach_Baseline_Evaluation/package-lock.json
+          cache-dependency-path: |
+            ReactReach/package-lock.json
+            ReactReach_Baseline_Evaluation/package-lock.json
 
-      - name: Install locked dependencies
+      - name: Install ReactReach locked dependencies
+        working-directory: ReactReach
+        run: npm ci
+
+      - name: Install evaluation locked dependencies
         working-directory: ReactReach_Baseline_Evaluation
         run: npm ci
 
