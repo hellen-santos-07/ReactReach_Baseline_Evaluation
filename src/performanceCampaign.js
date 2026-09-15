@@ -5,6 +5,7 @@ const { createRunId, csvEscape, validateRunId } = require("./finalEvaluation");
 const { fileSha256 } = require("./preflight");
 const { loadPerformanceConfig } = require("./performanceProjects");
 const { runPerformancePreflight } = require("./performanceInputs");
+const { writeNewJson, writeNewText } = require("./artifactWriters");
 const {
   evaluateThresholds,
   loadPerformanceBenchmarkConfig,
@@ -19,15 +20,6 @@ const SAMPLE_CSV_COLUMNS = Object.freeze([
   "peakRssBytes", "peakRssMiB", "rssSampleCount", "sourceFileCount",
   "componentCount", "sinkCount", "findingCount", "diagnosticCount", "outlier",
 ]);
-
-function writeNewText(filePath, value) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, value, { encoding: "utf8", flag: "wx" });
-}
-
-function writeNewJson(filePath, value) {
-  writeNewText(filePath, `${JSON.stringify(value, null, 2)}\n`);
-}
 
 function initializePerformanceRun(resultsRoot, runId) {
   validateRunId(runId);
@@ -119,6 +111,13 @@ function failurePayload(runId, startedAt, failedAt, error) {
   };
 }
 
+/**
+ * Execute the frozen performance campaign and persist all samples and statistics.
+ *
+ * @param {string} evaluationRoot - Root of the replication package.
+ * @param {object} [options={}] - Optional injected runner, configuration, clocks, and paths.
+ * @returns {Promise<object>} The campaign status, statistics, thresholds, and output paths.
+ */
 async function runPerformanceCampaign(evaluationRoot, options = {}) {
   const preflightRunner = options.preflightRunner ?? runPerformancePreflight;
   const preflight = preflightRunner(evaluationRoot);

@@ -43,3 +43,16 @@ concentrates boundary cases and is reported separately from characterization.
 These outcomes describe implementation boundaries, not defects in the frozen
 labels. They explain why ReactReach improves precision over package presence on
 the complete dataset while losing recall on unsupported propagation patterns.
+
+## Comparison with the Semgrep baseline
+
+On this deliberately adversarial cohort, Semgrep records TP=3, FP=5, TN=1 and
+FN=3, with precision 0.375, recall 0.500, F1 0.429 and accuracy 0.333. These
+values exceed ReactReach's holdout F1 of 0.154 and accuracy of 0.083 because the
+cohort intentionally concentrates patterns outside ReactReach's implemented
+propagation boundaries. The result does not show that Semgrep reconstructed
+those dependency-origin paths. All findings in the definitive Semgrep run came
+from a generic `dangerouslySetInnerHTML` rule, which can identify the sink
+without establishing whether its value originated in the vulnerable dependency.
+The result is therefore evidence of complementary pattern coverage under the
+frozen scenario mapping, not a feature-equivalent reachability comparison.

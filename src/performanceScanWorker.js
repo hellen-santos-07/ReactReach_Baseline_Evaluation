@@ -1,6 +1,6 @@
-const { parentPort, workerData } = require("node:worker_threads");
+const { isMainThread, parentPort, workerData } = require("node:worker_threads");
 const path = require("node:path");
-const { scanProject } = require("reactreach/src/scanProject");
+const { scanProject } = require("reactreach");
 const { extractVulnerablePackages } = require("reactreach/src/dependency/runAudit");
 const { readJson } = require("./groundTruth");
 const { loadEvaluationConfig } = require("./preflight");
@@ -14,15 +14,26 @@ function serializeError(error) {
   };
 }
 
-async function main() {
-  const { evaluationRoot, projectId } = workerData;
+function validateWorkerData(data) {
+  for (const field of ["evaluationRoot", "projectId"]) {
+    if (typeof data?.[field] !== "string" || data[field].trim() === "") {
+      const error = new TypeError(`workerData.${field} must be a non-empty string`);
+      error.code = "INVALID_WORKER_DATA";
+      throw error;
+    }
+  }
+  return { evaluationRoot: data.evaluationRoot, projectId: data.projectId };
+}
+
+async function main(data = workerData, port = parentPort) {
+  const { evaluationRoot, projectId } = validateWorkerData(data);
   const projectRoot = path.join(evaluationRoot, "generated-projects", projectId);
   const auditPath = path.join(evaluationRoot, "audit-data", `${projectId}.npm-audit.json`);
   const config = loadEvaluationConfig(evaluationRoot);
   const vulnerablePackages = extractVulnerablePackages(readJson(auditPath));
   const stageRss = [];
   const startedAt = new Date().toISOString();
-  parentPort.postMessage({ type: "scan-started", startedAt, rssBytes: process.memoryUsage.rss() });
+  port.postMessage({ type: "scan-started", startedAt, rssBytes: process.memoryUsage.rss() });
   const result = await scanProject(projectRoot, config, {
     auditRunner: async () => vulnerablePackages,
     logger(event) {
@@ -32,11 +43,11 @@ async function main() {
         rssBytes: process.memoryUsage.rss(),
       };
       stageRss.push(checkpoint);
-      parentPort.postMessage({ type: "stage", ...checkpoint });
+      port.postMessage({ type: "stage", ...checkpoint });
     },
   });
   const completedAt = new Date().toISOString();
-  parentPort.postMessage({
+  port.postMessage({
     type: "scan-completed",
     result: {
       schemaVersion: "1.0.0",
@@ -54,10 +65,14 @@ async function main() {
     },
     rssBytes: process.memoryUsage.rss(),
   });
-  parentPort.close();
+  port.close();
 }
 
-main().catch((error) => {
-  parentPort.postMessage({ type: "scan-error", error: serializeError(error), rssBytes: process.memoryUsage.rss() });
-  parentPort.close();
-});
+if (!isMainThread) {
+  main().catch((error) => {
+    parentPort.postMessage({ type: "scan-error", error: serializeError(error), rssBytes: process.memoryUsage.rss() });
+    parentPort.close();
+  });
+}
+
+module.exports = { main, serializeError, validateWorkerData };

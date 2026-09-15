@@ -112,7 +112,13 @@ function summarizeMeasuredSamples(samples, config) {
     throw new Error(`Expected ${config.measuredRuns} measured samples, received ${samples.length}`);
   }
   const timings = {};
-  for (const field of config.retainedTimings) timings[field] = describe(samples.map((sample) => sample.timings[field]));
+  for (const field of config.retainedTimings) {
+    const values = samples.map((sample) => sample.timings[field]);
+    if (values.some((value) => Number.isFinite(value) && value < 0)) {
+      throw new Error(`${field} values must be non-negative`);
+    }
+    timings[field] = describe(values);
+  }
   const rss = describe(samples.map((sample) => sample.peakRssBytes));
   const outliers = outlierIndexes(samples.map((sample) => sample.timings[config.primaryDuration]));
   return {

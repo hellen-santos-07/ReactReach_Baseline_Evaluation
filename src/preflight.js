@@ -179,6 +179,14 @@ function validateProjectInputs(context, project) {
   return metadata;
 }
 
+/**
+ * Verify the frozen evaluation inputs, repository provenance, and runtime environment.
+ *
+ * @param {string} evaluationRoot - Root of the replication package.
+ * @param {object} [options={}] - Preflight options, including working-tree requirements.
+ * @returns {{valid: boolean, errors: string[], summary: object, config: object}}
+ * Validation status and the resolved frozen-input summary.
+ */
 function runPreflight(evaluationRoot, options = {}) {
   const errors = [];
   const npmVersion = installedNpmVersion();

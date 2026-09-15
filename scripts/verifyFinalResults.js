@@ -6,6 +6,7 @@ const { readJson } = require("../src/groundTruth");
 const { checkPerformanceRepeatability } = require("../src/performanceRepeatability");
 const { verifyPerformanceRun } = require("../src/performanceResultVerification");
 const { verifyEvaluationRun } = require("../src/resultVerification");
+const { verifySemgrepRun } = require("../src/semgrepResultVerification");
 
 const evaluationRoot = path.resolve(__dirname, "..");
 const manifest = readJson(path.join(evaluationRoot, "config", "final-runs.json"));
@@ -53,6 +54,13 @@ if (typeof manifest.effectivenessRun !== "string" || manifest.effectivenessRun =
   }
 }
 
+if (typeof manifest.semgrepBaselineRun !== "string" || manifest.semgrepBaselineRun === "") {
+  errors.push("final-runs requires one Semgrep baseline run");
+} else {
+  const result = verifySemgrepRun(evaluationRoot, manifest.semgrepBaselineRun);
+  if (!result.valid) errors.push(...result.errors.map((error) => `${manifest.semgrepBaselineRun}: ${error}`));
+}
+
 if (!Array.isArray(manifest.performanceRuns) || manifest.performanceRuns.length !== 3) {
   errors.push("final-runs requires exactly three performance runs");
 } else {
@@ -83,6 +91,7 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(`Effectiveness run verified: ${manifest.effectivenessRun}`);
+  console.log(`Semgrep baseline run verified: ${manifest.semgrepBaselineRun}`);
   for (const runId of manifest.performanceRuns) console.log(`Performance run verified: ${runId}`);
   console.log("Final ReactReach v1.0.0 evaluation: PASS");
 }

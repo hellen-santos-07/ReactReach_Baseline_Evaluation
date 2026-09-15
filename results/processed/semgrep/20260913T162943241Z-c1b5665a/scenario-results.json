@@ -1,0 +1,1427 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260913T162943241Z-c1b5665a",
+  "rows": [
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-inner-html",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/DirectInnerHtml.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/DirectInnerHtml.jsx",
+          "start": {
+            "line": 4,
+            "col": 50,
+            "offset": 128
+          },
+          "end": {
+            "line": 4,
+            "col": 63,
+            "offset": 141
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "direct-inner-html"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "local-variable-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/LocalPropagation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/LocalPropagation.jsx",
+          "start": {
+            "line": 5,
+            "col": 50,
+            "offset": 159
+          },
+          "end": {
+            "line": 5,
+            "col": 58,
+            "offset": 167
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "local-variable-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "inter-component-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/InterComponentPropagation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/InterComponentPropagation.jsx",
+          "start": {
+            "line": 4,
+            "col": 54,
+            "offset": 113
+          },
+          "end": {
+            "line": 4,
+            "col": 58,
+            "offset": 117
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "inter-component-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "require-direct-eval",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/RequireDirectEval.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unused-static-import",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/UnusedImport.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "component-without-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/ComponentWithoutSink.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-sink",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/UnrelatedSink.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/UnrelatedSink.jsx",
+          "start": {
+            "line": 8,
+            "col": 47,
+            "offset": 219
+          },
+          "end": {
+            "line": 8,
+            "col": 58,
+            "offset": 230
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "unrelated-sink"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "dynamic-import-no-binding",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/DynamicImportNoBinding.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-state-initial-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/UseStateInitial.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/UseStateInitial.jsx",
+          "start": {
+            "line": 6,
+            "col": 50,
+            "offset": 200
+          },
+          "end": {
+            "line": 6,
+            "col": 54,
+            "offset": 204
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "use-state-initial-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-state-setter-propagation",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/UseStateSetter.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-memo-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/UseMemoPropagation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/UseMemoPropagation.jsx",
+          "start": {
+            "line": 6,
+            "col": 50,
+            "offset": 214
+          },
+          "end": {
+            "line": 6,
+            "col": 54,
+            "offset": 218
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "use-memo-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "cross-file-inter-component-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/cross-file-positive/CrossFileParent.jsx",
+        "src/cross-file-positive/HtmlSink.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/cross-file-positive/HtmlSink.jsx",
+          "start": {
+            "line": 2,
+            "col": 54,
+            "offset": 90
+          },
+          "end": {
+            "line": 2,
+            "col": 58,
+            "offset": 94
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "cross-file-inter-component-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-jsx-url",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/DirectJsxUrl.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-dom-ref-html",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/DirectDomRef.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "scope-shadowing-blocks-flow",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/ScopeShadowing.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-location-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/UnrelatedLocationSink.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "side-effect-require-no-binding",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/SideEffectRequire.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-jsx-url-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/UnrelatedJsxUrl.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "cross-file-safe-import-resolution",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/cross-file-safe/SafeParent.jsx",
+        "src/cross-file-safe/Target.jsx",
+        "src/cross-file-danger/Target.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/cross-file-danger/Target.jsx",
+          "start": {
+            "line": 2,
+            "col": 50,
+            "offset": 95
+          },
+          "end": {
+            "line": 2,
+            "col": 57,
+            "offset": 102
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "cross-file-safe-import-resolution"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "class-component-without-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/ClassWithoutSink.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-reducer-initial-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/UseReducerInitial.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/UseReducerInitial.jsx",
+          "start": {
+            "line": 6,
+            "col": 50,
+            "offset": 229
+          },
+          "end": {
+            "line": 6,
+            "col": 54,
+            "offset": 233
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "use-reducer-initial-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "use-callback-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/UseCallbackPropagation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/UseCallbackPropagation.jsx",
+          "start": {
+            "line": 7,
+            "col": 50,
+            "offset": 257
+          },
+          "end": {
+            "line": 7,
+            "col": 54,
+            "offset": 261
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "use-callback-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "direct-new-function",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/DirectNewFunction.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "insert-adjacent-html-propagation",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/InsertAdjacentHtmlPropagation.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "multi-hop-component-propagation",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/MultiHopPropagation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/MultiHopPropagation.jsx",
+          "start": {
+            "line": 4,
+            "col": 50,
+            "offset": 114
+          },
+          "end": {
+            "line": 4,
+            "col": 54,
+            "offset": 118
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "multi-hop-component-propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-use-reducer-sink",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/UnrelatedUseReducer.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/UnrelatedUseReducer.jsx",
+          "start": {
+            "line": 10,
+            "col": 47,
+            "offset": 330
+          },
+          "end": {
+            "line": 10,
+            "col": 55,
+            "offset": 338
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "unrelated-use-reducer-sink"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "shadowed-eval-is-not-global-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/ShadowedEvalSink.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "unrelated-insert-adjacent-html",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/UnrelatedInsertAdjacentHtml.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "require-destructured-without-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/RequireDestructuredWithoutSink.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "characterization",
+      "projectId": "effectiveness-core",
+      "scenarioId": "multi-hop-safe-terminal",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/MultiHopSafeTerminal.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-custom-hook-flow",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/CustomHookFlow.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/CustomHookFlow.jsx",
+          "start": {
+            "line": 9,
+            "col": 50,
+            "offset": 231
+          },
+          "end": {
+            "line": 9,
+            "col": 54,
+            "offset": 235
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-custom-hook-flow"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-cross-file-helper-flow",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/helper/renderMarkdown.js",
+        "src/HelperFunctionFlow.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/HelperFunctionFlow.jsx",
+          "start": {
+            "line": 5,
+            "col": 50,
+            "offset": 194
+          },
+          "end": {
+            "line": 5,
+            "col": 54,
+            "offset": 198
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-cross-file-helper-flow"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-react-context-flow",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/ContextFlow.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-member-mutation-flow",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/MemberMutationFlow.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/MemberMutationFlow.jsx",
+          "start": {
+            "line": 6,
+            "col": 50,
+            "offset": 181
+          },
+          "end": {
+            "line": 6,
+            "col": 62,
+            "offset": 193
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-member-mutation-flow"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-array-mutation-flow",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/ArrayMutationFlow.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-async-state-setter-flow",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/AsyncSetterFlow.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-overwritten-binding",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/OverwrittenBinding.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/OverwrittenBinding.jsx",
+          "start": {
+            "line": 6,
+            "col": 50,
+            "offset": 190
+          },
+          "end": {
+            "line": 6,
+            "col": 54,
+            "offset": 194
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-overwritten-binding"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-generic-props-unrelated",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/GenericPropsUnrelated.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/GenericPropsUnrelated.jsx",
+          "start": {
+            "line": 4,
+            "col": 50,
+            "offset": 115
+          },
+          "end": {
+            "line": 4,
+            "col": 67,
+            "offset": 132
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-generic-props-unrelated"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-rest-props-unrelated",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/RestPropsUnrelated.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-object-property-separation",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/ObjectPropertySeparation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/ObjectPropertySeparation.jsx",
+          "start": {
+            "line": 8,
+            "col": 50,
+            "offset": 221
+          },
+          "end": {
+            "line": 8,
+            "col": 62,
+            "offset": 233
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-object-property-separation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-destructured-property-separation",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/DestructuredPropertySeparation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/DestructuredPropertySeparation.jsx",
+          "start": {
+            "line": 9,
+            "col": 50,
+            "offset": 255
+          },
+          "end": {
+            "line": 9,
+            "col": 54,
+            "offset": 259
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-destructured-property-separation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "holdout",
+      "projectId": "adversarial-holdout",
+      "scenarioId": "holdout-array-index-separation",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/ArrayIndexSeparation.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/ArrayIndexSeparation.jsx",
+          "start": {
+            "line": 5,
+            "col": 50,
+            "offset": 189
+          },
+          "end": {
+            "line": 5,
+            "col": 59,
+            "offset": 198
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "holdout-array-index-separation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-direct-inner-html",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/dompurify-direct-inner-html/DompurifyDirectInnerHtml.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-local-dom-html",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/dompurify-local-dom-html/sanitizer.js",
+        "src/scenarios/dompurify-local-dom-html/DompurifyLocalDomHtml.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-inter-component",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/scenarios/dompurify-article-flow/services/sanitizer.js",
+        "src/scenarios/dompurify-article-flow/hooks/useSanitizedArticle.js",
+        "src/scenarios/dompurify-article-flow/ArticlePage.jsx",
+        "src/scenarios/dompurify-article-flow/components/ArticleContent.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/scenarios/dompurify-article-flow/components/ArticleContent.jsx",
+          "start": {
+            "line": 2,
+            "col": 54,
+            "offset": 96
+          },
+          "end": {
+            "line": 2,
+            "col": 58,
+            "offset": 100
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "robustness-dompurify-inter-component"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-unused-import",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/dompurify-unused-import/DompurifyUnusedImport.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-overwritten-binding",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/dompurify-overwritten-binding/DompurifyOverwrittenBinding.jsx",
+        "src/scenarios/dompurify-overwritten-binding/contentPolicy.js"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-dompurify-property-separation",
+      "expectedPositive": false,
+      "predictedPositive": true,
+      "outcome": "FP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/scenarios/dompurify-property-separation/services/sanitizer.js",
+        "src/scenarios/dompurify-property-separation/policies/contentPolicy.js",
+        "src/scenarios/dompurify-property-separation/DompurifyPropertySeparation.jsx",
+        "src/scenarios/dompurify-property-separation/components/ArticleContent.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/scenarios/dompurify-property-separation/components/ArticleContent.jsx",
+          "start": {
+            "line": 2,
+            "col": 54,
+            "offset": 96
+          },
+          "end": {
+            "line": 2,
+            "col": 58,
+            "offset": 100
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "robustness-dompurify-property-separation"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-direct-script-html",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/serialize-direct-script-html/SerializeDirectScriptHtml.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-local-insert-adjacent",
+      "expectedPositive": true,
+      "predictedPositive": false,
+      "outcome": "FN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/serialize-bootstrap-hook/serialization/serializeState.js",
+        "src/scenarios/serialize-bootstrap-hook/state/loadInitialState.js",
+        "src/scenarios/serialize-bootstrap-hook/hooks/useBootstrapScript.js",
+        "src/scenarios/serialize-bootstrap-hook/SerializeLocalInsertAdjacent.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-cross-file-helper",
+      "expectedPositive": true,
+      "predictedPositive": true,
+      "outcome": "TP",
+      "findingCount": 1,
+      "ruleIds": [
+        "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml"
+      ],
+      "evidenceFiles": [
+        "src/scenarios/serialize-app-shell/serialization/serializeState.js",
+        "src/scenarios/serialize-app-shell/state/normalizeState.js",
+        "src/scenarios/serialize-app-shell/bootstrap/buildBootstrapScript.js",
+        "src/scenarios/serialize-app-shell/SerializeHelperFunctionFlow.jsx"
+      ],
+      "findings": [
+        {
+          "checkId": "typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "path": "src/scenarios/serialize-app-shell/SerializeHelperFunctionFlow.jsx",
+          "start": {
+            "line": 5,
+            "col": 53,
+            "offset": 247
+          },
+          "end": {
+            "line": 5,
+            "col": 63,
+            "offset": 257
+          },
+          "message": "Detection of dangerouslySetInnerHTML from non-constant definition. This can inadvertently expose users to cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use dangerouslySetInnerHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.",
+          "severity": "WARNING",
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": [
+            "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+          ],
+          "ruleSource": "https://semgrep.dev/r/typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml",
+          "matchingScenarioIds": [
+            "robustness-serialize-cross-file-helper"
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-component-without-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/serialize-component-without-sink/SerializeComponentWithoutSink.jsx",
+        "src/scenarios/serialize-component-without-sink/StatePreview.jsx"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-unrelated-sink",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/serialize-unrelated-sink/SerializeUnrelatedSink.jsx",
+        "src/scenarios/serialize-unrelated-sink/StatePreview.jsx",
+        "src/scenarios/serialize-unrelated-sink/reviewedBootstrap.js"
+      ],
+      "findings": []
+    },
+    {
+      "cohort": "robustness",
+      "projectId": "robustness-multipackage",
+      "scenarioId": "robustness-serialize-dynamic-import-no-binding",
+      "expectedPositive": false,
+      "predictedPositive": false,
+      "outcome": "TN",
+      "findingCount": 0,
+      "ruleIds": [],
+      "evidenceFiles": [
+        "src/scenarios/serialize-dynamic-import/SerializeDynamicImportNoBinding.jsx"
+      ],
+      "findings": []
+    }
+  ]
+}

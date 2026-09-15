@@ -1,5 +1,5 @@
 const path = require("node:path");
-const { scanProject } = require("reactreach/src/scanProject");
+const { scanProject } = require("reactreach");
 const { extractVulnerablePackages } = require("reactreach/src/dependency/runAudit");
 
 const POSITIVE_TIERS = new Set(["CRITICAL", "HIGH"]);
@@ -59,6 +59,15 @@ function outcome(expectedPositive, predictedPositive) {
   return "FN";
 }
 
+/**
+ * Compare scanner findings with the declared scenario ground truth.
+ *
+ * @param {object[]} scenarios - Scenarios to classify.
+ * @param {object[]} findings - Findings emitted by ReactReach.
+ * @param {string} projectRoot - Root used to normalise source-file identities.
+ * @returns {{rows: object[], unexpectedPositiveFindings: object[], reviewRequired: boolean}}
+ * Scenario outcomes and any positive findings that could not be associated.
+ */
 function evaluateScenarios(scenarios, findings, projectRoot) {
   const associatedPositiveFindingIndexes = new Set();
   const rows = scenarios.map((scenario) => {

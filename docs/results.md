@@ -19,6 +19,9 @@
 | Evaluation configuration | `1eee302e373fb3ffc9d112cc45a5705c3793232e3a161ca6ba335a4582a2f9e4` |
 | Sink catalogue | `5330d6c10a2e320723e24cad6e4b780be7e4abeb31546bbdd3442d4b5262390a` |
 | Performance benchmark configuration | `fdb6a6b343c4ab6ad7a4e85c8ea17c3e8342f9b52ace05f30464128f0348f8cb` |
+| Semgrep | Community Edition `1.177.0`; OSS engine |
+| Semgrep ruleset | `p/javascript`; 74 rules; retrieved 13 September 2026 |
+| Semgrep rule catalogue | `01bda027b61d4ecd64f2d3da6ca23b393e3759849589da3c701614941d689afd` |
 | Runtime | Node.js 24.11.1; npm 11.6.2 |
 
 ## Effectiveness
@@ -45,6 +48,46 @@ Its precision is 0.500, recall is 1.000, F1 is 0.667, accuracy is 0.500 and
 specificity is 0. ReactReach reduces false positives from 27 to 7 and increases
 precision to 0.720, while its nine false negatives reduce recall to 0.667.
 
+### Semgrep general SAST baseline
+
+Definitive run: `20260913T162943241Z-c1b5665a`.
+
+Semgrep Community Edition `1.177.0` used its OSS engine and the public
+`p/javascript` ruleset retrieved on 13 September 2026. A scenario was predicted
+positive when a Semgrep finding overlapped one of its frozen ground-truth
+evidence ranges. All 23 findings mapped to exactly one scenario; none required
+manual review.
+
+| Cohort | TP | FP | TN | FN | Precision | Recall | F1 | Accuracy | Specificity |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Characterization | 9 | 3 | 12 | 6 | 0.750 | 0.600 | 0.667 | 0.700 | 0.800 |
+| Holdout | 3 | 5 | 1 | 3 | 0.375 | 0.500 | 0.429 | 0.333 | 0.167 |
+| Primary | 12 | 8 | 13 | 9 | 0.600 | 0.571 | 0.585 | 0.595 | 0.619 |
+| Robustness | 2 | 1 | 5 | 4 | 0.667 | 0.333 | 0.444 | 0.583 | 0.833 |
+| Extended | 14 | 9 | 18 | 13 | 0.609 | 0.519 | 0.560 | 0.593 | 0.667 |
+
+On the primary dataset, ReactReach exceeds Semgrep in precision (0.727 versus
+0.600), recall (0.762 versus 0.571), F1 (0.744 versus 0.585), and accuracy
+(0.738 versus 0.595). On the extended dataset, ReactReach also has fewer false
+positives (7 versus 9) and false negatives (9 versus 13). This aggregate
+advantage is not uniform across cohorts. Semgrep performs better on the
+deliberately adversarial holdout, with F1 0.429 versus 0.154 and accuracy 0.333
+versus 0.083, while both tools have the same aggregate robustness confusion
+matrix and metrics.
+
+The holdout was intentionally constructed around custom-hook returns,
+cross-file helpers, React Context, mutation, trusted overwrites, generic or rest
+props, and property or index separation outside ReactReach's implemented
+propagation boundaries. Semgrep's stronger holdout result does not mean that it
+reconstructed these dependency-origin paths. All 23 findings in the definitive
+run came from the generic `dangerouslySetInnerHTML` rule, which can predict a
+positive scenario by recognising the sink pattern without establishing that
+the value originated in the vulnerable dependency. Its holdout result therefore
+shows complementary pattern coverage under the frozen mapping. Conversely,
+ReactReach's overall advantage is influenced by the development-aligned
+characterization cohort and must not be interpreted as universal superiority
+over Semgrep. The comparison is not feature-equivalent.
+
 ### Secondary fidelity
 
 | Field | Matches | Total | Accuracy |
@@ -56,7 +99,8 @@ precision to 0.720, while its nine false negatives reduce recall to 0.667.
 
 The perfect characterization result is implementation-aligned and must not be
 treated as generalisation evidence. The adversarial holdout exposes the model
-boundaries documented in `holdout-error-analysis.md`.
+boundaries documented in `holdout-error-analysis.md`; its purpose is precisely
+to concentrate cases that the implemented ReactReach model does not cover.
 
 ## Performance
 
@@ -98,5 +142,7 @@ observed peak RSS is 137.273 MiB.
 
 The final results support the feasibility of contextual prioritisation as a
 complement to package-presence reporting. They do not establish runtime
-exploitability and do not support replacing SCA. The controlled corpus, fixed
-vulnerable core and single reference machine limit external validity.
+exploitability and do not support replacing SCA. The Semgrep comparison adds a
+general SAST reference point, but it is not a dependency-reachability analyser.
+The controlled corpus, fixed vulnerable core and single reference machine limit
+external validity.

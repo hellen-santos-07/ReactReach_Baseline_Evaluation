@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260913T162943241Z-c1b5665a",
+  "status": "completed",
+  "startedAt": "2026-09-13T16:29:43.243Z",
+  "completedAt": "2026-09-13T16:29:59.556Z",
+  "tool": {
+    "name": "Semgrep Community Edition",
+    "version": "1.177.0",
+    "engine": "OSS"
+  },
+  "ruleset": {
+    "id": "p/javascript",
+    "registryUrl": "https://semgrep.dev/p/javascript",
+    "retrievedOn": "2026-09-13",
+    "license": "Semgrep Rules License v1.0",
+    "licenseUrl": "https://semgrep.dev/legal/rules-license/",
+    "ruleCount": 74,
+    "catalogSha256": "01bda027b61d4ecd64f2d3da6ca23b393e3759849589da3c701614941d689afd"
+  },
+  "groundTruthSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
+  "rawArtifacts": [
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/resolved-ruleset-metadata.json",
+      "bytes": 7975,
+      "sha256": "35f7b5a24cf3315c64b714d6e9c57969eb8daa5200425d81ce0caaec1630847c"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/resolved-ruleset.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/effectiveness-core.semgrep.json",
+      "bytes": 21454,
+      "sha256": "1aeb5dab84064909a418d19829a5e4a75fde9ca33d3c5e46975211b4988d35e5"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/effectiveness-core.semgrep.stderr.txt",
+      "bytes": 606,
+      "sha256": "e39c8d397c620bceb34f05c89ccb851fb661e15cf4fb8bac8ec47076a5371708"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/adversarial-holdout.semgrep.json",
+      "bytes": 14242,
+      "sha256": "a1c4defd06fc13e47e711e71b2d3c45016502d0f7c8cb07cb834f824dc6a38b8"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/adversarial-holdout.semgrep.stderr.txt",
+      "bytes": 603,
+      "sha256": "de3fded77f1de84e958b055ceef5ee7da5fb3900bf14708ff7ffea2b478d83f9"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/robustness-multipackage.semgrep.json",
+      "bytes": 9080,
+      "sha256": "386f60ecd46830955fd471c613a783a6210c17fe1abe05b0837430c1d7e5c23f"
+    },
+    {
+      "path": "results/raw/semgrep/20260913T162943241Z-c1b5665a/robustness-multipackage.semgrep.stderr.txt",
+      "bytes": 603,
+      "sha256": "325ff502b40957de0fce92d1e9c8cae3090a7bd0ac3f7ae6b87afcbec93661d2"
+    }
+  ],
+  "processedArtifacts": [
+    {
+      "path": "results/processed/semgrep/20260913T162943241Z-c1b5665a/scenario-results.json",
+      "bytes": 52282,
+      "sha256": "5e8ff316f665222b7e34b349a04e51ac0ec784679851612be1ce8d3fe3c42f74"
+    },
+    {
+      "path": "results/processed/semgrep/20260913T162943241Z-c1b5665a/scenario-results.csv",
+      "bytes": 11398,
+      "sha256": "453b2846e975e3b1d922825d15334857649b474badbe9d22a59b21453cfb5f99"
+    },
+    {
+      "path": "results/processed/semgrep/20260913T162943241Z-c1b5665a/finding-mapping.json",
+      "bytes": 28491,
+      "sha256": "e0f8b9f290df8d5fbca889ccc60af6a0e199a7d3de53dbc520a2bab0673ef4d7"
+    },
+    {
+      "path": "results/processed/semgrep/20260913T162943241Z-c1b5665a/summary.json",
+      "bytes": 3174,
+      "sha256": "c3ead0e4a58b13f4a5e6ec4c9722e0e179872f3cd21f7d01565ba657184ee396"
+    }
+  ]
+}

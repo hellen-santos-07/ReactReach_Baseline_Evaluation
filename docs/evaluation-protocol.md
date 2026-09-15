@@ -22,7 +22,8 @@ The experiment measures:
 
 ## Decisions
 
-- ReactReach is compared with one baseline: `npm audit` package presence.
+- ReactReach is compared with two baselines: `npm audit` package presence and
+  Semgrep Community Edition with the public `p/javascript` ruleset.
 - Snyk, dynamic analysis, and public projects without ground truth are outside
   this experiment. A supplemental multi-package cohort adds two vulnerability
   families without changing the original primary dataset.
@@ -112,6 +113,18 @@ For every scenario whose package occurs in the frozen audit, the `npm audit`
 presence baseline predicts positive. This explicit transformation does not claim
 that `npm audit` itself produces exploitability labels.
 
+The general SAST baseline uses Semgrep Community Edition `1.177.0`, the OSS
+engine, and the public `p/javascript` ruleset retrieved on 13 September 2026.
+Metrics and the version check are disabled, Git-ignore filtering is disabled,
+`node_modules` is excluded, and scanning uses one job. A Semgrep finding maps to
+a scenario only when its project-relative file and line interval overlap one of
+that scenario's frozen evidence ranges. At least one mapped finding gives a
+positive prediction, irrespective of the Semgrep rule severity. Findings that
+map to no scenario, or to more than one scenario, require manual review. This
+transformation evaluates Semgrep as a general pattern-based SAST comparator; it
+does not reinterpret a Semgrep alert as dependency reachability or runtime
+exploitability.
+
 | Term | Definition |
 |---|---|
 | TP | Positive ground truth and `HIGH`/`CRITICAL` prediction |
@@ -178,7 +191,7 @@ cause. For 500 files, p95 must be below 30 seconds and peak RSS below 512 MiB.
 2. Validate the manifest.
 3. Review labels without running the final candidate over the corpus.
 4. Freeze and hash the ground truth and audit data.
-5. Run ReactReach and the baseline on the same corpus.
+5. Run ReactReach and both baselines on the same corpus.
 6. Preserve raw outputs.
 7. Derive metrics automatically.
 8. For effectiveness, repeat only after a documented technical failure or a predeclared artefact revision, preserving every earlier run.
@@ -188,6 +201,12 @@ The replication package must retain ground-truth and audit hashes, JSON/SARIF
 outputs, per-scenario classification CSV, confusion matrices, metric summaries,
 raw time/memory samples, descriptive statistics, hardware/OS/Node versions, and
 the evaluated ReactReach commit.
+
+The Semgrep baseline additionally retains its CLI and engine versions, ruleset
+identifier and retrieval date, resolved rule identifiers and registry version
+identifiers, a rule-catalogue SHA-256, per-project raw JSON and stderr, and the
+finding-to-evidence mapping. The third-party rule source is not redistributed
+and remains governed by the Semgrep Rules License.
 
 The effectiveness runner creates a unique timestamped run and refuses to
 overwrite an existing identifier. It writes the ReactReach JSON and SARIF for
@@ -209,4 +228,13 @@ the failure.
   The supplemental packages improve semantic alignment but still do not prove
   runtime exploitability.
 - The package-level baseline is deliberately less granular.
+- The Semgrep baseline is general SAST rather than dependency-origin
+  reachability analysis. Its result depends on a public registry ruleset that
+  can evolve; the frozen rule catalogue identifies the evaluated retrieval but
+  a later registry execution is not assumed to be identical.
+- The adversarial holdout deliberately concentrates constructs outside
+  ReactReach's implemented propagation boundaries. An independently developed
+  pattern matcher can therefore score better on that cohort by recognising a
+  sink without solving the dependency-origin flow represented by the ground
+  truth; per-cohort results must be interpreted alongside the mapping semantics.
 - Measurements on one machine do not generalise directly to every CI system.

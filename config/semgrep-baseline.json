@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "tool": {
+    "name": "Semgrep Community Edition",
+    "version": "1.177.0",
+    "engine": "OSS"
+  },
+  "ruleset": {
+    "id": "p/javascript",
+    "registryUrl": "https://semgrep.dev/p/javascript",
+    "retrievedOn": "2026-09-13",
+    "license": "Semgrep Rules License v1.0",
+    "licenseUrl": "https://semgrep.dev/legal/rules-license/"
+  },
+  "scan": {
+    "metrics": "off",
+    "respectGitIgnore": false,
+    "versionCheck": false,
+    "engine": "OSS",
+    "jobs": 1,
+    "exclude": [
+      "node_modules"
+    ]
+  },
+  "matching": {
+    "policy": "ground-truth-evidence-range-overlap",
+    "prediction": "A scenario is positive when at least one Semgrep finding overlaps a frozen evidence range for that scenario.",
+    "unmatchedFindingPolicy": "manual-review-required",
+    "ambiguousFindingPolicy": "manual-review-required"
+  }
+}

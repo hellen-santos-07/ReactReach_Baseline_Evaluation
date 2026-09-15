@@ -7,6 +7,7 @@
   },
   "evaluationCommit": "976f2b3c3c1c18bc05398a3c310f9a9118e870aa",
   "effectivenessRun": "20260824T202157298Z-2aa39a3a",
+  "semgrepBaselineRun": "20260913T162943241Z-c1b5665a",
   "performanceRuns": [
     "20260824T202221487Z-8155975c",
     "20260824T202331517Z-26f2fb51",

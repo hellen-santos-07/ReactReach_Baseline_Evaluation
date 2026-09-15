@@ -12,6 +12,7 @@ const {
 } = require("./effectiveness");
 const { readJson, validateGroundTruth } = require("./groundTruth");
 const { fileSha256, runPreflight } = require("./preflight");
+const { writeNewJson, writeNewText } = require("./artifactWriters");
 
 const COHORT_BY_PROJECT_ID = Object.freeze({
   "effectiveness-core": "characterization",
@@ -57,14 +58,6 @@ function validateRunId(runId) {
     error.code = "INVALID_RUN_ID";
     throw error;
   }
-}
-
-function writeNewText(filePath, value) {
-  fs.writeFileSync(filePath, value, { encoding: "utf8", flag: "wx" });
-}
-
-function writeNewJson(filePath, value) {
-  writeNewText(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
 
 function initializeRunDirectories(resultsRoot, runId) {
@@ -225,6 +218,13 @@ function failurePayload(runId, startedAt, failedAt, error) {
   };
 }
 
+/**
+ * Execute the frozen effectiveness evaluation and persist its raw and derived artefacts.
+ *
+ * @param {string} evaluationRoot - Root of the replication package.
+ * @param {object} [options={}] - Optional injected runners, clocks, paths, and run identity.
+ * @returns {Promise<object>} The completed run manifest, metrics, and output paths.
+ */
 async function runFinalEvaluation(evaluationRoot, options = {}) {
   const preflightRunner = options.preflightRunner ?? runPreflight;
   const preflight = preflightRunner(evaluationRoot);

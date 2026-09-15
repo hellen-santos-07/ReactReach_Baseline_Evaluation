@@ -18,6 +18,7 @@ const {
   PERFORMANCE_BENCHMARK_CONFIG,
   loadPerformanceBenchmarkConfig,
 } = require("./performanceProtocol");
+const { writeNewJson } = require("./artifactWriters");
 
 const GENERATOR_SCRIPT = path.join("scripts", "generatePerformanceProjects.js");
 const SOURCE_AUDIT = path.join("audit-data", "effectiveness-core.npm-audit.json");
@@ -143,10 +144,6 @@ function buildMetadata(evaluationRoot, context, project, capturedAt) {
     reactReachCommit: basePreflight.summary.reactReachCommit,
     reactReachWorkingTreeClean: true,
   };
-}
-
-function writeNewJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, { encoding: "utf8", flag: "wx" });
 }
 
 function freezePerformanceInputs(evaluationRoot, options = {}) {
