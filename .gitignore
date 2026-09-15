@@ -1,9 +1,14 @@
 node_modules/
+.venv-semgrep/
 generated-projects/
 results/raw/*
 results/processed/*
 !results/raw/.gitkeep
 !results/processed/.gitkeep
+!results/raw/semgrep/
+!results/raw/semgrep/**
+!results/processed/semgrep/
+!results/processed/semgrep/**
 *.log
 .DS_Store
 Thumbs.db

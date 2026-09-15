@@ -6,9 +6,10 @@ Public replication package for the final evaluation of
 This project evaluates whether ReactReach can distinguish vulnerable-dependency
 usages with a demonstrated contextual path to a security-sensitive sink from
 usages without such a demonstrated path. ReactReach is compared with a
-package-presence baseline derived from frozen `npm audit` data. Contextual
-reachability is an operational proxy and does not prove runtime exploitation of
-a specific advisory.
+package-presence baseline derived from frozen `npm audit` data and with a
+general static-analysis baseline produced by Semgrep Community Edition.
+Contextual reachability is an operational proxy and does not prove runtime
+exploitation of a specific advisory.
 
 ## Author
 
@@ -43,9 +44,11 @@ The final labelled dataset contains 54 balanced scenarios:
 
 `CRITICAL` and `HIGH` are positive predictions. `MEDIUM`, `LOW`, and `NONE`
 are negative predictions. The package-presence baseline predicts positive when
-the scenario's package appears in the frozen audit input. Precision, recall and
-F1 are the primary effectiveness metrics; accuracy, specificity and exact
-classification fidelity are secondary.
+the scenario's package appears in the frozen audit input. For the Semgrep
+baseline, a scenario is positive when at least one finding overlaps a frozen
+ground-truth evidence range for that scenario. Precision, recall and F1 are the
+primary effectiveness metrics; accuracy, specificity and exact classification
+fidelity are secondary.
 
 Performance is measured on deterministic projects containing 50, 250 and 500
 source files. Each campaign uses three warm-ups and 30 retained measurements per
@@ -72,6 +75,32 @@ The final effectiveness run is `20260824T202157298Z-2aa39a3a`.
 On the extended dataset, the package-presence baseline has TP=27, FP=27,
 TN=0 and FN=0, with precision 0.500, recall 1.000 and F1 0.667. ReactReach
 reduces false positives from 27 to 7 but introduces nine false negatives.
+
+The Semgrep Community Edition `1.177.0` baseline uses the public
+`p/javascript` ruleset retrieved on 13 September 2026. The definitive run is
+`20260913T162943241Z-c1b5665a`; all 23 findings mapped unambiguously to frozen
+scenario evidence.
+
+| Cohort | TP | FP | TN | FN | Precision | Recall | F1 | Accuracy |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Characterization | 9 | 3 | 12 | 6 | 0.750 | 0.600 | 0.667 | 0.700 |
+| Holdout | 3 | 5 | 1 | 3 | 0.375 | 0.500 | 0.429 | 0.333 |
+| Primary | 12 | 8 | 13 | 9 | 0.600 | 0.571 | 0.585 | 0.595 |
+| Robustness | 2 | 1 | 5 | 4 | 0.667 | 0.333 | 0.444 | 0.583 |
+| Extended | 14 | 9 | 18 | 13 | 0.609 | 0.519 | 0.560 | 0.593 |
+
+The cohort-level comparison qualifies the aggregate result. Semgrep performs
+better on the deliberately adversarial holdout (F1 0.429 versus 0.154;
+accuracy 0.333 versus 0.083), while both tools produce the same aggregate
+robustness outcome. The holdout intentionally concentrates custom hooks,
+cross-file helpers, React Context, mutation, trusted overwrites, generic or
+rest props, and property or index separation outside ReactReach's implemented
+propagation boundaries. This does not mean that Semgrep reconstructed those
+dependency-origin flows: all 23 emitted findings came from its generic
+`dangerouslySetInnerHTML` rule, which can flag the sink without establishing
+that its value originated in the vulnerable dependency. ReactReach's aggregate
+advantage must therefore not be generalised as universal superiority over
+Semgrep.
 
 Three performance campaigns are published. All contain 90 retained samples and
 pass both frozen thresholds. Their 500-file results are:
@@ -142,10 +171,15 @@ npm.cmd run performance:check
 npm.cmd run evaluation:preflight
 npm.cmd run performance:preflight
 npm.cmd run results:verify
+npm.cmd run semgrep:verify
 ```
 
 `npm test` generates the deterministic performance projects before executing
 the test suite. The generated directory is intentionally excluded from Git.
+
+`semgrep:verify` checks the published raw Semgrep JSON, rule-catalogue
+fingerprint, scenario mapping, artifact hashes and recomputed metrics without
+performing a new network scan.
 
 `results:verify` recalculates hashes, scenario metrics, performance statistics
 and thresholds from the committed raw data, and confirms that the recorded
@@ -165,6 +199,27 @@ the identifier printed by the command with:
 ```powershell
 npm.cmd run evaluation:verify -- <run-id>
 ```
+
+## Reproduce the Semgrep baseline
+
+Install the frozen Semgrep Community Edition version in an isolated Python
+environment, then run the baseline:
+
+```powershell
+python -m venv .venv-semgrep
+.\.venv-semgrep\Scripts\python.exe -m pip install semgrep==1.177.0
+$env:SEMGREP_BIN = (Resolve-Path .\.venv-semgrep\Scripts\semgrep.exe)
+npm.cmd run semgrep:run
+npm.cmd run semgrep:verify -- <run-id>
+```
+
+The runner uses the OSS engine, disables metrics and the version check, ignores
+Git-ignore filtering, excludes `node_modules`, and runs one job. It records the
+74 resolved rule identifiers and registry version identifiers, a catalogue
+SHA-256, raw JSON and stderr for each project, the complete finding-to-scenario
+mapping, and the derived tables. The public rule source is not redistributed;
+the rules remain subject to the
+[Semgrep Rules License](https://semgrep.dev/legal/rules-license/).
 
 ## Reproduce the performance experiment
 
@@ -201,6 +256,10 @@ times and report every completed identifier, including all retained outliers.
   versions, operating system, processor, memory, configuration and input hashes.
 - raw outputs are written before metrics are derived and are independently
   verifiable.
+- the Semgrep baseline records the exact CLI version, engine, ruleset retrieval
+  date and resolved rule-catalogue fingerprint; rerunning the registry ruleset
+  at a later date can produce a different catalogue and must be reported as a
+  new baseline run.
 
 ## Interpretation boundary
 
@@ -208,4 +267,19 @@ A positive result means that ReactReach recognised a static contextual path
 under its model. A negative result means that no such path was demonstrated,
 but neither outcome establishes whether a specific advisory is exploitable at
 runtime. The corpus is controlled and supports repeatable comparison, and it does
-not replace validation on diverse industrial applications.
+not replace validation on diverse industrial applications. Semgrep is evaluated
+as a general SAST comparator: its alerts identify code patterns and are not
+claims about reachability from the vulnerable dependency named by a scenario.
+
+## License
+
+Code in this repository (generators, evaluation scripts, and scenario sources)
+is licensed under the MIT License; see [`LICENSE`](LICENSE). The datasets under
+`audit-data/`, `ground-truth/`, and `results/`—ground truth, frozen audit
+inputs, raw reports, and performance samples—are licensed under CC BY 4.0.
+Vulnerability advisory data reproduced in the frozen audit inputs originates
+from the GitHub Advisory Database, which is published under CC BY 4.0.
+
+When reusing these datasets, please attribute as: Santos, H. (2026). ReactReach
+Baseline Evaluation: Replication Package. Licensed under CC BY 4.0.
+[https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation](https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation)

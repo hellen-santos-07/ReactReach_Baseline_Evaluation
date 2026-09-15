@@ -1,6 +1,14 @@
 ReactReach Baseline Evaluation
-Copyright (c) 2026 Hellen Santos. All rights reserved.
+Copyright (c) 2026 Hellen Santos and contributors
 
 This repository is made publicly available as an academic replication artefact.
-No licence to copy, modify, distribute, sublicense, or sell this work is granted
-unless the copyright holder provides separate written permission.
+Source code is licensed under the MIT License. The datasets under audit-data/,
+ground-truth/, and results/ are licensed under the Creative Commons Attribution
+4.0 International License (CC BY 4.0). Vulnerability advisory data reproduced
+in the frozen audit inputs originates from the GitHub Advisory Database and is
+published under CC BY 4.0.
+
+The Semgrep executable and public rule source are not distributed in this
+repository. Semgrep result artefacts and the resolved rule catalogue identify
+the third-party rules used for the baseline. Those rules remain governed by the
+Semgrep Rules License v1.0: https://semgrep.dev/legal/rules-license/

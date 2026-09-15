@@ -7,4 +7,6 @@ de Engenharia do Porto (ISEP).
 - Email: 1190007@isep.ipp.pt
 - GitHub: [hellen-santos-07](https://github.com/hellen-santos-07)
 
-Copyright (c) 2026 Hellen Santos. All rights reserved.
+Copyright (c) 2026 Hellen Santos and contributors. Source code is licensed
+under the MIT License. Datasets under `audit-data/`, `ground-truth/`, and
+`results/` are licensed under CC BY 4.0.

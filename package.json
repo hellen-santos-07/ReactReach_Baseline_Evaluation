@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Public replication package for the ReactReach v1.0.0 baseline evaluation",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": {
     "name": "Hellen Santos",
     "email": "1190007@isep.ipp.pt",
@@ -29,6 +29,8 @@
     "evaluation:metadata:refresh": "node scripts/refreshEvaluationMetadata.js",
     "evaluation:run": "node scripts/runFinalEvaluation.js",
     "evaluation:verify": "node scripts/verifyEvaluationRun.js",
+    "semgrep:run": "node scripts/runSemgrepBaseline.js",
+    "semgrep:verify": "node scripts/verifySemgrepBaseline.js",
     "performance:generate": "node scripts/generatePerformanceProjects.js",
     "performance:check": "node scripts/generatePerformanceProjects.js --check",
     "performance:preflight": "node scripts/preflightPerformance.js",
