@@ -1,9 +1,34 @@
 const { isMainThread, parentPort, workerData } = require("node:worker_threads");
 const path = require("node:path");
-const { scanProject } = require("reactreach");
 const { extractVulnerablePackages } = require("reactreach/src/dependency/runAudit");
 const { readJson } = require("./groundTruth");
 const { loadEvaluationConfig } = require("./preflight");
+
+/**
+ * Resolve the analyser entry point from the public package API.
+ *
+ * The frozen v1.0.0 evaluation artefact predates that API, so the legacy
+ * loader is retained only to keep the original evaluation reproducible.
+ *
+ * @param {object} packageApi - Value exported by `require("reactreach")`.
+ * @param {Function} [loadLegacyApi] - Compatibility loader for ReactReach v1.0.0.
+ * @returns {Function} The ReactReach project scanner.
+ */
+function resolveScanProject(
+  packageApi,
+  loadLegacyApi = () => require("reactreach/src/scanProject"),
+) {
+  if (typeof packageApi?.scanProject === "function") return packageApi.scanProject;
+
+  const legacyApi = loadLegacyApi();
+  if (typeof legacyApi?.scanProject === "function") return legacyApi.scanProject;
+
+  const error = new TypeError("ReactReach does not expose a scanProject function");
+  error.code = "INVALID_REACTREACH_API";
+  throw error;
+}
+
+const scanProject = resolveScanProject(require("reactreach"));
 
 function serializeError(error) {
   return {
@@ -75,4 +100,4 @@ if (!isMainThread) {
   });
 }
 
-module.exports = { main, serializeError, validateWorkerData };
+module.exports = { main, resolveScanProject, serializeError, validateWorkerData };
