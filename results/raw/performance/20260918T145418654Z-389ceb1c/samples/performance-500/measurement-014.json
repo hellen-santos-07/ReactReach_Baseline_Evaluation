@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "performance-500",
+  "startedAt": "2026-09-18T14:55:01.367Z",
+  "completedAt": "2026-09-18T14:55:01.742Z",
+  "timings": {
+    "auditMs": 0.091,
+    "parseMs": 256.049,
+    "dependenciesMs": 51.72,
+    "componentsMs": 30.399,
+    "sinksMs": 26.792,
+    "graphMs": 1.981,
+    "reachabilityMs": 5.841,
+    "staticAnalysisMs": 372.782,
+    "reportMs": 0.107,
+    "totalMs": 373.426
+  },
+  "sourceFileCount": 500,
+  "componentCount": 505,
+  "sinkCount": 22,
+  "findingCount": 33,
+  "diagnosticCount": 0,
+  "diagnostics": [],
+  "stageRss": [
+    {
+      "stage": "audit",
+      "durationMs": 0.091,
+      "rssBytes": 92299264
+    },
+    {
+      "stage": "parse",
+      "durationMs": 256.049,
+      "rssBytes": 102731776
+    },
+    {
+      "stage": "dependencies",
+      "durationMs": 51.72,
+      "rssBytes": 117710848
+    },
+    {
+      "stage": "components",
+      "durationMs": 30.399,
+      "rssBytes": 129093632
+    },
+    {
+      "stage": "sinks",
+      "durationMs": 26.792,
+      "rssBytes": 140111872
+    },
+    {
+      "stage": "graph",
+      "durationMs": 1.981,
+      "rssBytes": 140226560
+    },
+    {
+      "stage": "reachability",
+      "durationMs": 5.841,
+      "rssBytes": 140353536
+    }
+  ],
+  "peakRssBytes": 140353536,
+  "rssSampleCount": 46,
+  "runId": "20260918T145418654Z-389ceb1c",
+  "phase": "measurement",
+  "measurementIndex": 14
+}

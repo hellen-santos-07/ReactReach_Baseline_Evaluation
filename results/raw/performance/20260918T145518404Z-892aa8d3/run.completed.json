@@ -1,0 +1,498 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260918T145518404Z-892aa8d3",
+  "status": "completed",
+  "startedAt": "2026-09-18T14:55:18.404Z",
+  "completedAt": "2026-09-18T14:56:12.860Z",
+  "reviewRequired": false,
+  "thresholdsPassed": true,
+  "rawArtifacts": [
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/run.started.json",
+      "bytes": 3459,
+      "sha256": "d0fa28e47c5622e329743c6f260ca7d14752b8365e9308f7861eccdba4bb8c30"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/warmups/performance-50.completed.json",
+      "bytes": 210,
+      "sha256": "5e8b1e47707157a07381e93017a54918212749b4310764155182a61e1dcd1370"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-001.json",
+      "bytes": 1380,
+      "sha256": "b4d0d1a6100ac53ce72af5f94003aaa391671015269c5fd6a587c2c5393ad462"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-002.json",
+      "bytes": 1379,
+      "sha256": "a766fd64028b60f131aadcd10cc3a29b9b8e2dd28555e0e612a83a99e5d3a707"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-003.json",
+      "bytes": 1385,
+      "sha256": "9c479f603a69a6ec00b072b953d69f2fe475bbcadd3a187b404bd331f63fbd70"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-004.json",
+      "bytes": 1383,
+      "sha256": "caff8d7b5a9c5305255c5b34712b459a6d326ed08cc8f28a517d807ef9255b35"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-005.json",
+      "bytes": 1385,
+      "sha256": "315352ea8e2374cbf9fe99ab713ba1bdad950f500c3da2fef2bc8b9ac4f821e7"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-006.json",
+      "bytes": 1383,
+      "sha256": "85073859045e9aacb8459083e8761fb9911fa75d3073173320fcbe97784e9cfc"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-007.json",
+      "bytes": 1382,
+      "sha256": "402ea86ae59c357fa2fef28dbc25689c298a545477c04b295faca89c7388e85e"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-008.json",
+      "bytes": 1379,
+      "sha256": "3908562429cf1d5e415869e67b45d1ac91b561cea06bd97dd79ce8fa93a5b17a"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-009.json",
+      "bytes": 1384,
+      "sha256": "bbc449ad909e08e31ffbe87d89f4ed1ff1fffdce290f217abc9abc7c589f3dc3"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-010.json",
+      "bytes": 1386,
+      "sha256": "fbd1b2aa20234dd6667b630205c4d4a4d3d839e0f0c60758bea43eebbaabc458"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-011.json",
+      "bytes": 1385,
+      "sha256": "43895142dd1cd68505421a7bc5a8b9b9593278c4a62d508982eedbdfda83fe90"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-012.json",
+      "bytes": 1386,
+      "sha256": "1969148ec379f85e7b07b44c096d63de1a66fd27e216aab3048dfee0a6407560"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-013.json",
+      "bytes": 1379,
+      "sha256": "5100d77d31ae069e0897b9af1b475dabd56af7f1485ed2897783897078011b71"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-014.json",
+      "bytes": 1383,
+      "sha256": "d2dc0e57e2893ddf5e6e0e74ec62e6ca481753146a829cd1f81d64843b0e04a0"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-015.json",
+      "bytes": 1386,
+      "sha256": "d8f33f6350cfb73eefa7142c82c95cdc3b671644d4632f3e33337bef49beeac1"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-016.json",
+      "bytes": 1386,
+      "sha256": "89947b878ac0c145073fdaa01db95862aaad890ff97db040ac74850e2ff2417d"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-017.json",
+      "bytes": 1383,
+      "sha256": "eefe4dc22b46572c5a34de01d9c38756311c0425972f36e5fa10ebb9f26fca01"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-018.json",
+      "bytes": 1382,
+      "sha256": "7b71b526a0369a67a39abcdae957d7996aa3c06d7e192c99e81f6137c6f8c853"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-019.json",
+      "bytes": 1387,
+      "sha256": "b75f096125b1b299f7d6ab5c5f2cf34285b92e0cd0ea5c7b649d4ce83ff0f692"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-020.json",
+      "bytes": 1383,
+      "sha256": "6c3ce83013a148844f534ba0f70b96d0f86fb68887145854c3307af8c2b428f6"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-021.json",
+      "bytes": 1386,
+      "sha256": "54151e3dba7162c1097f302542d6cb5a5ede1919e674f822abdcd416a851ac59"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-022.json",
+      "bytes": 1386,
+      "sha256": "a32ebd99f960dcf642e2ea673c2c21e68a2056b06c5da9b527df951736408adf"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-023.json",
+      "bytes": 1386,
+      "sha256": "4755ebf02699ae338bbaaa088b797a9df9e158785ecfa516447df3d24fb27741"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-024.json",
+      "bytes": 1382,
+      "sha256": "43bd7e57e0f9f66e8f504635459ea28c22864bacc3fa6c3cdaea61fc11bf804f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-025.json",
+      "bytes": 1387,
+      "sha256": "c5b5eb8c6b21b7839cf51748dc945d5aa08eb7b2d9ce0a2e5bb6894b18ae4b4a"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-026.json",
+      "bytes": 1382,
+      "sha256": "5533b2b67426ff6101c2dc2470b7d1b068c3d7215ede1e2128463fa53aabef3f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-027.json",
+      "bytes": 1380,
+      "sha256": "734413306a17dbec5896a3dcbcb56235f578e7f55196abc1b687a6ec2eea8252"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-028.json",
+      "bytes": 1385,
+      "sha256": "a2de02c56eea08eed0757a7b0eb8bca4839dcc4ec106122d533b4fefcebdf4c9"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-029.json",
+      "bytes": 1386,
+      "sha256": "e06d922a42c1cc839db06a62032e895f34534118ff3c009b98f84eb430017bc7"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-50/measurement-030.json",
+      "bytes": 1385,
+      "sha256": "6acf8f7c93bda0bbffb10f42d3227d2267f4048dfb1e89545c15303947ba2734"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/warmups/performance-250.completed.json",
+      "bytes": 211,
+      "sha256": "06121d6e761ed6e84002bb6b1e8afc0a30ee52de668afff6533c020bd3bcea35"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-001.json",
+      "bytes": 1399,
+      "sha256": "d5f0309632399f8e753c9cc471dd735a3b5db12aecb719b8b17959da0c997e5c"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-002.json",
+      "bytes": 1398,
+      "sha256": "c8990eb451192fc3ccf32ceda350c27f7d6cbb9fe6b333b2aec34acb11deab36"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-003.json",
+      "bytes": 1398,
+      "sha256": "377384d64f1441ca0a54de670aa2517f5dcb0ea01fbde7391a3c1245523be444"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-004.json",
+      "bytes": 1400,
+      "sha256": "d8b6227dfff04459e6789cdcc885d3b604cd6e9be24537bf1caa79972d61a578"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-005.json",
+      "bytes": 1396,
+      "sha256": "349729945da3232f95e880a930b4066e5f1258129975db74ced4f2425b3c0ff5"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-006.json",
+      "bytes": 1400,
+      "sha256": "294b31b1cbdffc129c8582e4a81d57c7c69ab69a92f094a9220d43cf618a73ee"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-007.json",
+      "bytes": 1397,
+      "sha256": "af7864ae24234b30528c879e80adec16800a7c10d3f753de4ea9a7e7555f3635"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-008.json",
+      "bytes": 1398,
+      "sha256": "6898cad3f00ca491a4656c6696527e8bec07e7c3270d394c233d40c154ca488a"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-009.json",
+      "bytes": 1398,
+      "sha256": "557e3569c08656c104ee61a37c4c5f8e5ec803362edfe4d2fe24082376f28b7c"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-010.json",
+      "bytes": 1401,
+      "sha256": "7efddd19eae9823b2a59457f3c5832861050dc45041dcd0ec995bbac183ba73e"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-011.json",
+      "bytes": 1401,
+      "sha256": "0b16652990c83bc18fd04bc23b3cdb6260601a8f65a55963b12c63da16605dd1"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-012.json",
+      "bytes": 1401,
+      "sha256": "316ea7c27073671bedb9591a243fc38df95e2ac63f6cae0dfa9f8f122edf7ea8"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-013.json",
+      "bytes": 1399,
+      "sha256": "fa468c44b5dbbc3af0fca9319da0fd4523f67f91ff9adec64091da83e23a9720"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-014.json",
+      "bytes": 1397,
+      "sha256": "8bb40d7b6fca07ee0cde1cf8be1e23ae91fde36a96c571b50d47168ef789b760"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-015.json",
+      "bytes": 1399,
+      "sha256": "d82aa369486e481b5675fb7f985fabcfef40e33494e4f3022458fc080dfb1a1c"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-016.json",
+      "bytes": 1399,
+      "sha256": "d0cee396a6704a77431732eefe1b43e8a9d5fdb055574bc23a1d1539cd28431a"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-017.json",
+      "bytes": 1400,
+      "sha256": "25263960558dbea6f87ec05009de65adeeaf018fa6ce53935696bc1b813044ae"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-018.json",
+      "bytes": 1397,
+      "sha256": "c80f6c28616353f726b40b7c8fdbe13319d0e29662a020fd5ab3d3a7a8f556cf"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-019.json",
+      "bytes": 1399,
+      "sha256": "ec3411fcd591724643f3f6c3ba6c5f6d31e755195b19b65f4f36a82723a9be5f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-020.json",
+      "bytes": 1401,
+      "sha256": "77fec73d4c44f02bc3b8ab423337a6e94a5b89eb80793ae711660caf7af9aeb7"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-021.json",
+      "bytes": 1394,
+      "sha256": "040721cae5fdb11114b4d9011ba58e778b81abb8a0b24f6214076d057d66459b"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-022.json",
+      "bytes": 1394,
+      "sha256": "c383d84d7019e9c7ed688e191357d5d35735e371098a33ca58dc8101b5480ae4"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-023.json",
+      "bytes": 1401,
+      "sha256": "9a0f5d7c448f01f3a16b61d21bc3995450d5709e133fc7ed863bf6c40b637ade"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-024.json",
+      "bytes": 1401,
+      "sha256": "3fd1b4d4b1b41c81ac8566a8f1ce3fe6ddd3f3bc25ae8e53c27c363efa373338"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-025.json",
+      "bytes": 1399,
+      "sha256": "40d44523aa31b5c21abb51756ee2c4bb5f959e3d20dc1e21e6719e933b5011a1"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-026.json",
+      "bytes": 1399,
+      "sha256": "32c551adbf9f2f40f2dba20170e8b870c2a0e38e102f55696565e49557526e6b"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-027.json",
+      "bytes": 1401,
+      "sha256": "ea4277136107c365e12bab34c652d6ed90c9c99b45056e5792d9fcabb82bef1a"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-028.json",
+      "bytes": 1399,
+      "sha256": "b8888ac0c218600a8864c6fb104d99e56077c4a30f4e2e866c703e45afe51b7b"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-029.json",
+      "bytes": 1399,
+      "sha256": "1a3a244a39150d315b3655d3e7e9530bd35b1998e4ac0a6024f18ed041ac24f8"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-250/measurement-030.json",
+      "bytes": 1399,
+      "sha256": "e13c9d381026ab9c00c84a9aefa8b5298eba3198189e23b876aae7cc4a877317"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/warmups/performance-500.completed.json",
+      "bytes": 211,
+      "sha256": "080e5449315a23bb9d3888ea48e070a5f980758b4d68cb9867d4f97fed73a95f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-001.json",
+      "bytes": 1399,
+      "sha256": "1de8c990135e17ad0124cfc3ab4a0969b328fe4bb33234724f424e38d6913cd6"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-002.json",
+      "bytes": 1401,
+      "sha256": "c3caf0d5cfe0d3cd245be534b8a4e7929046539cdfd422e7cc4dd876fdde5995"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-003.json",
+      "bytes": 1397,
+      "sha256": "b533dafc1f017faa964493d57d551beb9df2c73cc37a9b42b2b0f529fcacc97d"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-004.json",
+      "bytes": 1399,
+      "sha256": "b215c2c36116313e73bec7fd2ff9300b392584995a580b1ab8ddc8af50f5c708"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-005.json",
+      "bytes": 1401,
+      "sha256": "c2124f7208ae8ba1658c406714902b5c1b719e43271c676f9d7831892f21936f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-006.json",
+      "bytes": 1401,
+      "sha256": "184bb09b4be99bbccb2a841a020ca9c7704516e80e27fc51577032dbf1d73afb"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-007.json",
+      "bytes": 1398,
+      "sha256": "04fa405e040f43b92da9c937d664e8e3354bb72b1e27a6426d7449462f960146"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-008.json",
+      "bytes": 1399,
+      "sha256": "e1ed6dbea5dbc3b13006b3c76a0b76cee32df210cfcd31ccbe37ea043e741968"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-009.json",
+      "bytes": 1398,
+      "sha256": "5793cb8138376a02d58b72cc6386926a700d7064ab147ecc135d823212b8190f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-010.json",
+      "bytes": 1400,
+      "sha256": "3257e5af0827c7012987c66d84462f2ffb02d69768a04317d6e9bae0108245a2"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-011.json",
+      "bytes": 1400,
+      "sha256": "bb6c291ab8e27a9e88c44f9b04fd566bfe2963f988595559b72f2e5fd0c68d45"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-012.json",
+      "bytes": 1400,
+      "sha256": "99cdad8fa65cfd3522d20a527fc660551b3bf9a3ae8ace7153733917280f198a"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-013.json",
+      "bytes": 1392,
+      "sha256": "99c1093497367df02ed9679eb8690e45816ed6a90a54bba16292c3c4fc788b91"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-014.json",
+      "bytes": 1400,
+      "sha256": "676b5d7c97a15b549134aabde37519d3f48d738a5a1c48bcd8064503196ee65f"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-015.json",
+      "bytes": 1400,
+      "sha256": "a2b4c1f3cafdbdc6c20e819bf861ae682ee98810c6ad19e0aa9b363e9fddec61"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-016.json",
+      "bytes": 1401,
+      "sha256": "c2fc8806dd08fb995b1504ff1017884e6412a46f0a5019188056d0c362164a2e"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-017.json",
+      "bytes": 1402,
+      "sha256": "53c7b6bdc67930c4947f3c63d465a418ecdbaa7878c0acdb25b11ba0655dadf4"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-018.json",
+      "bytes": 1400,
+      "sha256": "42d57d38b367fb691f0e620e67c729cee51c8e9b6eb55ca357004445a0ea5518"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-019.json",
+      "bytes": 1398,
+      "sha256": "60d7ea779bb21c8d6d7738cd2916899e8b068db19503b2b54eceb5007f4f27ec"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-020.json",
+      "bytes": 1400,
+      "sha256": "4426a2c97a6c0ff5a91607202c2af415e5a87164058467d24a9f62be4e3cdd15"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-021.json",
+      "bytes": 1398,
+      "sha256": "410236b53bc5c05a149483ab4abcc4bd282bc05111dd9f83222deacceb4cbee3"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-022.json",
+      "bytes": 1401,
+      "sha256": "564b2ff77b5f549318b0601bae1138020bf13111f71e2f53da6021be47817996"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-023.json",
+      "bytes": 1402,
+      "sha256": "b7d8723067d43e6cd72ea5445f643cfadf72819fed0ba8115247282ea3a29456"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-024.json",
+      "bytes": 1399,
+      "sha256": "e37f7495a1ca1e768bf3027aff8d24f76c793987d04f7cd1589364452dd28cb5"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-025.json",
+      "bytes": 1402,
+      "sha256": "b5d7076503a8cf86b6168f73092442a5daf715159f0f3996fd42da2260daae92"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-026.json",
+      "bytes": 1397,
+      "sha256": "240a6a17636707f5f2deb79bd93c418aae86111cd20b03feb3f31f36dc76ac18"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-027.json",
+      "bytes": 1399,
+      "sha256": "0b5e47f7a92da5fb8714ee419e041df212f761665a54fc2b4b3ae2861d9abab2"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-028.json",
+      "bytes": 1402,
+      "sha256": "d0fc12ff5687afceab829c7d571d0ec5860a6784b52417b0db93e8154d3f8607"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-029.json",
+      "bytes": 1402,
+      "sha256": "a051205387483099c08497ab857a3745d9761c819d6d93ba10638d4008fe1ec7"
+    },
+    {
+      "path": "results/raw/performance/20260918T145518404Z-892aa8d3/samples/performance-500/measurement-030.json",
+      "bytes": 1402,
+      "sha256": "8f046fad3383379ae95f86c70ad53f81ca5a33dc1e9a2d17f1ccdfbe096cfbd9"
+    }
+  ],
+  "processedArtifacts": [
+    {
+      "path": "results/processed/performance/20260918T145518404Z-892aa8d3/samples.json",
+      "bytes": 149408,
+      "sha256": "c6d336aaddc7e15c10b03652fac8ab9c280f4201e5e1681426af9d88bd3bb333"
+    },
+    {
+      "path": "results/processed/performance/20260918T145518404Z-892aa8d3/samples.csv",
+      "bytes": 14949,
+      "sha256": "21b52d70418ee1f3f03047ba9216a871f4da9edaf15b0554e8746eff6f5efa9d"
+    },
+    {
+      "path": "results/processed/performance/20260918T145518404Z-892aa8d3/statistics.json",
+      "bytes": 16675,
+      "sha256": "5b35077e1802ca041a5dab359faf4e8d0397a389c7b4fad2e62cdcce92f026dd"
+    }
+  ]
+}

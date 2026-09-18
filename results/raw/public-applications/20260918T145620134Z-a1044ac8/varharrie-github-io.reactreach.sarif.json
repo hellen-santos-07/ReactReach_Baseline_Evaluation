@@ -1,0 +1,1038 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ReactReach",
+          "version": "1.1.0",
+          "informationUri": "https://github.com/hellen-santos-07/ReactReach",
+          "rules": [
+            {
+              "id": "RR-CRITICAL",
+              "name": "CriticalDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency identifier flows directly into a security sink"
+              },
+              "fullDescription": {
+                "text": "A vulnerable third-party dependency's imported identifier is passed without transformation directly to a security-sensitive sink (e.g. dangerouslySetInnerHTML, eval). This represents the highest likelihood of exploitability within the component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTRA",
+              "name": "HighDependencyReachabilityIntraComponent",
+              "shortDescription": {
+                "text": "Variable derived from vulnerable dependency reaches a security sink via intra-component propagation"
+              },
+              "fullDescription": {
+                "text": "Output from a vulnerable dependency is stored in a local variable or React state (via useState, useMemo, useCallback, or useReducer) and then flows into a security-sensitive sink within the same component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTER",
+              "name": "HighDependencyReachabilityInterComponent",
+              "shortDescription": {
+                "text": "Tainted data from vulnerable dependency flows through a props boundary into a child component security sink"
+              },
+              "fullDescription": {
+                "text": "A parent component passes tainted output from a vulnerable dependency as a prop to a child component, where that prop reaches a security-sensitive sink. The vulnerability crosses at least one component boundary."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Sanitise tainted data before passing it as props, or restructure the component hierarchy to avoid the data flow reaching the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability",
+                  "inter-component"
+                ]
+              }
+            },
+            {
+              "id": "RR-MEDIUM",
+              "name": "MediumDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency used in a component but no structural data path to a security sink was found"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is actively used inside a React component, but the analysis could not establish a structural data-flow path from its output to a security sink. Manual review is advised."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "Review how the dependency output is used. If it influences rendering or DOM interaction, consider patching or sanitising it."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-LOW",
+              "name": "LowDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but no binding name could be captured"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported but the analysis could not capture a binding name (e.g. dynamic import, bare side-effect import). The vulnerability may still be triggered at runtime."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "help": {
+                "text": "Review the import pattern and determine whether the vulnerable code path can be triggered."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            },
+            {
+              "id": "RR-NONE",
+              "name": "DeadDependencyImport",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but its identifier is never referenced in any component"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported at the module level but its bound identifier is never referenced inside any React component body. The vulnerability is structurally unreachable under the current analysis model."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Remove the unused import. If the import is intentional (side-effect), evaluate whether the side effect can trigger the vulnerability."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "%SRCROOT%": {
+          "uri": "file:///C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/varharrie-github-io/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/App.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/ArticleItem.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/ArticleSkeleton.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/CommentItem.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/CommentSkeleton.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/LabelItem.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/MarkdownHtml.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/Pagination.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/Playground.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/ProjectItem.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/ProjectSkeleton.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/ShapeEffect/ShapeEffect.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/ShapeEffect/shapes.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/Skeleton.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/use-dark-mode.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/use-handling.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/use-local-storage.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/use-query.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/i18n/index.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/i18n/locales/cn/index.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/i18n/locales/en/index.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/models/ArticleModel.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/models/CategoryModel.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/models/CommentModel.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/models/LabelModel.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/models/ProjectModel.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/models/UserModel.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/services/github.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/styles/BaseStyles.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils.ts",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Article.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Articles.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Main.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Projects.tsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/App.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/components/ArticleItem.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/components/LabelItem.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'markdown-it' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/components/MarkdownHtml.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "markdown-it",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/hooks/use-query.ts",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'prismjs' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/utils.ts",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "prismjs",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Article.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: high): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Articles.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "Articles",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "high",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "Articles",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: high): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Main.tsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "high",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        }
+      ],
+      "properties": {
+        "scannedAt": "2026-09-18T14:56:23.707Z",
+        "summary": {
+          "vulnerablePackages": 24,
+          "sourceFiles": 36,
+          "components": 15,
+          "cogNodes": 15,
+          "cogEdges": 11,
+          "sinks": 3,
+          "findings": 10
+        },
+        "diagnostics": [],
+        "timings": {
+          "auditMs": 0.015,
+          "parseMs": 66.101,
+          "dependenciesMs": 32.757,
+          "componentsMs": 13.169,
+          "sinksMs": 14.081,
+          "graphMs": 0.809,
+          "reachabilityMs": 4.355,
+          "staticAnalysisMs": 131.272,
+          "reportMs": 0.084,
+          "totalMs": 131.91
+        },
+        "vulnerablePackages": [
+          {
+            "name": "@antfu/utils",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<0.7.3",
+            "fixAvailable": true
+          },
+          {
+            "name": "@babel/core",
+            "severity": "low",
+            "isDirect": false,
+            "range": "<=7.29.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "@babel/helpers",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<7.26.10",
+            "fixAvailable": true
+          },
+          {
+            "name": "@babel/runtime",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<7.26.10",
+            "fixAvailable": true
+          },
+          {
+            "name": "@babel/traverse",
+            "severity": "critical",
+            "isDirect": false,
+            "range": "<7.23.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "@remix-run/router",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=1.23.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "braces",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<3.0.3",
+            "fixAvailable": true
+          },
+          {
+            "name": "browserslist",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=4.28.6",
+            "fixAvailable": true
+          },
+          {
+            "name": "cross-spawn",
+            "severity": "high",
+            "isDirect": false,
+            "range": "7.0.0 - 7.0.4",
+            "fixAvailable": true
+          },
+          {
+            "name": "es5-ext",
+            "severity": "low",
+            "isDirect": false,
+            "range": "0.10.1 - 0.10.62",
+            "fixAvailable": true
+          },
+          {
+            "name": "esbuild",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<=0.24.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "linkify-it",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=5.0.1",
+            "fixAvailable": {
+              "name": "markdown-it",
+              "version": "15.0.2",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "markdown-it",
+            "severity": "high",
+            "isDirect": true,
+            "range": "<=14.1.1",
+            "fixAvailable": {
+              "name": "markdown-it",
+              "version": "15.0.2",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "micromatch",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<4.0.8",
+            "fixAvailable": true
+          },
+          {
+            "name": "nanoid",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=3.3.17",
+            "fixAvailable": true
+          },
+          {
+            "name": "picomatch",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=2.3.1",
+            "fixAvailable": true
+          },
+          {
+            "name": "postcss",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=8.5.22",
+            "fixAvailable": true
+          },
+          {
+            "name": "prismjs",
+            "severity": "moderate",
+            "isDirect": true,
+            "range": "<1.30.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "react-router",
+            "severity": "high",
+            "isDirect": false,
+            "range": "6.0.0 - 7.17.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "react-router-dom",
+            "severity": "high",
+            "isDirect": true,
+            "range": "6.0.0-alpha.0 - 6.30.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "rollup",
+            "severity": "high",
+            "isDirect": false,
+            "range": "3.0.0 - 3.29.5",
+            "fixAvailable": true
+          },
+          {
+            "name": "semver",
+            "severity": "high",
+            "isDirect": false,
+            "range": "6.0.0 - 6.3.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "vite",
+            "severity": "high",
+            "isDirect": true,
+            "range": "<=6.4.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "yaml",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "1.0.0 - 1.10.2",
+            "fixAvailable": true
+          }
+        ]
+      }
+    }
+  ]
+}

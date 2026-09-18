@@ -62,7 +62,7 @@ The complete method is specified in
 
 ## Published final results
 
-The final effectiveness run is `20260824T202157298Z-2aa39a3a`.
+The final effectiveness run is `20260918T145311595Z-977fc6ee`.
 
 | Cohort | TP | FP | TN | FN | Precision | Recall | F1 | Accuracy |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -107,17 +107,26 @@ pass both frozen thresholds. Their 500-file results are:
 
 | Campaign | p95 static analysis | Peak RSS | Status |
 |---|---:|---:|---|
-| `20260824T202221487Z-8155975c` | 422.584 ms | 137.273 MiB | PASS |
-| `20260824T202331517Z-26f2fb51` | 396.821 ms | 136.641 MiB | PASS |
-| `20260824T202442081Z-13c94484` | 393.665 ms | 136.113 MiB | PASS |
+| `20260918T145318252Z-40189d1a` | 368.377 ms | 134.148 MiB | PASS |
+| `20260918T145418654Z-389ceb1c` | 372.782 ms | 134.223 MiB | PASS |
+| `20260918T145518404Z-892aa8d3` | 373.300 ms | 134.301 MiB | PASS |
 
-All four executions used evaluation commit
-`976f2b3c3c1c18bc05398a3c310f9a9118e870aa`. Later commits only add the
-published result artefacts, documentation and verification metadata.
+The public-application run `20260918T145620134Z-a1044ac8` completed all three
+applications without crashes or parsing errors. Donetick produced 78 findings
+(2 HIGH, 68 MEDIUM, 1 LOW and 7 NONE), SocialEcho produced 55 (37 MEDIUM and
+18 NONE), and varHarrie.github.io produced 10 (1 MEDIUM and 9 NONE). Manual
+inspection found both HIGH results to be credible structural routes, but did
+not establish attacker control or the advisory-specific exploitability needed
+to call them confirmed vulnerabilities. These applications have no labelled
+ground truth, so no precision, recall or F1 is reported.
+
+All five new executions used evaluation commit
+`aee4f4a6fc901bdb3764af4549703f66bac513f3`.
 
 See [`docs/results.md`](docs/results.md) for the complete tables and
 [`docs/holdout-error-analysis.md`](docs/holdout-error-analysis.md) for the
-scenario-level error analysis.
+scenario-level error analysis. The public-application method and results are
+reported in [`docs/public-application-study.md`](docs/public-application-study.md).
 
 ## Repository structure
 

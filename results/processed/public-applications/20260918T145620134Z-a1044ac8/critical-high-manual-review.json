@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260918T145620134Z-a1044ac8",
+  "purpose": "Manual inspection of CRITICAL and HIGH findings; this is not a ground-truth classification.",
+  "groundTruthAvailable": false,
+  "items": [
+    {
+      "reviewId": "donetick-frontend-001",
+      "projectId": "donetick-frontend",
+      "reachability": "HIGH",
+      "packageName": "react-router-dom",
+      "auditSeverity": "moderate",
+      "sourceFile": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+      "sinkFile": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+      "component": "ChoreView",
+      "childComponent": null,
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkRuleId": "inner-html",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "confidence": 100,
+      "sinkLocation": {
+        "start": {
+          "line": 1098,
+          "column": 22,
+          "index": 34734
+        },
+        "end": {
+          "line": 1098,
+          "column": 75,
+          "index": 34787
+        }
+      },
+      "taintedPath": [
+        "descriptionHtml"
+      ],
+      "componentPath": [],
+      "propagationPath": [],
+      "reviewed": true,
+      "assessment": "credible-structural-route; advisory-specific exploitability not established",
+      "notes": "The route parameter selects the chore loaded into React state. chore.description passes through useDescriptionHtml, which returns the raw HTML before optional image-URL patching, and reaches dangerouslySetInnerHTML. This establishes a credible structural route, but the inspected code does not establish attacker control or the advisory's open-redirect mechanism."
+    },
+    {
+      "reviewId": "donetick-frontend-002",
+      "projectId": "donetick-frontend",
+      "reachability": "HIGH",
+      "packageName": "react-router-dom",
+      "auditSeverity": "moderate",
+      "sourceFile": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+      "sinkFile": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+      "component": "ChoreView",
+      "childComponent": null,
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkRuleId": "inner-html",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "confidence": 100,
+      "sinkLocation": {
+        "start": {
+          "line": 1166,
+          "column": 22,
+          "index": 36855
+        },
+        "end": {
+          "line": 1166,
+          "column": 69,
+          "index": 36902
+        }
+      },
+      "taintedPath": [
+        "notesHtml"
+      ],
+      "componentPath": [],
+      "propagationPath": [],
+      "reviewed": true,
+      "assessment": "credible-structural-route; advisory-specific exploitability not established",
+      "notes": "The route parameter selects the chore loaded into React state. chore.notes passes through useDescriptionHtml, which returns the raw HTML before optional image-URL patching, and reaches dangerouslySetInnerHTML. This establishes a credible structural route, but the inspected code does not establish attacker control or the advisory's open-redirect mechanism."
+    }
+  ]
+}

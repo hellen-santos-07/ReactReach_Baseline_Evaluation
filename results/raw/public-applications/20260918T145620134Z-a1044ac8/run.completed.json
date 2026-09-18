@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260918T145620134Z-a1044ac8",
+  "status": "completed-after-manual-review",
+  "startedAt": "2026-09-18T14:56:20.134Z",
+  "completedAt": "2026-09-18T14:56:23.721Z",
+  "rawArtifacts": [
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/run.started.json",
+      "bytes": 2346,
+      "sha256": "a35272a074618eb16c1dfb5cb395fd0b36764c7e2c12723eb02a12eafa8ca123"
+    },
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/donetick-frontend.reactreach-report.json",
+      "bytes": 163393,
+      "sha256": "32da236a65d53d912427416217f983bd901b4e5c0e0fa59669bb591e3a20a6b3"
+    },
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/donetick-frontend.reactreach.sarif.json",
+      "bytes": 186740,
+      "sha256": "c92d27a84cfc24f097a64bcae6093fbd4c20bb28f29f9a169fa4291ded014d8f"
+    },
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/socialecho.reactreach-report.json",
+      "bytes": 160697,
+      "sha256": "c21d82be98e3e198ad8850c57201227fda90008288e4e6fd7322514f2e88ee85"
+    },
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/socialecho.reactreach.sarif.json",
+      "bytes": 124333,
+      "sha256": "69b89feb41b6577de385771c797fd45f2fc04a304cee9cdf2d236c5eb9e3b204"
+    },
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/varharrie-github-io.reactreach-report.json",
+      "bytes": 47870,
+      "sha256": "7705d43d839d4b19c06edd7d8f88c915571601d8f4615b5a18d379fb41548e60"
+    },
+    {
+      "path": "results/raw/public-applications/20260918T145620134Z-a1044ac8/varharrie-github-io.reactreach.sarif.json",
+      "bytes": 32140,
+      "sha256": "2917e7eaab1b7c4fdef9f8da2a5000ce4e91c0b78999587a77be335357be56e3"
+    }
+  ],
+  "processedArtifacts": [
+    {
+      "path": "results/processed/public-applications/20260918T145620134Z-a1044ac8/critical-high-manual-review.json",
+      "bytes": 3704,
+      "sha256": "f9cd2f66fc3293d20070f8a6d73bc715c3b36e1ca63c04e120b1893b225272c3"
+    },
+    {
+      "path": "results/processed/public-applications/20260918T145620134Z-a1044ac8/summary.json",
+      "bytes": 5671,
+      "sha256": "fa4772d2128d7ad4e08477308ec4a73ed2a21ef6821e47c0ffbbb38dea64ffa7"
+    }
+  ]
+}

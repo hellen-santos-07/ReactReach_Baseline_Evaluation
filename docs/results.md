@@ -1,14 +1,14 @@
-# Final ReactReach v1.0.0 evaluation results
+# Final ReactReach v1.1.0 evaluation results
 
 **Author:** Hellen Santos
 
-**Evaluation date:** 24 August 2026
+**Evaluation date:** 18 September 2026
 
-**ReactReach tag:** `v1.0.0`
+**ReactReach tag:** `v1.1.0`
 
-**ReactReach commit:** `0202e2c451802ea449ca576beeda7695340687d0`
+**ReactReach commit:** `d63e114dfaf78a793806984336522e73f40fab63`
 
-**Evaluation commit:** `976f2b3c3c1c18bc05398a3c310f9a9118e870aa`
+**Evaluation commit:** `aee4f4a6fc901bdb3764af4549703f66bac513f3`
 
 ## Frozen identity
 
@@ -26,7 +26,7 @@
 
 ## Effectiveness
 
-Final run: `20260824T202157298Z-2aa39a3a`.
+Final run: `20260918T145311595Z-977fc6ee`.
 
 The run contains 54 processed scenario records, the raw ReactReach JSON and
 SARIF outputs for all three projects, a per-scenario CSV, derived metrics,
@@ -110,33 +110,50 @@ Each campaign contains 3 projects x 30 measurements = 90 retained samples, in
 addition to three discarded warm-ups per project. All detected Tukey outliers
 remain included.
 
-### Campaign 1 — `20260824T202221487Z-8155975c`
+### Campaign 1 — `20260918T145318252Z-40189d1a`
 
 | Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 79.197 | 2.291 | 78.750 | 83.534 | 75.095–84.391 | 100.027 | 0 |
-| 250 | 223.096 | 5.352 | 222.974 | 230.865 | 212.769–236.207 | 111.586 | 0 |
-| 500 | 388.788 | 13.653 | 386.101 | 422.584 | 372.331–435.380 | 137.273 | 3 |
+| 50 | 77.969 | 3.485 | 76.932 | 87.233 | 74.111–89.402 | 98.941 | 2 |
+| 250 | 211.952 | 2.087 | 212.313 | 215.423 | 207.383–216.171 | 112.273 | 0 |
+| 500 | 363.300 | 3.128 | 363.350 | 368.377 | 356.904–369.123 | 134.148 | 2 |
 
-### Campaign 2 — `20260824T202331517Z-26f2fb51`
-
-| Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 84.680 | 8.951 | 82.307 | 111.742 | 77.502–120.446 | 91.684 | 4 |
-| 250 | 227.650 | 9.243 | 225.654 | 247.307 | 217.689–264.159 | 110.816 | 2 |
-| 500 | 385.203 | 6.257 | 384.148 | 396.821 | 376.057–402.926 | 136.641 | 1 |
-
-### Campaign 3 — `20260824T202442081Z-13c94484`
+### Campaign 2 — `20260918T145418654Z-389ceb1c`
 
 | Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 81.101 | 1.668 | 81.203 | 83.595 | 78.183–85.669 | 91.703 | 0 |
-| 250 | 225.665 | 7.933 | 224.177 | 232.900 | 217.439–263.508 | 111.906 | 1 |
-| 500 | 384.439 | 6.186 | 384.908 | 393.665 | 374.622–400.498 | 136.113 | 0 |
+| 50 | 77.359 | 1.649 | 77.134 | 81.045 | 74.413–81.507 | 98.707 | 0 |
+| 250 | 212.499 | 3.241 | 211.693 | 218.893 | 207.844–222.091 | 112.387 | 1 |
+| 500 | 364.952 | 3.863 | 364.720 | 372.782 | 356.670–374.263 | 134.223 | 4 |
+
+### Campaign 3 — `20260918T145518404Z-892aa8d3`
+
+| Files | Mean ms | SD ms | Median ms | p95 ms | Min–max ms | Peak RSS MiB | Outliers |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 50 | 77.211 | 2.247 | 76.795 | 82.556 | 74.295–84.336 | 98.547 | 3 |
+| 250 | 213.527 | 4.073 | 212.304 | 221.583 | 208.268–228.643 | 112.402 | 2 |
+| 500 | 365.342 | 4.215 | 364.667 | 373.300 | 358.890–376.353 | 134.301 | 1 |
 
 All campaigns pass the 500-file thresholds of p95 below 30,000 ms and peak RSS
-below 512 MiB. The largest observed 500-file p95 is 422.584 ms, and the largest
-observed peak RSS is 137.273 MiB.
+below 512 MiB. The largest observed 500-file p95 is 373.300 ms, and the largest
+observed peak RSS is 134.301 MiB.
+
+## Public-application feasibility
+
+Final run: `20260918T145620134Z-a1044ac8`.
+
+All three applications completed without crashes, parsing errors or diagnostics.
+Donetick produced 78 findings (2 HIGH, 68 MEDIUM, 1 LOW and 7 NONE), SocialEcho
+produced 55 (37 MEDIUM and 18 NONE), and varHarrie.github.io produced 10
+(1 MEDIUM and 9 NONE). The complete per-application timing, memory and frozen
+input records are reported in `public-application-study.md`.
+
+Manual inspection confirmed that both HIGH findings represent credible
+structural routes from `react-router-dom` use through chore state and
+`useDescriptionHtml` to `dangerouslySetInnerHTML`. It did not establish attacker
+control or the open-redirect mechanism of the associated advisory. The sample
+has no labelled ground truth, so these counts are not accuracy estimates and no
+precision, recall or F1 is computed.
 
 ## Interpretation
 

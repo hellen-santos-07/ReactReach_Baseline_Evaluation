@@ -89,13 +89,38 @@ approximation because a short-lived peak between stages may not be observed.
 
 ## Result reporting
 
-The retained run reports duration, checkpoint peak RSS, vulnerable-package and
-source-structure counts, findings at every reachability level, diagnostics,
-parsing failures, timeouts and crashes for each application. `CRITICAL` and
-`HIGH` findings are preserved in a manual-review queue. The review records
-whether a structural route is credible while keeping advisory-specific
-exploitability, attacker control and sanitisation outside the claims supported
-by this unlabelled study.
+The retained run is `20260918T145620134Z-a1044ac8`, executed from evaluation
+commit `aee4f4a6fc901bdb3764af4549703f66bac513f3` with ReactReach v1.1.0 at
+`d63e114dfaf78a793806984336522e73f40fab63`. All three applications completed
+without crashes, parsing errors or diagnostics.
+
+| Application | Source files | Vulnerable packages | Duration ms | Peak RSS MiB | CRITICAL | HIGH | MEDIUM | LOW | NONE |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Donetick Frontend | 323 | 35 | 2,097.115 | 484.574 | 0 | 2 | 68 | 1 | 7 |
+| SocialEcho | 113 | 72 | 354.032 | 189.348 | 0 | 0 | 37 | 0 | 18 |
+| varHarrie.github.io | 36 | 24 | 131.910 | 96.480 | 0 | 0 | 1 | 0 | 9 |
+
+The distribution is concentrated in `MEDIUM` and `NONE` because most detected
+uses do not combine the full chain needed for a higher tier: vulnerable-package
+import, component context, local or hook-mediated propagation, and a recognised
+security-sensitive sink. `MEDIUM` commonly records contextual use without a
+demonstrated sink flow, whereas `NONE` records package presence without a
+demonstrated contextual path. No `CRITICAL` result appeared because no finding
+combined the strongest inter-component evidence with a qualifying sink under
+the implemented model. Only Donetick produced `HIGH` findings.
+
+Both Donetick `HIGH` results concern `react-router-dom` in `ChoreView`. A route
+parameter selects the chore loaded into React state; `chore.description` and
+`chore.notes` pass through `useDescriptionHtml`, which initially returns the
+raw HTML, and then reach `dangerouslySetInnerHTML`. Manual inspection therefore
+confirmed credible structural routes. It did not establish attacker control,
+sanitisation behaviour across all inputs, or the open-redirect mechanism of the
+associated advisory. The results are consequently not labelled as confirmed
+vulnerabilities.
+
+There is no labelled ground truth for these applications. The table reports
+analyser output and operational feasibility only; precision, recall, F1 and
+confusion-matrix counts are not computed.
 
 ## Commands
 

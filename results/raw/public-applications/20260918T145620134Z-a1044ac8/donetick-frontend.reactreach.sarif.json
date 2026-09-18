@@ -1,0 +1,6074 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ReactReach",
+          "version": "1.1.0",
+          "informationUri": "https://github.com/hellen-santos-07/ReactReach",
+          "rules": [
+            {
+              "id": "RR-CRITICAL",
+              "name": "CriticalDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency identifier flows directly into a security sink"
+              },
+              "fullDescription": {
+                "text": "A vulnerable third-party dependency's imported identifier is passed without transformation directly to a security-sensitive sink (e.g. dangerouslySetInnerHTML, eval). This represents the highest likelihood of exploitability within the component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTRA",
+              "name": "HighDependencyReachabilityIntraComponent",
+              "shortDescription": {
+                "text": "Variable derived from vulnerable dependency reaches a security sink via intra-component propagation"
+              },
+              "fullDescription": {
+                "text": "Output from a vulnerable dependency is stored in a local variable or React state (via useState, useMemo, useCallback, or useReducer) and then flows into a security-sensitive sink within the same component."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Replace or patch the vulnerable dependency, or sanitise its output before passing it to the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-HIGH-INTER",
+              "name": "HighDependencyReachabilityInterComponent",
+              "shortDescription": {
+                "text": "Tainted data from vulnerable dependency flows through a props boundary into a child component security sink"
+              },
+              "fullDescription": {
+                "text": "A parent component passes tainted output from a vulnerable dependency as a prop to a child component, where that prop reaches a security-sensitive sink. The vulnerability crosses at least one component boundary."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://owasp.org/www-community/attacks/xss/",
+              "help": {
+                "text": "Sanitise tainted data before passing it as props, or restructure the component hierarchy to avoid the data flow reaching the sink."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability",
+                  "inter-component"
+                ]
+              }
+            },
+            {
+              "id": "RR-MEDIUM",
+              "name": "MediumDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency used in a component but no structural data path to a security sink was found"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is actively used inside a React component, but the analysis could not establish a structural data-flow path from its output to a security sink. Manual review is advised."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "Review how the dependency output is used. If it influences rendering or DOM interaction, consider patching or sanitising it."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency",
+                  "reachability"
+                ]
+              }
+            },
+            {
+              "id": "RR-LOW",
+              "name": "LowDependencyReachability",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but no binding name could be captured"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported but the analysis could not capture a binding name (e.g. dynamic import, bare side-effect import). The vulnerability may still be triggered at runtime."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "help": {
+                "text": "Review the import pattern and determine whether the vulnerable code path can be triggered."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            },
+            {
+              "id": "RR-NONE",
+              "name": "DeadDependencyImport",
+              "shortDescription": {
+                "text": "Vulnerable dependency imported but its identifier is never referenced in any component"
+              },
+              "fullDescription": {
+                "text": "The vulnerable dependency is imported at the module level but its bound identifier is never referenced inside any React component body. The vulnerability is structurally unreachable under the current analysis model."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Remove the unused import. If the import is intentional (side-effect), evaluate whether the side effect can trigger the vulnerability."
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "dependency"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "%SRCROOT%": {
+          "uri": "file:///C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/App.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/Application.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/CapacitorListener.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/Config.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/Logo.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/MarketingApp.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/analytics/consent.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/analytics/eventSchemas.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/analytics/index.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/analytics/posthogClient.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/analytics/useAnalyticsIdentity.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/NotificationTemplate.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/RealTimeSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/SSEConnectionStatus.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/SSESettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/SubscriptionModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/UserProfileAvatar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/AnimatedList.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/LoadingScreen.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/PageTransition.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/SkeletonLoader.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/SmoothButton.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/SmoothCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/StaggeredList.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/animations/index.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/AppModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/DurationInput.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/EmptyState.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/FilterBar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/KeyboardShortcutHint.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/ModalActions.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/NumberInput.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/SortAndFilterMenu.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/SwipeListItem.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/common/filter/ActiveFilterChips.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/icons/DiscordIcon.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/components/icons/RedditIcon.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/constants/policyUpdates.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/constants/settingsSections.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/constants/theme.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/Contexts.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/ImpersonateUserContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/KeyboardShortcutScopeContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/LocalizationContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/QueryContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/RouterContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/SSEContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/contexts/ThemeContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/NetworkManager.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useAcknowledgmentModal.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useAnimations.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useAuth.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useConfirmationModal.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useDescriptionHtml.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useDocumentScanner.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useFileUpload.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useFilter.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useLongPress.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useOnboardingGate.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/usePendingCommands.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useResponsiveModal.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useSSE.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useSSEContext.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useStatusBar.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useStickyState.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useSyncOnReconnect.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useTimer.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/hooks/useWindowWidth.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/i18n/config.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/queries/ChoreQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/queries/ResourceQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/queries/SubtaskQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/queries/ThingQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/queries/TimeQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/queries/UserQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/search/GlobalSearchContext.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/search/GlobalSearchPage.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/search/GlobalSearchPalette.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/search/searchProviders.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/AIPromptCache.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/AlertsProvider.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/DiagnosticsSession.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/ErrorReportService.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/FeedbackService.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/LocalAIService.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/NFCWriter.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/NotificationProvider.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/PolicyUpdateService.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/VoiceInputService.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/service/WidgetService.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/ApiClient.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/ChoreCardHelpers.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Chores.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Colors.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/CommandQueue.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/DateFormatter.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Debounce.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/DeviceInfo.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/DurationUtils.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/FeatureToggle.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Fetcher.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/FileConvert.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/FilterEngine.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Haptics.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Helpers.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/HomeSectionsConfig.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/ImageCache.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/OAuthExchangeState.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/OfflineDB.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/OfflineFeatureToggle.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Onboarding.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/PendingInvite.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/PlatformUtils.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/Priorities.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/ProjectIcons.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/SafeAreaUtils.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/SidepanelConfig.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/StatusBarManager.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/SyncEngine.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/TokenStorage.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/UUID.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/UserHelpers.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/utils/imageCropUtils.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/AuthFields.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/AuthShell.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/Authenticating.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/AuthorizationContainer.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/ForgotPasswordView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/LoginSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/LoginView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/MFAVerificationModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/Signup.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/UpdatePasswordView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Authorization/authStyles.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoreEdit/ChoreEdit.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoreEdit/ChoreView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoreEdit/RepeatSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoreEdit/ThingTriggerSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoreEdit/TimePassedCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoreEdit/TimerSplitButton.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/ActivitesCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/ArchivedTasks.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/ChoreCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/ChoreListView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/CompactChoreCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/IconButtonWithMenu.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/LocalNotificationScheduler.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/MultiSelectHelp.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/MyChores.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/NotificationAccessSnackbar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/Sidepanel.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/SmartInsightsCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/SortAndGrouping.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/TasksByAssigneeCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/UserSwitcher.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/ChoreModals.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/ChoreSwipeActions.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/ChoreSwipeableItem.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/ChoreToolbarPrototype.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/CustomFilterChips.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/FilterBuilderContent.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/FilterSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/MultiSelectToolbar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/MyChoreHeader.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/components/SearchBar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useChoreActions.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useChoreFilters.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useChoreModals.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useCustomFilters.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useKeyboardShortcuts.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useMultiSelect.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Chores/hooks/useProjectFilter.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/ChoresOverview.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Circles/JoinCircle.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Error.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Filters/FilterQueries.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Filters/FilterView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/History/BigChip.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/History/ChoreHistory.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/History/HistoryCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/HomeView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/components/CaptureBar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/components/CircleStrip.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/components/FilterStrip.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/components/HomeChoreList.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/components/ProjectStrip.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/components/TriageRow.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Home/useHomeSummary.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Labels/LabelDetailView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Labels/LabelQueries.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Labels/LabelView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Labels/Labels.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/CookiePermissionSnackbar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/DemoAssignee.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/DemoCalendar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/DemoHistory.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/DemoMyChore.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/DemoNotificationTemplate.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/DemoScheduler.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/FeaturesSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/Footer.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/GettingStarted.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/HomeHero.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/Landing.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/PricingSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Landing/TabletInstallationSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/EditHistoryModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/ErrorReportModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/FeedbackModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/HistoryDetailModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/AcknowledgmentModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/AdvancedFilterBuilder.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/AttachmentBrowserModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/AttachmentViewerModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/BackupRestoreModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/ConfirmationModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/CreateChildUserModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/CreateThingModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/DateModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/EditThingState.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/IconPickerModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/LabelModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/NativeCancelSubscriptionModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/NoteViewerModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/NudgeModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/PasswordChangeModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/ProjectModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/SelectModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/TextModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/TimerEditModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/UserDeletionModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/UserModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/Inputs/WriteNFCModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/PolicyUpdateModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Modals/RedeemPointsModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Onboarding/CircleSetupView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Onboarding/GetStartedView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Onboarding/HeardAboutView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Onboarding/OnboardingView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Onboarding/OnboardingVignettes.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Onboarding/WorkspaceReadyView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Payments/PaymentFailView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Payments/PaymentSuccessView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/PrivacyPolicy/PrivacyPolicyView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Projects/ProjectQueries.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Projects/ProjectView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/APITokenSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/AccountSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/AdvancedSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/ChildUserSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/CircleSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/DeveloperSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/HomeSectionsSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/LocalizationSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/MFASettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/NotificationSetting.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/PrivacyAnalyticsSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/ProfileSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/Settings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/SettingsLayout.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/SettingsOverview.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/SettingsRoutes.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/Sharing.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/SharingSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/SidepanelSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/StorageSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/ThemeSettings.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/ThemeToggle.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Settings/ThemeToggleButton.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Terms/TermsView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/TestView/AutocompleteDropdown.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/TestView/Test.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/TestView/TimerCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Things/ThingsHistory.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Things/ThingsView.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/Timer/TimerDetails.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/User/UserActivities.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/User/UserPoints.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/AddTaskModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/AdvancedOptionsSection.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/AssigneePickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/AttachmentPickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/AutocompleteInput.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/AutocompleteSelect.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/BaseOptionPicker.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/CalendarCard.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/CalendarDual.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/CalendarMonthly.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/ChoreActionMenu.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/CustomParsers.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/DueDatePickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/DueDatePickerModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/ErrorSnackbar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/FeedbackPrompt.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/IconButtonTouchable.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/LabelsPickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/LearnMore.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/Loading.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/MobileBottomNav.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/NavBar.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/NavBarLink.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/NetworkBanner.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/NotFound.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/NotificationPickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/PendingBadge.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/PhotoTaskModal.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/PolicyUpdatePrompt.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/PriorityPickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/ProjectPickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/ProjectSelector.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/RepeatPickerField.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/RichTextEditor.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/ScanToTask/ScanPanel.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/ScanToTask/useScanToTask.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/SmartTaskTitleInput.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/SubTask.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/SyncStatusIndicator.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/VoiceToTask/VoicePanel.jsx",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/VoiceToTask/parseVoiceTask.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/VoiceToTask/useVoiceToTask.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/VoiceToTask/voiceNormalizer.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/views/components/navigationEvents.js",
+            "uriBaseId": "%SRCROOT%"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Outlet -> useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/App.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "AppContent",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "AppContent",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Outlet",
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Outlet -> useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/App.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "App",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "App",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Outlet",
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/MarketingApp.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used in a component with sinks, but no structural data path found. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/components/UserProfileAvatar.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "UserProfileAvatar",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "component": "UserProfileAvatar",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useLocation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/components/animations/PageTransition.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "PageTransition",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "PageTransition",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useLocation"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/components/common/EmptyState.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ActionButton",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ActionButton",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/contexts/RouterContext.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/hooks/useAuth.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "AuthProvider",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "AuthProvider",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/hooks/useOnboardingGate.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'i18next-http-backend' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/i18n/config.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "i18next-http-backend",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/search/GlobalSearchContext.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GlobalSearchProvider",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "GlobalSearchProvider",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/search/GlobalSearchPage.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GlobalSearchPage",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "GlobalSearchPage",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/search/GlobalSearchPalette.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GlobalSearchPalette",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "GlobalSearchPalette",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link -> useNavigate -> useParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Authorization/Authenticating.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "AuthenticationLoading",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "AuthenticationLoading",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link",
+              "useNavigate",
+              "useParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Authorization/ForgotPasswordView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ForgotPasswordView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ForgotPasswordView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Authorization/LoginSettings.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "LoginSettings",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "LoginSettings",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used in a component with sinks, but no structural data path found. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Authorization/LoginView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "LoginView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "component": "LoginView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Authorization/Signup.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SignupView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "SignupView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Authorization/UpdatePasswordView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "UpdatePasswordView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "UpdatePasswordView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useParams -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/ChoreEdit/ChoreEdit.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoreEdit",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ChoreEdit",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useParams",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'react-router-dom' (audit severity: moderate): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: descriptionHtml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/ChoreEdit/ChoreView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1098,
+                  "startColumn": 23
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoreView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "HIGH",
+            "auditSeverity": "moderate",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "ChoreView",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "descriptionHtml"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-HIGH-INTRA",
+          "rule": {
+            "id": "RR-HIGH-INTRA",
+            "index": 1
+          },
+          "level": "error",
+          "message": {
+            "text": "[HIGH] Package 'react-router-dom' (audit severity: moderate): Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation. Sink: dangerouslySetInnerHTML. Taint path: notesHtml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/ChoreEdit/ChoreView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1166,
+                  "startColumn": 23
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoreView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "HIGH",
+            "auditSeverity": "moderate",
+            "reasonCode": "PROPAGATED_SINK_FLOW",
+            "component": "ChoreView",
+            "childComponent": null,
+            "sinkType": "dangerouslySetInnerHTML",
+            "sinkRuleId": "inner-html",
+            "sinkCategory": "html-injection",
+            "sinkPriority": 100,
+            "confidence": 100,
+            "taintedPath": [
+              "notesHtml"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/ChoreEdit/ThingTriggerSection.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ThingTriggerSection",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ThingTriggerSection",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/ChoreEdit/TimePassedCard.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "TimePassedCard",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "TimePassedCard",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Chores/ArchivedTasks.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ArchivedTasks",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ArchivedTasks",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Chores/ChoreListView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoreListView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ChoreListView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Chores/CompactChoreCard.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CompactChoreCard",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CompactChoreCard",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Chores/MyChores.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "MyChores",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "MyChores",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Chores/components/CustomFilterChips.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CustomFilterChips",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CustomFilterChips",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Chores/hooks/useProjectFilter.js",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/ChoresOverview.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoresOverview",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ChoresOverview",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Circles/JoinCircle.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "JoinCircleView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "JoinCircleView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link -> useRouteError."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Error.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "Error",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "Error",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link",
+              "useRouteError"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Filters/FilterView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "FilterView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "FilterView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/History/ChoreHistory.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoreHistory",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ChoreHistory",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/HomeView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SectionHeader",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "SectionHeader",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/HomeView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "HomeView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "HomeView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/components/CircleStrip.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CircleStrip",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CircleStrip",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/components/FilterStrip.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "FilterStrip",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "FilterStrip",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/components/HomeChoreList.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "HomeChoreList",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "HomeChoreList",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/components/ProjectStrip.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ProjectStrip",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ProjectStrip",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Home/components/TriageRow.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "TriageRow",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "TriageRow",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Labels/LabelDetailView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "LabelDetailView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "LabelDetailView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Labels/LabelView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "LabelView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "LabelView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Landing/GettingStarted.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GettingStarted",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "GettingStarted",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used in a component with sinks, but no structural data path found. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Landing/HomeHero.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "HomeHero",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "NO_PROVEN_SINK_PATH",
+            "component": "HomeHero",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Landing/Landing.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "Landing",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "Landing",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Landing/PricingSection.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "PricingSection",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "PricingSection",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useLocation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Modals/FeedbackModal.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "FeedbackModal",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "FeedbackModal",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useLocation"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Modals/HistoryDetailModal.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "HistoryDetailModal",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "HistoryDetailModal",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Modals/Inputs/UserDeletionModal.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "UserDeletionModal",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "UserDeletionModal",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Onboarding/CircleSetupView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CircleSetupView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CircleSetupView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Onboarding/GetStartedView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "GetStartedView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "GetStartedView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Onboarding/HeardAboutView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "HeardAboutView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "HeardAboutView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Onboarding/OnboardingView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "OnboardingView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "OnboardingView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Onboarding/WorkspaceReadyView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "WorkspaceReadyView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "WorkspaceReadyView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Payments/PaymentFailView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "PaymentCancelledView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "PaymentCancelledView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Payments/PaymentSuccessView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "PaymentSuccessView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "PaymentSuccessView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Projects/ProjectView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ProjectView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ProjectView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Settings/CircleSettings.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CircleSettings",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CircleSettings",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Settings/Settings.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "Settings",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "Settings",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Settings/SettingsLayout.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SettingsLayout",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "SettingsLayout",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Settings/SettingsOverview.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "SettingsOverview",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "SettingsOverview",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Settings/SettingsRoutes.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "NONE",
+            "auditSeverity": "moderate",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Settings/StorageSettings.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "StorageSettings",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "StorageSettings",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Things/ThingsHistory.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ThingsHistory",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ThingsHistory",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Things/ThingsView.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ThingsView",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ThingsView",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/Timer/TimerDetails.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "TimerDetails",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "TimerDetails",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/CalendarCard.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CalendarCard",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CalendarCard",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/CalendarDual.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "CalendarDual",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "CalendarDual",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/ChoreActionMenu.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ChoreActionMenu",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ChoreActionMenu",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link -> useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/MobileBottomNav.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "NavItem",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "NavItem",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link",
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link -> useLocation -> useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/MobileBottomNav.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "MobileBottomNav",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "MobileBottomNav",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link",
+              "useLocation",
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useLocation -> useNavigate -> useSearchParams."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/NavBar.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "NavBar",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "NavBar",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useLocation",
+              "useNavigate",
+              "useSearchParams"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: Link."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/NavBarLink.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "NavBarLink",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "NavBarLink",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "Link"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-MEDIUM",
+          "rule": {
+            "id": "RR-MEDIUM",
+            "index": 3
+          },
+          "level": "warning",
+          "message": {
+            "text": "[MEDIUM] Package 'react-router-dom' (audit severity: moderate): Vulnerable dependency used inside React component but no security sink found in this component. Taint path: useNavigate."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/ProjectSelector.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ProjectSelector",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "react-router-dom",
+            "reachability": "MEDIUM",
+            "auditSeverity": "moderate",
+            "reasonCode": "COMPONENT_WITHOUT_SINK",
+            "component": "ProjectSelector",
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [
+              "useNavigate"
+            ],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-LOW",
+          "rule": {
+            "id": "RR-LOW",
+            "index": 4
+          },
+          "level": "note",
+          "message": {
+            "text": "[LOW] Package 'quill' (audit severity: low): Vulnerable dependency imported but no binding name captured (dynamic import or bare require)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/RichTextEditor.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "quill",
+            "reachability": "LOW",
+            "auditSeverity": "low",
+            "reasonCode": "NO_BINDING",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        },
+        {
+          "ruleId": "RR-NONE",
+          "rule": {
+            "id": "RR-NONE",
+            "index": 5
+          },
+          "level": "none",
+          "message": {
+            "text": "[NONE] Package 'quill' (audit severity: low): Vulnerable dependency imported but identifiers are never referenced in any component."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/views/components/RichTextEditor.jsx",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "(unknown)",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "packageName": "quill",
+            "reachability": "NONE",
+            "auditSeverity": "low",
+            "reasonCode": "UNUSED_IMPORT",
+            "component": null,
+            "childComponent": null,
+            "sinkType": null,
+            "sinkRuleId": null,
+            "sinkCategory": null,
+            "sinkPriority": null,
+            "confidence": null,
+            "taintedPath": [],
+            "propagationType": "intra-component",
+            "componentPath": null,
+            "propagationPath": null,
+            "componentResolutionConfidence": null
+          }
+        }
+      ],
+      "properties": {
+        "scannedAt": "2026-09-18T14:56:22.531Z",
+        "summary": {
+          "vulnerablePackages": 35,
+          "sourceFiles": 323,
+          "components": 296,
+          "cogNodes": 296,
+          "cogEdges": 524,
+          "sinks": 11,
+          "findings": 78
+        },
+        "diagnostics": [],
+        "timings": {
+          "auditMs": 0.02,
+          "parseMs": 345.436,
+          "dependenciesMs": 488.022,
+          "componentsMs": 451.116,
+          "sinksMs": 399.139,
+          "graphMs": 6.849,
+          "reachabilityMs": 405.648,
+          "staticAnalysisMs": 2096.21,
+          "reportMs": 0.119,
+          "totalMs": 2097.115
+        },
+        "vulnerablePackages": [
+          {
+            "name": "@babel/core",
+            "severity": "low",
+            "isDirect": false,
+            "range": "<=7.29.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "@capacitor/assets",
+            "severity": "high",
+            "isDirect": true,
+            "range": "*",
+            "fixAvailable": false
+          },
+          {
+            "name": "@capacitor/cli",
+            "severity": "high",
+            "isDirect": false,
+            "range": "0.0.10 - 1.1.1 || 3.0.0-alpha.0 - 7.4.5 || 8.0.0-alpha.1 - 8.0.2-nightly-20260127T151145.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "@remix-run/router",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "1.3.0 - 1.23.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "@trapezedev/project",
+            "severity": "high",
+            "isDirect": false,
+            "range": "*",
+            "fixAvailable": true
+          },
+          {
+            "name": "@vite-pwa/assets-generator",
+            "severity": "high",
+            "isDirect": true,
+            "range": "<=1.0.2",
+            "fixAvailable": {
+              "name": "@vite-pwa/assets-generator",
+              "version": "2.0.0",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "@xmldom/xmldom",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=0.8.14 || 0.9.0-beta.1 - 0.9.11",
+            "fixAvailable": true
+          },
+          {
+            "name": "ajv",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "7.0.0-alpha.0 - 8.17.1",
+            "fixAvailable": true
+          },
+          {
+            "name": "baseline-browser-mapping",
+            "severity": "moderate",
+            "isDirect": true,
+            "range": ">=2.0.0 <2.11.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "brace-expansion",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=1.1.17 || 2.0.0 - 2.1.3 || 3.0.0 - 5.0.8",
+            "fixAvailable": true
+          },
+          {
+            "name": "browserslist",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=4.28.6",
+            "fixAvailable": true
+          },
+          {
+            "name": "esbuild",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<=0.24.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "fast-uri",
+            "severity": "high",
+            "isDirect": false,
+            "range": "3.0.0 - 3.1.5",
+            "fixAvailable": true
+          },
+          {
+            "name": "fflate",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "0.8.0 - 0.8.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "glob",
+            "severity": "high",
+            "isDirect": false,
+            "range": "10.2.0 - 10.4.5",
+            "fixAvailable": true
+          },
+          {
+            "name": "i18next-http-backend",
+            "severity": "moderate",
+            "isDirect": true,
+            "range": "<3.0.5",
+            "fixAvailable": true
+          },
+          {
+            "name": "js-yaml",
+            "severity": "high",
+            "isDirect": false,
+            "range": "3.0.0 - 3.15.1 || 4.0.0 - 4.3.1",
+            "fixAvailable": true
+          },
+          {
+            "name": "lodash",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=4.17.23",
+            "fixAvailable": true
+          },
+          {
+            "name": "lodash-es",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=4.17.23",
+            "fixAvailable": true
+          },
+          {
+            "name": "minimatch",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=3.1.3",
+            "fixAvailable": true
+          },
+          {
+            "name": "nanoid",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=3.3.17",
+            "fixAvailable": true
+          },
+          {
+            "name": "postcss",
+            "severity": "high",
+            "isDirect": true,
+            "range": "<=8.5.22",
+            "fixAvailable": true
+          },
+          {
+            "name": "postcss-selector-parser",
+            "severity": "low",
+            "isDirect": false,
+            "range": "6.1.0 - 6.1.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "quill",
+            "severity": "low",
+            "isDirect": true,
+            "range": "=2.0.3",
+            "fixAvailable": {
+              "name": "quill",
+              "version": "2.0.2",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "react-router",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "6.0.0 - 7.17.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "react-router-dom",
+            "severity": "moderate",
+            "isDirect": true,
+            "range": "6.0.0-alpha.0 - 7.17.0",
+            "fixAvailable": true
+          },
+          {
+            "name": "replace",
+            "severity": "high",
+            "isDirect": false,
+            "range": ">=0.2.3",
+            "fixAvailable": true
+          },
+          {
+            "name": "sharp",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<=0.35.4-rc.0",
+            "fixAvailable": {
+              "name": "@vite-pwa/assets-generator",
+              "version": "2.0.0",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "tar",
+            "severity": "critical",
+            "isDirect": false,
+            "range": "<=7.5.20",
+            "fixAvailable": true
+          },
+          {
+            "name": "tmp",
+            "severity": "high",
+            "isDirect": false,
+            "range": "<0.2.6",
+            "fixAvailable": true
+          },
+          {
+            "name": "uuid",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "<11.1.1",
+            "fixAvailable": true
+          },
+          {
+            "name": "vite",
+            "severity": "high",
+            "isDirect": true,
+            "range": "<=6.4.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "vite-plugin-pwa",
+            "severity": "high",
+            "isDirect": true,
+            "range": "0.19.0 - 0.21.2",
+            "fixAvailable": {
+              "name": "vite-plugin-pwa",
+              "version": "1.3.0",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "xcode",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": ">=0.9.2",
+            "fixAvailable": true
+          },
+          {
+            "name": "yaml",
+            "severity": "moderate",
+            "isDirect": false,
+            "range": "2.0.0 - 2.8.2",
+            "fixAvailable": true
+          }
+        ]
+      }
+    }
+  ]
+}

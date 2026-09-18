@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260918T145620134Z-a1044ac8",
+  "status": "completed-after-manual-review",
+  "groundTruthAvailable": false,
+  "precisionRecallF1Computed": false,
+  "interpretation": "Feasibility observations only. Counts are analyser outputs and must not be interpreted as accuracy estimates.",
+  "frozenInputs": {
+    "studyId": "public-react-application-feasibility",
+    "groundTruthAvailable": false,
+    "precisionRecallF1Computed": false,
+    "evaluationCommit": "aee4f4a6fc901bdb3764af4549703f66bac513f3",
+    "reactReachCommit": "d63e114dfaf78a793806984336522e73f40fab63",
+    "reactReachVersion": "1.1.0",
+    "nodeVersion": "v24.11.1",
+    "npmVersion": "11.6.2",
+    "configurationSha256": "8e3b5abbf8ff0c4ae60ebc2a21701bfbe68afffdcbe0a65be65629854b881064",
+    "projects": [
+      {
+        "projectId": "donetick-frontend",
+        "valid": true,
+        "commit": "22e2f4abb5173eff2bb3c6b589368f6d095c6cbc",
+        "sourceFileCount": 323,
+        "audit": {
+          "vulnerablePackageCount": 35,
+          "severityTotals": {
+            "info": 0,
+            "low": 3,
+            "moderate": 11,
+            "high": 20,
+            "critical": 1,
+            "total": 35
+          }
+        }
+      },
+      {
+        "projectId": "socialecho",
+        "valid": true,
+        "commit": "4dc6c7822bfff5c0b13e1b8098e8d7ae0084939a",
+        "sourceFileCount": 113,
+        "audit": {
+          "vulnerablePackageCount": 72,
+          "severityTotals": {
+            "info": 0,
+            "low": 15,
+            "moderate": 18,
+            "high": 35,
+            "critical": 4,
+            "total": 72
+          }
+        }
+      },
+      {
+        "projectId": "varharrie-github-io",
+        "valid": true,
+        "commit": "5e592ebac9c6eb6642121b49487889ebbc01fb87",
+        "sourceFileCount": 36,
+        "audit": {
+          "vulnerablePackageCount": 24,
+          "severityTotals": {
+            "info": 0,
+            "low": 2,
+            "moderate": 7,
+            "high": 14,
+            "critical": 1,
+            "total": 24
+          }
+        }
+      }
+    ]
+  },
+  "projectCount": 3,
+  "completedProjectCount": 3,
+  "failedProjectCount": 0,
+  "criticalHighManualReviewCount": 2,
+  "manualReviewCompleted": true,
+  "projects": [
+    {
+      "projectId": "donetick-frontend",
+      "repository": "https://github.com/donetick/frontend",
+      "commit": "22e2f4abb5173eff2bb3c6b589368f6d095c6cbc",
+      "status": "completed",
+      "sourceFileCount": 323,
+      "vulnerablePackageCount": 35,
+      "findingCount": 78,
+      "reachabilityCounts": {
+        "CRITICAL": 0,
+        "HIGH": 2,
+        "MEDIUM": 68,
+        "LOW": 1,
+        "NONE": 7
+      },
+      "criticalHighManualReviewCount": 2,
+      "durationMs": 2097.115,
+      "timings": {
+        "auditMs": 0.02,
+        "parseMs": 345.436,
+        "dependenciesMs": 488.022,
+        "componentsMs": 451.116,
+        "sinksMs": 399.139,
+        "graphMs": 6.849,
+        "reachabilityMs": 405.648,
+        "staticAnalysisMs": 2096.21,
+        "reportMs": 0.119,
+        "totalMs": 2097.115
+      },
+      "peakRssBytes": 508112896,
+      "rssSampleCount": 9,
+      "diagnostics": [],
+      "crash": null,
+      "parsingError": null
+    },
+    {
+      "projectId": "socialecho",
+      "repository": "https://github.com/nz-m/SocialEcho",
+      "commit": "4dc6c7822bfff5c0b13e1b8098e8d7ae0084939a",
+      "status": "completed",
+      "sourceFileCount": 113,
+      "vulnerablePackageCount": 72,
+      "findingCount": 55,
+      "reachabilityCounts": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 37,
+        "LOW": 0,
+        "NONE": 18
+      },
+      "criticalHighManualReviewCount": 0,
+      "durationMs": 354.032,
+      "timings": {
+        "auditMs": 0.014,
+        "parseMs": 118.041,
+        "dependenciesMs": 82.828,
+        "componentsMs": 60.622,
+        "sinksMs": 47.364,
+        "graphMs": 2.106,
+        "reachabilityMs": 42.341,
+        "staticAnalysisMs": 353.302,
+        "reportMs": 0.103,
+        "totalMs": 354.032
+      },
+      "peakRssBytes": 198545408,
+      "rssSampleCount": 9,
+      "diagnostics": [],
+      "crash": null,
+      "parsingError": null
+    },
+    {
+      "projectId": "varharrie-github-io",
+      "repository": "https://github.com/varHarrie/varharrie.github.io",
+      "commit": "5e592ebac9c6eb6642121b49487889ebbc01fb87",
+      "status": "completed",
+      "sourceFileCount": 36,
+      "vulnerablePackageCount": 24,
+      "findingCount": 10,
+      "reachabilityCounts": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 1,
+        "LOW": 0,
+        "NONE": 9
+      },
+      "criticalHighManualReviewCount": 0,
+      "durationMs": 131.91,
+      "timings": {
+        "auditMs": 0.015,
+        "parseMs": 66.101,
+        "dependenciesMs": 32.757,
+        "componentsMs": 13.169,
+        "sinksMs": 14.081,
+        "graphMs": 0.809,
+        "reachabilityMs": 4.355,
+        "staticAnalysisMs": 131.272,
+        "reportMs": 0.084,
+        "totalMs": 131.91
+      },
+      "peakRssBytes": 101167104,
+      "rssSampleCount": 9,
+      "diagnostics": [],
+      "crash": null,
+      "parsingError": null
+    }
+  ],
+  "limitations": [
+    "The applications have no labelled ground truth, so precision, recall and F1 are not computed.",
+    "The sample is purposive and small; it does not support population-level generalisation.",
+    "npm audit snapshots and derived npm lockfiles freeze dependency evidence for this run but may differ from each project's native package-manager resolution.",
+    "Peak RSS is sampled and therefore approximates, rather than proves, the instantaneous maximum."
+  ]
+}

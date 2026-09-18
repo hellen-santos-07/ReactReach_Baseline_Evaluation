@@ -1,0 +1,3576 @@
+{
+  "projectPath": "C:\\Users\\Hellen\\Documents\\MEI\\Thesis_Project\\ReactReach_Baseline_Evaluation\\.work\\public-applications\\donetick-frontend",
+  "scannedAt": "2026-09-18T14:56:22.531Z",
+  "configuration": {
+    "sinks": null,
+    "excludeSinks": [],
+    "minSinkPriority": 0,
+    "sinkPriorities": {},
+    "sort": "reachability",
+    "maxTaintIterations": 100,
+    "includeDefaultSinks": true,
+    "sinkModules": []
+  },
+  "diagnostics": [],
+  "timings": {
+    "auditMs": 0.02,
+    "parseMs": 345.436,
+    "dependenciesMs": 488.022,
+    "componentsMs": 451.116,
+    "sinksMs": 399.139,
+    "graphMs": 6.849,
+    "reachabilityMs": 405.648,
+    "staticAnalysisMs": 2096.21,
+    "reportMs": 0.119,
+    "totalMs": 2097.115
+  },
+  "summary": {
+    "vulnerablePackages": 35,
+    "sourceFiles": 323,
+    "components": 296,
+    "cogNodes": 296,
+    "cogEdges": 524,
+    "sinks": 11,
+    "findings": 78
+  },
+  "packages": [
+    {
+      "name": "@babel/core",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1123528,
+          "name": "@babel/core",
+          "dependency": "@babel/core",
+          "title": "@babel/core: Arbitrary File Read via sourceMappingURL Comment",
+          "url": "https://github.com/advisories/GHSA-4x5r-pxfx-6jf8",
+          "severity": "low",
+          "cwe": [
+            "CWE-22",
+            "CWE-200"
+          ],
+          "cvss": {
+            "score": 3.2,
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N"
+          },
+          "range": "<=7.29.0"
+        }
+      ],
+      "effects": [],
+      "range": "<=7.29.0",
+      "nodes": [
+        "node_modules/@babel/core"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "@capacitor/assets",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@capacitor/cli",
+        "sharp"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@capacitor/assets"
+      ],
+      "fixAvailable": false
+    },
+    {
+      "name": "@capacitor/cli",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "tar"
+      ],
+      "effects": [],
+      "range": "0.0.10 - 1.1.1 || 3.0.0-alpha.0 - 7.4.5 || 8.0.0-alpha.1 - 8.0.2-nightly-20260127T151145.0",
+      "nodes": [
+        "node_modules/@capacitor/assets/node_modules/@capacitor/cli"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "@remix-run/router",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1136293,
+          "name": "@remix-run/router",
+          "dependency": "@remix-run/router",
+          "title": "React Router's same-origin redirect with path starting // causes open redirect via protocol-relative URL reinterpretation",
+          "url": "https://github.com/advisories/GHSA-2j2x-hqr9-3h42",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-601"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=1.3.0 <1.23.3"
+        }
+      ],
+      "effects": [
+        "react-router",
+        "react-router-dom"
+      ],
+      "range": "1.3.0 - 1.23.2",
+      "nodes": [
+        "node_modules/@remix-run/router"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "@trapezedev/project",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "replace",
+        "xcode"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@trapezedev/project"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "@vite-pwa/assets-generator",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "sharp"
+      ],
+      "effects": [
+        "vite-plugin-pwa"
+      ],
+      "range": "<=1.0.2",
+      "nodes": [
+        "node_modules/@vite-pwa/assets-generator"
+      ],
+      "fixAvailable": {
+        "name": "@vite-pwa/assets-generator",
+        "version": "2.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    {
+      "name": "@xmldom/xmldom",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1158517,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+          "url": "https://github.com/advisories/GHSA-6gmq-8vp8-gcm6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-116"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1158518,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+          "url": "https://github.com/advisories/GHSA-6gmq-8vp8-gcm6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-116"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193671,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: HTML raw-text closing-tag case mismatch causes output amplification",
+          "url": "https://github.com/advisories/GHSA-6mj3-qw4j-hgrw",
+          "severity": "high",
+          "cwe": [
+            "CWE-178",
+            "CWE-400"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0-beta.1 <=0.9.11"
+        },
+        {
+          "source": 1193687,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom PI grammar regex ReDoS: quadratic backtracking on unterminated processing instructions",
+          "url": "https://github.com/advisories/GHSA-g53g-w8rj-fmg7",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0-beta.9 <=0.9.10"
+        },
+        {
+          "source": 1193689,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Element name injection via createElement() bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-w2rr-34g9-rvrj",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.13"
+        },
+        {
+          "source": 1193690,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Element name injection via createElement() bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-w2rr-34g9-rvrj",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.10"
+        },
+        {
+          "source": 1193692,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Attribute name injection via setAttribute() bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-4w3w-2rp5-g8jm",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.13"
+        },
+        {
+          "source": 1193693,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Attribute name injection via setAttribute() bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-4w3w-2rp5-g8jm",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.10"
+        },
+        {
+          "source": 1193695,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Processing Instruction Target Injection Bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-c7q8-3ch8-vqpv",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193696,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Processing Instruction Target Injection Bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-c7q8-3ch8-vqpv",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193699,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: DocType `name` Injection Bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-27p8-2357-5qqv",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193700,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: DocType `name` Injection Bypasses requireWellFormed",
+          "url": "https://github.com/advisories/GHSA-27p8-2357-5qqv",
+          "severity": "high",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193701,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Creation-time XML Name/QName validation is bypassable via an embedded line terminator, allowing injection on the default serialization path",
+          "url": "https://github.com/advisories/GHSA-3px3-54cx-rmw9",
+          "severity": "high",
+          "cwe": [
+            "CWE-91",
+            "CWE-625"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193702,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: requireWellFormed DocType publicId/systemId validation is bypassable via an embedded line terminator",
+          "url": "https://github.com/advisories/GHSA-vr34-hp96-76pp",
+          "severity": "high",
+          "cwe": [
+            "CWE-91",
+            "CWE-625"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.10 <=0.9.11"
+        },
+        {
+          "source": 1193704,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Parser silently accepts a not-well-formed end tag whose name is followed by a line break and trailing content",
+          "url": "https://github.com/advisories/GHSA-6h8r-xr42-gp59",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1286"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193705,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Parser silently accepts a not-well-formed end tag whose name is followed by a line break and trailing content",
+          "url": "https://github.com/advisories/GHSA-6h8r-xr42-gp59",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1286"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193707,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Quadratic-time attribute deduplication",
+          "url": "https://github.com/advisories/GHSA-8344-3jmq-59r6",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193708,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Quadratic-time attribute deduplication",
+          "url": "https://github.com/advisories/GHSA-8344-3jmq-59r6",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193709,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: End-tag Whitespace-Trim Regex ReDoS — quadratic backtracking in the 0.8.x end-tag parser",
+          "url": "https://github.com/advisories/GHSA-x4fp-j954-r2f4",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193711,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Quadratic-memory consumption",
+          "url": "https://github.com/advisories/GHSA-965w-775f-mr7g",
+          "severity": "high",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193712,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Quadratic-memory consumption",
+          "url": "https://github.com/advisories/GHSA-965w-775f-mr7g",
+          "severity": "high",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        },
+        {
+          "source": 1193714,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Quadratic-time parsing via the malformed-input recovery path — `parseElementStartPart` re-scan and `normalize()` adjacent-text merge",
+          "url": "https://github.com/advisories/GHSA-93r5-fhx6-vmg9",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.9.0 <=0.9.11"
+        },
+        {
+          "source": 1193715,
+          "name": "@xmldom/xmldom",
+          "dependency": "@xmldom/xmldom",
+          "title": "xmldom: Quadratic-time parsing via the malformed-input recovery path — `parseElementStartPart` re-scan and `normalize()` adjacent-text merge",
+          "url": "https://github.com/advisories/GHSA-93r5-fhx6-vmg9",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=0.7.0 <=0.8.14"
+        }
+      ],
+      "effects": [],
+      "range": "<=0.8.14 || 0.9.0-beta.1 - 0.9.11",
+      "nodes": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "ajv",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113715,
+          "name": "ajv",
+          "dependency": "ajv",
+          "title": "ajv has ReDoS when using `$data` option",
+          "url": "https://github.com/advisories/GHSA-2g4f-4pwh-qvx6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=7.0.0-alpha.0 <8.18.0"
+        }
+      ],
+      "effects": [],
+      "range": "7.0.0-alpha.0 - 8.17.1",
+      "nodes": [
+        "node_modules/workbox-build/node_modules/ajv"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "baseline-browser-mapping",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1193686,
+          "name": "baseline-browser-mapping",
+          "dependency": "baseline-browser-mapping",
+          "title": "baseline-browser-mapping process termination on invalid input causes denial of service",
+          "url": "https://github.com/advisories/GHSA-w5vr-8v7q-w6rv",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-705"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=2.0.0 <2.11.0"
+        }
+      ],
+      "effects": [],
+      "range": ">=2.0.0 <2.11.0",
+      "nodes": [
+        "node_modules/baseline-browser-mapping"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "brace-expansion",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1115541,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: Zero-step sequence causes process hang and memory exhaustion",
+          "url": "https://github.com/advisories/GHSA-f886-m6hf-6m8v",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=2.0.0 <2.0.3"
+        },
+        {
+          "source": 1123896,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+          "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=2.0.0 <2.1.2"
+        },
+        {
+          "source": 1123897,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+          "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<1.1.16"
+        },
+        {
+          "source": 1123898,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+          "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=3.0.0 <5.0.7"
+        },
+        {
+          "source": 1130588,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+          "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<1.1.17"
+        },
+        {
+          "source": 1130589,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+          "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=2.0.0 <2.1.3"
+        },
+        {
+          "source": 1130591,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+          "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=4.0.0 <5.0.8"
+        },
+        {
+          "source": 1130734,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=4.0.0 <5.0.9"
+        },
+        {
+          "source": 1130736,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=2.0.0 <2.1.4"
+        },
+        {
+          "source": 1130737,
+          "name": "brace-expansion",
+          "dependency": "brace-expansion",
+          "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<1.1.18"
+        }
+      ],
+      "effects": [],
+      "range": "<=1.1.17 || 2.0.0 - 2.1.3 || 3.0.0 - 5.0.8",
+      "nodes": [
+        "node_modules/@eslint/config-array/node_modules/brace-expansion",
+        "node_modules/@eslint/eslintrc/node_modules/brace-expansion",
+        "node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/eslint-plugin-react/node_modules/brace-expansion",
+        "node_modules/eslint/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/replace/node_modules/brace-expansion"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "browserslist",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1153171,
+          "name": "browserslist",
+          "dependency": "browserslist",
+          "title": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+          "url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx",
+          "severity": "high",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=4.28.6"
+        },
+        {
+          "source": 1153172,
+          "name": "browserslist",
+          "dependency": "browserslist",
+          "title": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+          "url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g",
+          "severity": "high",
+          "cwe": [
+            "CWE-248",
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=4.28.6"
+        }
+      ],
+      "effects": [],
+      "range": "<=4.28.6",
+      "nodes": [
+        "node_modules/browserslist"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "esbuild",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1102341,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild enables any website to send any requests to the development server and read the response",
+          "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=0.24.2"
+        }
+      ],
+      "effects": [
+        "vite"
+      ],
+      "range": "<=0.24.2",
+      "nodes": [
+        "node_modules/esbuild"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "fast-uri",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1124064,
+          "name": "fast-uri",
+          "dependency": "fast-uri",
+          "title": "fast-uri vulnerable to host confusion via literal backslash authority delimiter",
+          "url": "https://github.com/advisories/GHSA-v2hh-gcrm-f6hx",
+          "severity": "high",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=3.0.0 <=3.1.3"
+        },
+        {
+          "source": 1130720,
+          "name": "fast-uri",
+          "dependency": "fast-uri",
+          "title": "fast-uri vulnerable to host confusion via backslash authority introducer",
+          "url": "https://github.com/advisories/GHSA-7p8r-x3mc-p8w7",
+          "severity": "high",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=3.0.0 <3.1.5"
+        },
+        {
+          "source": 1158524,
+          "name": "fast-uri",
+          "dependency": "fast-uri",
+          "title": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
+          "url": "https://github.com/advisories/GHSA-f65p-4m7j-42xc",
+          "severity": "high",
+          "cwe": [
+            "CWE-20",
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=3.0.0 <3.1.6"
+        },
+        {
+          "source": 1158527,
+          "name": "fast-uri",
+          "dependency": "fast-uri",
+          "title": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
+          "url": "https://github.com/advisories/GHSA-fph4-wmhf-6fwf",
+          "severity": "high",
+          "cwe": [
+            "CWE-174",
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=3.1.2 <3.1.6"
+        },
+        {
+          "source": 1158530,
+          "name": "fast-uri",
+          "dependency": "fast-uri",
+          "title": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
+          "url": "https://github.com/advisories/GHSA-jqff-g426-hqxp",
+          "severity": "high",
+          "cwe": [
+            "CWE-177"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=3.0.0 <3.1.6"
+        },
+        {
+          "source": 1204921,
+          "name": "fast-uri",
+          "dependency": "fast-uri",
+          "title": "fast-uri vulnerable to host confusion via failed IDN canonicalization",
+          "url": "https://github.com/advisories/GHSA-4c8g-83qw-93j6",
+          "severity": "high",
+          "cwe": [
+            "CWE-436",
+            "CWE-551"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=3.0.0 <3.1.3"
+        }
+      ],
+      "effects": [],
+      "range": "3.0.0 - 3.1.5",
+      "nodes": [
+        "node_modules/fast-uri"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "fflate",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1164782,
+          "name": "fflate",
+          "dependency": "fflate",
+          "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+          "url": "https://github.com/advisories/GHSA-px8p-9vwx-vf98",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=0.8.0 <0.8.3"
+        }
+      ],
+      "effects": [],
+      "range": "0.8.0 - 0.8.2",
+      "nodes": [
+        "node_modules/fflate"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "glob",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1109842,
+          "name": "glob",
+          "dependency": "glob",
+          "title": "glob CLI: Command injection via -c/--cmd executes matches with shell:true",
+          "url": "https://github.com/advisories/GHSA-5j98-mcp5-4vw2",
+          "severity": "high",
+          "cwe": [
+            "CWE-78"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": ">=10.2.0 <10.5.0"
+        }
+      ],
+      "effects": [],
+      "range": "10.2.0 - 10.4.5",
+      "nodes": [
+        "node_modules/sucrase/node_modules/glob"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "i18next-http-backend",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1117949,
+          "name": "i18next-http-backend",
+          "dependency": "i18next-http-backend",
+          "title": " i18next-http-backend has Path Traversal & URL Injection via Unsanitised lng/ns",
+          "url": "https://github.com/advisories/GHSA-q89c-q3h5-w34g",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-22",
+            "CWE-74"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+          },
+          "range": "<3.0.5"
+        }
+      ],
+      "effects": [],
+      "range": "<3.0.5",
+      "nodes": [
+        "node_modules/i18next-http-backend"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "js-yaml",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1138114,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=3.0.0 <3.15.1"
+        },
+        {
+          "source": 1138115,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=4.0.0 <4.3.1"
+        },
+        {
+          "source": 1193726,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+          "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=3.0.0 <3.15.2"
+        },
+        {
+          "source": 1193727,
+          "name": "js-yaml",
+          "dependency": "js-yaml",
+          "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+          "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=4.0.0 <4.3.2"
+        }
+      ],
+      "effects": [],
+      "range": "3.0.0 - 3.15.1 || 4.0.0 - 4.3.1",
+      "nodes": [
+        "node_modules/@oclif/core/node_modules/js-yaml",
+        "node_modules/@oclif/plugin-autocomplete/node_modules/js-yaml",
+        "node_modules/@oclif/plugin-commands/node_modules/js-yaml",
+        "node_modules/@oclif/plugin-help/node_modules/js-yaml",
+        "node_modules/@oclif/plugin-plugins/node_modules/js-yaml",
+        "node_modules/@oclif/plugin-version/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "lodash",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1115806,
+          "name": "lodash",
+          "dependency": "lodash",
+          "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+          "url": "https://github.com/advisories/GHSA-r5fr-rjxr-66jc",
+          "severity": "high",
+          "cwe": [
+            "CWE-94"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": ">=4.0.0 <=4.17.23"
+        },
+        {
+          "source": 1115810,
+          "name": "lodash",
+          "dependency": "lodash",
+          "title": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+          "url": "https://github.com/advisories/GHSA-f23m-r3pf-42rh",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+          },
+          "range": "<=4.17.23"
+        },
+        {
+          "source": 1120370,
+          "name": "lodash",
+          "dependency": "lodash",
+          "title": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+          "url": "https://github.com/advisories/GHSA-xxjr-mmjv-4gpg",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+          },
+          "range": ">=4.0.0 <=4.17.22"
+        }
+      ],
+      "effects": [],
+      "range": "<=4.17.23",
+      "nodes": [
+        "node_modules/lodash"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "lodash-es",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1115805,
+          "name": "lodash-es",
+          "dependency": "lodash-es",
+          "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+          "url": "https://github.com/advisories/GHSA-r5fr-rjxr-66jc",
+          "severity": "high",
+          "cwe": [
+            "CWE-94"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": ">=4.0.0 <=4.17.23"
+        },
+        {
+          "source": 1115809,
+          "name": "lodash-es",
+          "dependency": "lodash-es",
+          "title": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+          "url": "https://github.com/advisories/GHSA-f23m-r3pf-42rh",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+          },
+          "range": "<=4.17.23"
+        },
+        {
+          "source": 1120368,
+          "name": "lodash-es",
+          "dependency": "lodash-es",
+          "title": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+          "url": "https://github.com/advisories/GHSA-xxjr-mmjv-4gpg",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+          },
+          "range": ">=4.0.0 <=4.17.22"
+        }
+      ],
+      "effects": [],
+      "range": "<=4.17.23",
+      "nodes": [
+        "node_modules/quill/node_modules/lodash-es"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "minimatch",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113459,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern",
+          "url": "https://github.com/advisories/GHSA-3ppc-4f35-3m26",
+          "severity": "high",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<3.1.3"
+        },
+        {
+          "source": 1113538,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments",
+          "url": "https://github.com/advisories/GHSA-7r86-cg39-jmmj",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<3.1.3"
+        },
+        {
+          "source": 1113546,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions",
+          "url": "https://github.com/advisories/GHSA-23c5-xmqv-rm74",
+          "severity": "high",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<3.1.4"
+        }
+      ],
+      "effects": [
+        "replace"
+      ],
+      "range": "<=3.1.3",
+      "nodes": [
+        "node_modules/replace/node_modules/minimatch"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "nanoid",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1138811,
+          "name": "nanoid",
+          "dependency": "nanoid",
+          "title": "nanoid: non-secure generators can loop indefinitely with negative size",
+          "url": "https://github.com/advisories/GHSA-28wg-ghj8-5hjv",
+          "severity": "high",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<3.3.16"
+        },
+        {
+          "source": 1139427,
+          "name": "nanoid",
+          "dependency": "nanoid",
+          "title": "nanoid: custom generators can loop indefinitely when size is zero",
+          "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+          "severity": "high",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<3.3.18"
+        }
+      ],
+      "effects": [],
+      "range": "<=3.3.17",
+      "nodes": [
+        "node_modules/nanoid"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "postcss",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1130709,
+          "name": "postcss",
+          "dependency": "postcss",
+          "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+          "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-22",
+            "CWE-200"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=8.5.22"
+        },
+        {
+          "source": 1139510,
+          "name": "postcss",
+          "dependency": "postcss",
+          "title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+          "url": "https://github.com/advisories/GHSA-r28c-9q8g-f849",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=8.5.17"
+        }
+      ],
+      "effects": [],
+      "range": "<=8.5.22",
+      "nodes": [
+        "node_modules/postcss"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "postcss-selector-parser",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1153170,
+          "name": "postcss-selector-parser",
+          "dependency": "postcss-selector-parser",
+          "title": "postcss-selector-parser allows denial of service through uncontrolled AST recursion",
+          "url": "https://github.com/advisories/GHSA-w9m9-85wc-3x92",
+          "severity": "low",
+          "cwe": [
+            "CWE-404"
+          ],
+          "cvss": {
+            "score": 4.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=6.1.0 <6.1.3"
+        }
+      ],
+      "effects": [],
+      "range": "6.1.0 - 6.1.2",
+      "nodes": [
+        "node_modules/postcss-selector-parser"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "quill",
+      "severity": "low",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1116451,
+          "name": "quill",
+          "dependency": "quill",
+          "title": "Quill is vulnerable to XSS via HTML export feature",
+          "url": "https://github.com/advisories/GHSA-v3m3-f69x-jf25",
+          "severity": "low",
+          "cwe": [
+            "CWE-74",
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "=2.0.3"
+        }
+      ],
+      "effects": [],
+      "range": "=2.0.3",
+      "nodes": [
+        "node_modules/quill"
+      ],
+      "fixAvailable": {
+        "name": "quill",
+        "version": "2.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    {
+      "name": "react-router",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@remix-run/router",
+        {
+          "source": 1124268,
+          "name": "react-router",
+          "dependency": "react-router",
+          "title": "React Router: Open redirect via backslash in <Link> and useNavigate (CVE-2025-68470 bypass)",
+          "url": "https://github.com/advisories/GHSA-wrjc-x8rr-h8h6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-601"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=6.0.0 <7.18.0"
+        },
+        {
+          "source": 1124272,
+          "name": "react-router",
+          "dependency": "react-router",
+          "title": "React Router: Arbitrary Constructor Injection via deserializeErrors() in React Router SSR Hydration",
+          "url": "https://github.com/advisories/GHSA-337j-9hxr-rhxg",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-470"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": ">=6.4.0 <7.18.0"
+        },
+        {
+          "source": 1136303,
+          "name": "react-router",
+          "dependency": "react-router",
+          "title": "React Router's same-origin redirect with path starting // causes open redirect via protocol-relative URL reinterpretation",
+          "url": "https://github.com/advisories/GHSA-2j2x-hqr9-3h42",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-601"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=6.7.0 <6.30.4"
+        }
+      ],
+      "effects": [
+        "react-router-dom"
+      ],
+      "range": "6.0.0 - 7.17.0",
+      "nodes": [
+        "node_modules/react-router"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "react-router-dom",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@remix-run/router",
+        {
+          "source": 1193652,
+          "name": "react-router-dom",
+          "dependency": "react-router-dom",
+          "title": "React Router: Open redirect leading to XSS",
+          "url": "https://github.com/advisories/GHSA-jjmj-jmhj-qwj2",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79",
+            "CWE-601"
+          ],
+          "cvss": {
+            "score": 6.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:N"
+          },
+          "range": ">=6.30.2 <=6.30.5"
+        },
+        "react-router"
+      ],
+      "effects": [],
+      "range": "6.0.0-alpha.0 - 7.17.0",
+      "nodes": [
+        "node_modules/react-router-dom"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "replace",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "@trapezedev/project"
+      ],
+      "range": ">=0.2.3",
+      "nodes": [
+        "node_modules/replace"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "sharp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1124066,
+          "name": "sharp",
+          "dependency": "sharp",
+          "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+          "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj",
+          "severity": "high",
+          "cwe": [
+            "CWE-1395"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.35.0"
+        },
+        {
+          "source": 1193725,
+          "name": "sharp",
+          "dependency": "sharp",
+          "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+          "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+          "severity": "high",
+          "cwe": [
+            "CWE-122"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.35.4"
+        }
+      ],
+      "effects": [
+        "@capacitor/assets",
+        "@vite-pwa/assets-generator"
+      ],
+      "range": "<=0.35.4-rc.0",
+      "nodes": [
+        "node_modules/sharp"
+      ],
+      "fixAvailable": {
+        "name": "@vite-pwa/assets-generator",
+        "version": "2.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    {
+      "name": "tar",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1112659,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+          "url": "https://github.com/advisories/GHSA-34x7-hfp2-rc4v",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 8.2,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:L/A:N"
+          },
+          "range": "<7.5.7"
+        },
+        {
+          "source": 1113300,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+          "url": "https://github.com/advisories/GHSA-8qq5-rm4j-mr97",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.2"
+        },
+        {
+          "source": 1113375,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+          "url": "https://github.com/advisories/GHSA-83g3-92jg-28cx",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 7.1,
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N"
+          },
+          "range": "<7.5.8"
+        },
+        {
+          "source": 1114200,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-qffp-2rhf-9h96",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.9"
+        },
+        {
+          "source": 1114302,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar Symlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-9ppj-qmqm-q256",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.10"
+        },
+        {
+          "source": 1114680,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+          "url": "https://github.com/advisories/GHSA-r6q2-hw4h-h46w",
+          "severity": "high",
+          "cwe": [
+            "CWE-176",
+            "CWE-367"
+          ],
+          "cvss": {
+            "score": 8.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:H/A:L"
+          },
+          "range": "<=7.5.3"
+        },
+        {
+          "source": 1120782,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar applies PAX size override to intermediary GNU long-name/long-link headers, causing tar parser interpretation differential (file smuggling)",
+          "url": "https://github.com/advisories/GHSA-vmf3-w455-68vh",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.15"
+        },
+        {
+          "source": 1123939,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Process crash via PAX numeric path type confusion",
+          "url": "https://github.com/advisories/GHSA-w8wr-v893-vjvp",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-704"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=7.5.17"
+        },
+        {
+          "source": 1123940,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Decompression/parse DoS via unlimited input",
+          "url": "https://github.com/advisories/GHSA-23hp-3jrh-7fpw",
+          "severity": "critical",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=7.5.18"
+        },
+        {
+          "source": 1123941,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Negative tar entry size causes infinite loop in archive replace",
+          "url": "https://github.com/advisories/GHSA-8x88-c5mf-7j5w",
+          "severity": "high",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=7.5.17"
+        },
+        {
+          "source": 1123942,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Uncaught Exception DoS via NUL byte in PAX path/linkpath records",
+          "url": "https://github.com/advisories/GHSA-gvwx-54wh-qm9j",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=7.5.16"
+        },
+        {
+          "source": 1145647,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+          "url": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-674"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=7.5.20"
+        }
+      ],
+      "effects": [
+        "@capacitor/cli"
+      ],
+      "range": "<=7.5.20",
+      "nodes": [
+        "node_modules/@capacitor/cli/node_modules/tar",
+        "node_modules/tar"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "tmp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1120654,
+          "name": "tmp",
+          "dependency": "tmp",
+          "title": "tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape",
+          "url": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.2.6"
+        }
+      ],
+      "effects": [],
+      "range": "<0.2.6",
+      "nodes": [
+        "node_modules/tmp"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "uuid",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1119441,
+          "name": "uuid",
+          "dependency": "uuid",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-787",
+            "CWE-1285"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": "<11.1.1"
+        }
+      ],
+      "effects": [
+        "xcode"
+      ],
+      "range": "<11.1.1",
+      "nodes": [
+        "node_modules/uuid"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "vite",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1107323,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite middleware may serve files starting with the same name with the public directory",
+          "url": "https://github.com/advisories/GHSA-g4jq-h2w9-997c",
+          "severity": "low",
+          "cwe": [
+            "CWE-22",
+            "CWE-200",
+            "CWE-284"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=5.4.19"
+        },
+        {
+          "source": 1107327,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite's `server.fs` settings were not applied to HTML files",
+          "url": "https://github.com/advisories/GHSA-jqfw-vq24-v9c3",
+          "severity": "low",
+          "cwe": [
+            "CWE-23",
+            "CWE-200",
+            "CWE-284"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=5.4.19"
+        },
+        {
+          "source": 1109131,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "vite allows server.fs.deny bypass via backslash on Windows",
+          "url": "https://github.com/advisories/GHSA-93m4-6634-74q7",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=5.2.6 <=5.4.20"
+        },
+        {
+          "source": 1116229,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite Vulnerable to Path Traversal in Optimized Deps `.map` Handling",
+          "url": "https://github.com/advisories/GHSA-4w7w-66w2-5vf9",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-22",
+            "CWE-200"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.1"
+        },
+        {
+          "source": 1120784,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+          "url": "https://github.com/advisories/GHSA-v6wh-96g9-6wx3",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-73",
+            "CWE-522"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.2"
+        },
+        {
+          "source": 1123525,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "vite: `server.fs.deny` bypass on Windows alternate paths",
+          "url": "https://github.com/advisories/GHSA-fx2h-pf6j-xcff",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-200"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=6.4.2"
+        },
+        "esbuild"
+      ],
+      "effects": [],
+      "range": "<=6.4.2",
+      "nodes": [
+        "node_modules/vite"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "vite-plugin-pwa",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@vite-pwa/assets-generator"
+      ],
+      "effects": [],
+      "range": "0.19.0 - 0.21.2",
+      "nodes": [
+        "node_modules/vite-plugin-pwa"
+      ],
+      "fixAvailable": {
+        "name": "vite-plugin-pwa",
+        "version": "1.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    {
+      "name": "xcode",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "uuid"
+      ],
+      "effects": [
+        "@trapezedev/project"
+      ],
+      "range": ">=0.9.2",
+      "nodes": [
+        "node_modules/xcode"
+      ],
+      "fixAvailable": true
+    },
+    {
+      "name": "yaml",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1115556,
+          "name": "yaml",
+          "dependency": "yaml",
+          "title": "yaml is vulnerable to Stack Overflow via deeply nested YAML collections",
+          "url": "https://github.com/advisories/GHSA-48c2-rrv3-qjmp",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-674"
+          ],
+          "cvss": {
+            "score": 4.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=2.0.0 <2.8.3"
+        }
+      ],
+      "effects": [],
+      "range": "2.0.0 - 2.8.2",
+      "nodes": [
+        "node_modules/postcss-load-config/node_modules/yaml"
+      ],
+      "fixAvailable": true
+    }
+  ],
+  "analyzedFiles": [
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/App.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/Application.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/CapacitorListener.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/Config.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/Logo.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/MarketingApp.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/analytics/consent.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/analytics/eventSchemas.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/analytics/index.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/analytics/posthogClient.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/analytics/useAnalyticsIdentity.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/NotificationTemplate.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/RealTimeSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/SSEConnectionStatus.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/SSESettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/SubscriptionModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/UserProfileAvatar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/AnimatedList.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/LoadingScreen.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/PageTransition.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/SkeletonLoader.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/SmoothButton.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/SmoothCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/StaggeredList.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/index.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/AppModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/DurationInput.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/EmptyState.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/FilterBar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/KeyboardShortcutHint.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/ModalActions.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/NumberInput.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/SortAndFilterMenu.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/SwipeListItem.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/filter/ActiveFilterChips.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/icons/DiscordIcon.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/icons/RedditIcon.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/constants/policyUpdates.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/constants/settingsSections.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/constants/theme.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/Contexts.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/ImpersonateUserContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/KeyboardShortcutScopeContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/LocalizationContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/QueryContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/RouterContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/SSEContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/ThemeContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/NetworkManager.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useAcknowledgmentModal.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useAnimations.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useAuth.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useConfirmationModal.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useDescriptionHtml.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useDocumentScanner.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useFileUpload.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useFilter.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useLongPress.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useOnboardingGate.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/usePendingCommands.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useResponsiveModal.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useSSE.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useSSEContext.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useStatusBar.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useStickyState.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useSyncOnReconnect.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useTimer.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useWindowWidth.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/i18n/config.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/main.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/queries/ChoreQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/queries/ResourceQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/queries/SubtaskQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/queries/ThingQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/queries/TimeQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/queries/UserQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/GlobalSearchContext.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/GlobalSearchPage.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/GlobalSearchPalette.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/searchProviders.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/AIPromptCache.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/AlertsProvider.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/DiagnosticsSession.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/ErrorReportService.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/FeedbackService.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/LocalAIService.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/NFCWriter.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/NotificationProvider.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/PolicyUpdateService.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/VoiceInputService.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/service/WidgetService.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/ApiClient.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/ChoreCardHelpers.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Chores.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Colors.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/CommandQueue.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/DateFormatter.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Debounce.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/DeviceInfo.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/DurationUtils.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/FeatureToggle.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Fetcher.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/FileConvert.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/FilterEngine.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Haptics.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Helpers.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/HomeSectionsConfig.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/ImageCache.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/OAuthExchangeState.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/OfflineDB.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/OfflineFeatureToggle.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Onboarding.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/PendingInvite.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/PlatformUtils.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/Priorities.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/ProjectIcons.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/SafeAreaUtils.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/SidepanelConfig.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/StatusBarManager.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/SyncEngine.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/TokenStorage.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/UUID.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/UserHelpers.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/utils/imageCropUtils.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/AuthFields.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/AuthShell.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/Authenticating.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/AuthorizationContainer.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/ForgotPasswordView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/LoginSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/LoginView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/MFAVerificationModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/Signup.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/UpdatePasswordView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/authStyles.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreEdit.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/RepeatSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ThingTriggerSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/TimePassedCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/TimerSplitButton.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/ActivitesCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/ArchivedTasks.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/ChoreCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/ChoreListView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/CompactChoreCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/IconButtonWithMenu.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/LocalNotificationScheduler.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/MultiSelectHelp.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/MyChores.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/NotificationAccessSnackbar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/Sidepanel.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/SmartInsightsCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/SortAndGrouping.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/TasksByAssigneeCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/UserSwitcher.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/ChoreModals.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/ChoreSwipeActions.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/ChoreSwipeableItem.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/ChoreToolbarPrototype.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/CustomFilterChips.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/FilterBuilderContent.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/FilterSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/MultiSelectToolbar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/MyChoreHeader.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/SearchBar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useChoreActions.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useChoreFilters.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useChoreModals.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useCustomFilters.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useKeyboardShortcuts.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useMultiSelect.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useProjectFilter.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoresOverview.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Circles/JoinCircle.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Error.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Filters/FilterQueries.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Filters/FilterView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/History/BigChip.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/History/ChoreHistory.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/History/HistoryCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/HomeView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/CaptureBar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/CircleStrip.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/FilterStrip.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/HomeChoreList.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/ProjectStrip.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/TriageRow.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/useHomeSummary.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Labels/LabelDetailView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Labels/LabelQueries.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Labels/LabelView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Labels/Labels.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/CookiePermissionSnackbar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/DemoAssignee.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/DemoCalendar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/DemoHistory.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/DemoMyChore.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/DemoNotificationTemplate.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/DemoScheduler.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/FeaturesSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/Footer.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/GettingStarted.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/HomeHero.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/Landing.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/PricingSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/TabletInstallationSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/EditHistoryModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/ErrorReportModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/FeedbackModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/HistoryDetailModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/AcknowledgmentModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/AdvancedFilterBuilder.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/AttachmentBrowserModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/AttachmentViewerModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/BackupRestoreModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/ConfirmationModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/CreateChildUserModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/CreateThingModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/DateModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/EditThingState.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/IconPickerModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/LabelModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/NativeCancelSubscriptionModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/NoteViewerModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/NudgeModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/PasswordChangeModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/ProjectModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/SelectModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/TextModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/TimerEditModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/UserDeletionModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/UserModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/WriteNFCModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/PolicyUpdateModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/RedeemPointsModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/CircleSetupView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/GetStartedView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/HeardAboutView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/OnboardingView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/OnboardingVignettes.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/WorkspaceReadyView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Payments/PaymentFailView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Payments/PaymentSuccessView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/PrivacyPolicy/PrivacyPolicyView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Projects/ProjectQueries.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Projects/ProjectView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/APITokenSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/AccountSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/AdvancedSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/ChildUserSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/CircleSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/DeveloperSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/HomeSectionsSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/LocalizationSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/MFASettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/NotificationSetting.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/PrivacyAnalyticsSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/ProfileSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/Settings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SettingsLayout.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SettingsOverview.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SettingsRoutes.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/Sharing.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SharingSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SidepanelSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/StorageSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/ThemeSettings.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/ThemeToggle.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/ThemeToggleButton.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Terms/TermsView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/TestView/AutocompleteDropdown.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/TestView/Test.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/TestView/TimerCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Things/ThingsHistory.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Things/ThingsView.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Timer/TimerDetails.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/User/UserActivities.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/User/UserPoints.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/AddTaskModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/AdvancedOptionsSection.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/AssigneePickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/AttachmentPickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/AutocompleteInput.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/AutocompleteSelect.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/BaseOptionPicker.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/CalendarCard.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/CalendarDual.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/CalendarMonthly.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ChoreActionMenu.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/CustomParsers.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/DueDatePickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/DueDatePickerModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ErrorSnackbar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/FeedbackPrompt.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/IconButtonTouchable.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/LabelsPickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/LearnMore.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/Loading.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/MobileBottomNav.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NavBar.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NavBarLink.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NetworkBanner.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NotFound.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NotificationPickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/PendingBadge.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/PhotoTaskModal.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/PolicyUpdatePrompt.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/PriorityPickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ProjectPickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ProjectSelector.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/RepeatPickerField.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/RichTextEditor.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ScanToTask/ScanPanel.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ScanToTask/useScanToTask.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/SmartTaskTitleInput.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/SubTask.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/SyncStatusIndicator.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/VoiceToTask/VoicePanel.jsx",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/VoiceToTask/parseVoiceTask.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/VoiceToTask/useVoiceToTask.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/VoiceToTask/voiceNormalizer.js",
+    "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/navigationEvents.js"
+  ],
+  "findings": [
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/App.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "AppContent",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Outlet",
+        "useLocation",
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/App.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "App",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Outlet",
+        "useLocation",
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/MarketingApp.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/UserProfileAvatar.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "NO_PROVEN_SINK_PATH",
+      "reason": "Vulnerable dependency used in a component with sinks, but no structural data path found",
+      "reachability": "MEDIUM",
+      "component": "UserProfileAvatar",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/animations/PageTransition.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "PageTransition",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useLocation"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/components/common/EmptyState.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ActionButton",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/contexts/RouterContext.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useAuth.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "AuthProvider",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/hooks/useOnboardingGate.js",
+      "auditSeverity": "moderate",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "i18next-http-backend",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/i18n/config.js",
+      "auditSeverity": "moderate",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/GlobalSearchContext.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "GlobalSearchProvider",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useLocation",
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/GlobalSearchPage.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "GlobalSearchPage",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useLocation",
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/search/GlobalSearchPalette.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "GlobalSearchPalette",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/Authenticating.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "AuthenticationLoading",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link",
+        "useNavigate",
+        "useParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/ForgotPasswordView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ForgotPasswordView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/LoginSettings.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "LoginSettings",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/LoginView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "NO_PROVEN_SINK_PATH",
+      "reason": "Vulnerable dependency used in a component with sinks, but no structural data path found",
+      "reachability": "MEDIUM",
+      "component": "LoginView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/Signup.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "SignupView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Authorization/UpdatePasswordView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "UpdatePasswordView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreEdit.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ChoreEdit",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useParams",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "ChoreView",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 1098,
+          "column": 22,
+          "index": 34734
+        },
+        "end": {
+          "line": 1098,
+          "column": 75,
+          "index": 34787
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "descriptionHtml"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ChoreView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "PROPAGATED_SINK_FLOW",
+      "reason": "Variable derived from vulnerable dependency reaches a security sink via React hooks or local propagation",
+      "reachability": "HIGH",
+      "component": "ChoreView",
+      "sinkType": "dangerouslySetInnerHTML",
+      "sinkLoc": {
+        "start": {
+          "line": 1166,
+          "column": 22,
+          "index": 36855
+        },
+        "end": {
+          "line": 1166,
+          "column": 69,
+          "index": 36902
+        }
+      },
+      "sinkRuleId": "inner-html",
+      "sinkCategory": "html-injection",
+      "sinkPriority": 100,
+      "confidence": 100,
+      "taintedPath": [
+        "notesHtml"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/ThingTriggerSection.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ThingTriggerSection",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoreEdit/TimePassedCard.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "TimePassedCard",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/ArchivedTasks.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ArchivedTasks",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/ChoreListView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ChoreListView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/CompactChoreCard.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CompactChoreCard",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/MyChores.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "MyChores",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/components/CustomFilterChips.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CustomFilterChips",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Chores/hooks/useProjectFilter.js",
+      "auditSeverity": "moderate",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/ChoresOverview.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ChoresOverview",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Circles/JoinCircle.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "JoinCircleView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Error.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "Error",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link",
+        "useRouteError"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Filters/FilterView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "FilterView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/History/ChoreHistory.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ChoreHistory",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/HomeView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "SectionHeader",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/HomeView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "HomeView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/CircleStrip.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CircleStrip",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/FilterStrip.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "FilterStrip",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/HomeChoreList.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "HomeChoreList",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/ProjectStrip.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ProjectStrip",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Home/components/TriageRow.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "TriageRow",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Labels/LabelDetailView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "LabelDetailView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Labels/LabelView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "LabelView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/GettingStarted.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "GettingStarted",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/HomeHero.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "NO_PROVEN_SINK_PATH",
+      "reason": "Vulnerable dependency used in a component with sinks, but no structural data path found",
+      "reachability": "MEDIUM",
+      "component": "HomeHero",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/Landing.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "Landing",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Landing/PricingSection.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "PricingSection",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/FeedbackModal.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "FeedbackModal",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useLocation"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/HistoryDetailModal.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "HistoryDetailModal",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Modals/Inputs/UserDeletionModal.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "UserDeletionModal",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/CircleSetupView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CircleSetupView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/GetStartedView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "GetStartedView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/HeardAboutView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "HeardAboutView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/OnboardingView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "OnboardingView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Onboarding/WorkspaceReadyView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "WorkspaceReadyView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Payments/PaymentFailView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "PaymentCancelledView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Payments/PaymentSuccessView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "PaymentSuccessView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Projects/ProjectView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ProjectView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/CircleSettings.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CircleSettings",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/Settings.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "Settings",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SettingsLayout.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "SettingsLayout",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SettingsOverview.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "SettingsOverview",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/SettingsRoutes.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Settings/StorageSettings.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "StorageSettings",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Things/ThingsHistory.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ThingsHistory",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Things/ThingsView.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ThingsView",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/Timer/TimerDetails.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "TimerDetails",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/CalendarCard.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CalendarCard",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/CalendarDual.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "CalendarDual",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ChoreActionMenu.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ChoreActionMenu",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/MobileBottomNav.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "NavItem",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link",
+        "useLocation",
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/MobileBottomNav.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "MobileBottomNav",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link",
+        "useLocation",
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NavBar.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "NavBar",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useLocation",
+        "useNavigate",
+        "useSearchParams"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/NavBarLink.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "NavBarLink",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "Link"
+      ]
+    },
+    {
+      "packageName": "react-router-dom",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/ProjectSelector.jsx",
+      "auditSeverity": "moderate",
+      "reasonCode": "COMPONENT_WITHOUT_SINK",
+      "reason": "Vulnerable dependency used inside React component but no security sink found in this component",
+      "reachability": "MEDIUM",
+      "component": "ProjectSelector",
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": [
+        "useNavigate"
+      ]
+    },
+    {
+      "packageName": "quill",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/RichTextEditor.jsx",
+      "auditSeverity": "low",
+      "reasonCode": "NO_BINDING",
+      "reason": "Vulnerable dependency imported but no binding name captured (dynamic import or bare require)",
+      "reachability": "LOW",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    },
+    {
+      "packageName": "quill",
+      "filePath": "C:/Users/Hellen/Documents/MEI/Thesis_Project/ReactReach_Baseline_Evaluation/.work/public-applications/donetick-frontend/src/views/components/RichTextEditor.jsx",
+      "auditSeverity": "low",
+      "reasonCode": "UNUSED_IMPORT",
+      "reason": "Vulnerable dependency imported but identifiers are never referenced in any component",
+      "reachability": "NONE",
+      "component": null,
+      "sinkType": null,
+      "sinkLoc": null,
+      "taintedPath": []
+    }
+  ]
+}

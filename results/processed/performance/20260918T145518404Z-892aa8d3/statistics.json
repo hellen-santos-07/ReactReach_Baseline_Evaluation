@@ -1,0 +1,585 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "20260918T145518404Z-892aa8d3",
+  "status": "completed",
+  "benchmarkConfig": {
+    "schemaVersion": "1.0.0",
+    "executionModel": "fresh-process-per-sample",
+    "sequential": true,
+    "warmupRuns": 3,
+    "measuredRuns": 30,
+    "rssSampleIntervalMs": 5,
+    "sampleTimeoutMs": 120000,
+    "primaryDuration": "staticAnalysisMs",
+    "auditLatency": "frozen-local-injection-excluded",
+    "p95Method": "nearest-rank",
+    "sampleStandardDeviation": true,
+    "outliers": {
+      "method": "tukey-1.5-iqr",
+      "excludeAutomatically": false
+    },
+    "retainedTimings": [
+      "auditMs",
+      "parseMs",
+      "dependenciesMs",
+      "componentsMs",
+      "sinksMs",
+      "graphMs",
+      "reachabilityMs",
+      "staticAnalysisMs",
+      "reportMs",
+      "totalMs"
+    ],
+    "thresholds": {
+      "projectId": "performance-500",
+      "p95StaticAnalysisMsBelow": 30000,
+      "peakRssBytesBelow": 536870912
+    }
+  },
+  "frozenInputs": {
+    "projects": [
+      {
+        "projectId": "performance-50",
+        "sourceFileCount": 50,
+        "coreSourceFiles": 33,
+        "benignSourceFiles": 17,
+        "sourceTreeSha256": "dbdbc1867a69a61dfd1b7bc9af7b06b60914cb17b0eec6ec15974d4eb3c0e539"
+      },
+      {
+        "projectId": "performance-250",
+        "sourceFileCount": 250,
+        "coreSourceFiles": 33,
+        "benignSourceFiles": 217,
+        "sourceTreeSha256": "9d11381021594d23c7d5f44a1849ede15f3a02aac7d7f5973b99b9a4245647fe"
+      },
+      {
+        "projectId": "performance-500",
+        "sourceFileCount": 500,
+        "coreSourceFiles": 33,
+        "benignSourceFiles": 467,
+        "sourceTreeSha256": "41214a29c8b0573eae898ebe96074ddaae61843d349658d526bacec8b0c50612"
+      }
+    ],
+    "coreSourceTreeSha256": "2f30db6dc1a9c564396d6f82d40abc2f821c3135fd587b2dc4dd27ff986852ae",
+    "dependencySetSha256": "733020bbeaa7bc7f8c527a3d50164c378763edb7a16f880eff3786facef5360f",
+    "auditDataSha256": "44252063881e2fe2e9225716ebc881bed0e8961b6b7ac3791605504acba41a4c",
+    "performanceConfigSha256": "9e53a344278c0d49ffd71d9cea91ad4c0885219c5083a5ac00c4e22b340210ea",
+    "performanceBenchmarkConfigSha256": "fdb6a6b343c4ab6ad7a4e85c8ea17c3e8342f9b52ace05f30464128f0348f8cb",
+    "generatorScriptSha256": "93abb0ccad679b545d42656af7c2bd4b854df9d2a0ee6984ad382f660b1fe816",
+    "evaluationConfigSha256": "1eee302e373fb3ffc9d112cc45a5705c3793232e3a161ca6ba335a4582a2f9e4",
+    "sinkCatalogSha256": "5330d6c10a2e320723e24cad6e4b780be7e4abeb31546bbdd3442d4b5262390a",
+    "groundTruthDatasetSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
+    "evaluationCommit": "aee4f4a6fc901bdb3764af4549703f66bac513f3",
+    "nodeVersion": "v24.11.1",
+    "npmVersion": "11.6.2",
+    "environment": {
+      "platform": "win32",
+      "release": "10.0.22631",
+      "architecture": "x64",
+      "cpuModel": "AMD Ryzen 5 5600X 6-Core Processor",
+      "logicalCpuCount": 12,
+      "totalMemoryBytes": 34282192896
+    },
+    "reactReachVersion": "1.1.0",
+    "reactReachTag": "v1.1.0",
+    "reactReachCommit": "d63e114dfaf78a793806984336522e73f40fab63"
+  },
+  "projects": [
+    {
+      "projectId": "performance-50",
+      "targetSourceFiles": 50,
+      "statistics": {
+        "sampleCount": 30,
+        "timings": {
+          "auditMs": {
+            "count": 30,
+            "min": 0.086,
+            "max": 0.17,
+            "mean": 0.09530000000000001,
+            "sampleStandardDeviation": 0.01594635403145659,
+            "median": 0.09,
+            "p95": 0.115
+          },
+          "parseMs": {
+            "count": 30,
+            "min": 47.011,
+            "max": 52.159,
+            "mean": 48.59563333333334,
+            "sampleStandardDeviation": 1.180659268881332,
+            "median": 48.354,
+            "p95": 50.739
+          },
+          "dependenciesMs": {
+            "count": 30,
+            "min": 11.073,
+            "max": 14.108,
+            "mean": 11.666266666666662,
+            "sampleStandardDeviation": 0.5719733495921627,
+            "median": 11.558,
+            "p95": 12.451
+          },
+          "componentsMs": {
+            "count": 30,
+            "min": 5.205,
+            "max": 6.771,
+            "mean": 5.751633333333333,
+            "sampleStandardDeviation": 0.45014461150209034,
+            "median": 5.611,
+            "p95": 6.769
+          },
+          "sinksMs": {
+            "count": 30,
+            "min": 4.061,
+            "max": 5.706,
+            "mean": 4.6567,
+            "sampleStandardDeviation": 0.4302065382083836,
+            "median": 4.6475,
+            "p95": 5.499
+          },
+          "graphMs": {
+            "count": 30,
+            "min": 0.698,
+            "max": 1.085,
+            "mean": 0.7716999999999999,
+            "sampleStandardDeviation": 0.09072320541074372,
+            "median": 0.734,
+            "p95": 0.951
+          },
+          "reachabilityMs": {
+            "count": 30,
+            "min": 5.112,
+            "max": 7.874,
+            "mean": 5.769000000000001,
+            "sampleStandardDeviation": 0.5746036114965059,
+            "median": 5.671,
+            "p95": 6.818
+          },
+          "staticAnalysisMs": {
+            "count": 30,
+            "min": 74.295,
+            "max": 84.336,
+            "mean": 77.21093333333332,
+            "sampleStandardDeviation": 2.2473220374992735,
+            "median": 76.795,
+            "p95": 82.556
+          },
+          "reportMs": {
+            "count": 30,
+            "min": 0.087,
+            "max": 0.338,
+            "mean": 0.14030000000000004,
+            "sampleStandardDeviation": 0.07226109269338085,
+            "median": 0.109,
+            "p95": 0.314
+          },
+          "totalMs": {
+            "count": 30,
+            "min": 74.848,
+            "max": 85.109,
+            "mean": 77.85813333333331,
+            "sampleStandardDeviation": 2.3121134790986972,
+            "median": 77.4045,
+            "p95": 83.61
+          }
+        },
+        "peakRssBytes": {
+          "count": 30,
+          "min": 101191680,
+          "max": 103333888,
+          "mean": 102471543.46666667,
+          "sampleStandardDeviation": 509441.3562229969,
+          "median": 102486016,
+          "p95": 103149568
+        },
+        "peakRssMiB": {
+          "count": 30,
+          "min": 96.50390625,
+          "max": 98.546875,
+          "mean": 97.72447916666667,
+          "sampleStandardDeviation": 0.48584113714503946,
+          "median": 97.73828125,
+          "p95": 98.37109375
+        },
+        "outliers": {
+          "method": "tukey-1.5-iqr",
+          "excludedAutomatically": false,
+          "bounds": {
+            "q1": 75.836,
+            "q3": 77.599,
+            "iqr": 1.7630000000000052,
+            "lower": 73.19149999999999,
+            "upper": 80.24350000000001
+          },
+          "measurementIndexes": [
+            1,
+            11,
+            13
+          ],
+          "count": 3
+        }
+      },
+      "consistency": {
+        "sourceFileCount": {
+          "stable": true,
+          "values": [
+            50
+          ]
+        },
+        "componentCount": {
+          "stable": true,
+          "values": [
+            55
+          ]
+        },
+        "sinkCount": {
+          "stable": true,
+          "values": [
+            22
+          ]
+        },
+        "findingCount": {
+          "stable": true,
+          "values": [
+            33
+          ]
+        }
+      },
+      "diagnosticSampleCount": 0
+    },
+    {
+      "projectId": "performance-250",
+      "targetSourceFiles": 250,
+      "statistics": {
+        "sampleCount": 30,
+        "timings": {
+          "auditMs": {
+            "count": 30,
+            "min": 0.086,
+            "max": 0.131,
+            "mean": 0.09433333333333334,
+            "sampleStandardDeviation": 0.011692418213447592,
+            "median": 0.0905,
+            "p95": 0.128
+          },
+          "parseMs": {
+            "count": 30,
+            "min": 138.325,
+            "max": 150.725,
+            "mean": 141.29646666666667,
+            "sampleStandardDeviation": 2.1074946186920838,
+            "median": 140.978,
+            "p95": 142.872
+          },
+          "dependenciesMs": {
+            "count": 30,
+            "min": 28.906,
+            "max": 35.355,
+            "mean": 30.9497,
+            "sampleStandardDeviation": 1.4720598786078287,
+            "median": 30.83,
+            "p95": 33.789
+          },
+          "componentsMs": {
+            "count": 30,
+            "min": 18.942,
+            "max": 22.808,
+            "mean": 20.534266666666667,
+            "sampleStandardDeviation": 1.0820230711203809,
+            "median": 20.3155,
+            "p95": 22.429
+          },
+          "sinksMs": {
+            "count": 30,
+            "min": 11.266,
+            "max": 17.556,
+            "mean": 13.263500000000002,
+            "sampleStandardDeviation": 1.5794771887099772,
+            "median": 13.242,
+            "p95": 16.286
+          },
+          "graphMs": {
+            "count": 30,
+            "min": 1.251,
+            "max": 4.542,
+            "mean": 2.2402,
+            "sampleStandardDeviation": 1.0727989624310341,
+            "median": 1.533,
+            "p95": 4.441
+          },
+          "reachabilityMs": {
+            "count": 30,
+            "min": 4.684,
+            "max": 7.22,
+            "mean": 5.242999999999999,
+            "sampleStandardDeviation": 0.5945328505178057,
+            "median": 5.0395,
+            "p95": 6.658
+          },
+          "staticAnalysisMs": {
+            "count": 30,
+            "min": 208.268,
+            "max": 228.643,
+            "mean": 213.52713333333335,
+            "sampleStandardDeviation": 4.072507773818988,
+            "median": 212.30349999999999,
+            "p95": 221.583
+          },
+          "reportMs": {
+            "count": 30,
+            "min": 0.087,
+            "max": 0.117,
+            "mean": 0.09623333333333337,
+            "sampleStandardDeviation": 0.008198752358126515,
+            "median": 0.093,
+            "p95": 0.112
+          },
+          "totalMs": {
+            "count": 30,
+            "min": 209.129,
+            "max": 229.396,
+            "mean": 214.15513333333334,
+            "sampleStandardDeviation": 4.086674204114477,
+            "median": 212.89749999999998,
+            "p95": 222.225
+          }
+        },
+        "peakRssBytes": {
+          "count": 30,
+          "min": 116760576,
+          "max": 117862400,
+          "mean": 117262472.53333333,
+          "sampleStandardDeviation": 230505.00211667691,
+          "median": 117241856,
+          "p95": 117710848
+        },
+        "peakRssMiB": {
+          "count": 30,
+          "min": 111.3515625,
+          "max": 112.40234375,
+          "mean": 111.83020833333333,
+          "sampleStandardDeviation": 0.21982670032184307,
+          "median": 111.810546875,
+          "p95": 112.2578125
+        },
+        "outliers": {
+          "method": "tukey-1.5-iqr",
+          "excludedAutomatically": false,
+          "bounds": {
+            "q1": 211.385,
+            "q3": 214.762,
+            "iqr": 3.3770000000000095,
+            "lower": 206.31949999999998,
+            "upper": 219.82750000000001
+          },
+          "measurementIndexes": [
+            27,
+            28
+          ],
+          "count": 2
+        }
+      },
+      "consistency": {
+        "sourceFileCount": {
+          "stable": true,
+          "values": [
+            250
+          ]
+        },
+        "componentCount": {
+          "stable": true,
+          "values": [
+            255
+          ]
+        },
+        "sinkCount": {
+          "stable": true,
+          "values": [
+            22
+          ]
+        },
+        "findingCount": {
+          "stable": true,
+          "values": [
+            33
+          ]
+        }
+      },
+      "diagnosticSampleCount": 0
+    },
+    {
+      "projectId": "performance-500",
+      "targetSourceFiles": 500,
+      "statistics": {
+        "sampleCount": 30,
+        "timings": {
+          "auditMs": {
+            "count": 30,
+            "min": 0.086,
+            "max": 0.119,
+            "mean": 0.09063333333333333,
+            "sampleStandardDeviation": 0.006609728114463291,
+            "median": 0.089,
+            "p95": 0.105
+          },
+          "parseMs": {
+            "count": 30,
+            "min": 247.495,
+            "max": 258.878,
+            "mean": 251.3096,
+            "sampleStandardDeviation": 2.2533812846016716,
+            "median": 251.1135,
+            "p95": 255.325
+          },
+          "dependenciesMs": {
+            "count": 30,
+            "min": 48.118,
+            "max": 58.483,
+            "mean": 51.034699999999994,
+            "sampleStandardDeviation": 2.555308944814359,
+            "median": 50.17400000000001,
+            "p95": 55.753
+          },
+          "componentsMs": {
+            "count": 30,
+            "min": 27.904,
+            "max": 31.298,
+            "mean": 29.437033333333332,
+            "sampleStandardDeviation": 0.9634066883338708,
+            "median": 29.4725,
+            "p95": 31.026
+          },
+          "sinksMs": {
+            "count": 30,
+            "min": 25.036,
+            "max": 31.084,
+            "mean": 26.239699999999996,
+            "sampleStandardDeviation": 1.090645874763175,
+            "median": 26.112000000000002,
+            "p95": 27.77
+          },
+          "graphMs": {
+            "count": 30,
+            "min": 1.958,
+            "max": 3.168,
+            "mean": 2.1295666666666664,
+            "sampleStandardDeviation": 0.2627423916459164,
+            "median": 2.0244999999999997,
+            "p95": 2.726
+          },
+          "reachabilityMs": {
+            "count": 30,
+            "min": 4.669,
+            "max": 6.685,
+            "mean": 5.1917333333333335,
+            "sampleStandardDeviation": 0.46533887787758266,
+            "median": 5.1125,
+            "p95": 6.442
+          },
+          "staticAnalysisMs": {
+            "count": 30,
+            "min": 358.89,
+            "max": 376.353,
+            "mean": 365.34233333333344,
+            "sampleStandardDeviation": 4.214842962128281,
+            "median": 364.66700000000003,
+            "p95": 373.3
+          },
+          "reportMs": {
+            "count": 30,
+            "min": 0.092,
+            "max": 0.164,
+            "mean": 0.10636666666666668,
+            "sampleStandardDeviation": 0.016686735044243426,
+            "median": 0.103,
+            "p95": 0.145
+          },
+          "totalMs": {
+            "count": 30,
+            "min": 359.504,
+            "max": 377.1,
+            "mean": 365.9871666666667,
+            "sampleStandardDeviation": 4.21628801511908,
+            "median": 365.2765,
+            "p95": 373.886
+          }
+        },
+        "peakRssBytes": {
+          "count": 30,
+          "min": 139501568,
+          "max": 140824576,
+          "mean": 140081971.2,
+          "sampleStandardDeviation": 328635.78125486133,
+          "median": 140048384,
+          "p95": 140771328
+        },
+        "peakRssMiB": {
+          "count": 30,
+          "min": 133.0390625,
+          "max": 134.30078125,
+          "mean": 133.592578125,
+          "sampleStandardDeviation": 0.3134115040348638,
+          "median": 133.560546875,
+          "p95": 134.25
+        },
+        "outliers": {
+          "method": "tukey-1.5-iqr",
+          "excludedAutomatically": false,
+          "bounds": {
+            "q1": 362.147,
+            "q3": 367.642,
+            "iqr": 5.4950000000000045,
+            "lower": 353.9045,
+            "upper": 375.8845
+          },
+          "measurementIndexes": [
+            8
+          ],
+          "count": 1
+        }
+      },
+      "consistency": {
+        "sourceFileCount": {
+          "stable": true,
+          "values": [
+            500
+          ]
+        },
+        "componentCount": {
+          "stable": true,
+          "values": [
+            505
+          ]
+        },
+        "sinkCount": {
+          "stable": true,
+          "values": [
+            22
+          ]
+        },
+        "findingCount": {
+          "stable": true,
+          "values": [
+            33
+          ]
+        }
+      },
+      "diagnosticSampleCount": 0
+    }
+  ],
+  "thresholds": {
+    "projectId": "performance-500",
+    "p95StaticAnalysisMs": {
+      "observed": 373.3,
+      "requiredBelow": 30000,
+      "passed": true
+    },
+    "peakRssBytes": {
+      "observed": 140824576,
+      "requiredBelow": 536870912,
+      "passed": true
+    },
+    "passed": true
+  },
+  "reviewRequired": false,
+  "outlierPolicy": "Tukey 1.5 IQR flags are reported but no sample is automatically excluded."
+}
