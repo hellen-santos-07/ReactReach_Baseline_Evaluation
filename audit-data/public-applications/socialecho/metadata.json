@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "frozen",
+  "projectId": "socialecho",
+  "repository": "https://github.com/nz-m/SocialEcho",
+  "branch": "main",
+  "commit": "4dc6c7822bfff5c0b13e1b8098e8d7ae0084939a",
+  "commitDate": "2023-09-11T20:59:06+06:00",
+  "license": "MIT",
+  "primaryLanguage": "JavaScript",
+  "applicationType": "social networking application",
+  "checkout": "../Real React Applications/SocialEcho",
+  "applicationPath": "client",
+  "workspace": ".work/public-applications/socialecho",
+  "analysisRoot": ".work/public-applications/socialecho/client",
+  "sourceFileCount": 113,
+  "sourceTreeSha256": "d721341df96b8a5d52fbaa9b0c822391a75ea64730b05b1ea5bb51c2230e2e7a",
+  "originalLockfile": "package-lock.json",
+  "npmLockfileOrigin": "repository",
+  "packageJsonSha256": "ed480cbe3e7894431c8fba14da503d7ff355d0135515abedfff9ecbd5cf160c1",
+  "originalLockfileSha256": "22fa2f67e6abf0e6117833506ba6beb17dd5fa336027c22f63b30f8f3e8d2e30",
+  "npmLockfileSha256": "22fa2f67e6abf0e6117833506ba6beb17dd5fa336027c22f63b30f8f3e8d2e30",
+  "auditDataSha256": "a8cd2f8612a2256af1e246cd03055ddacadf9ed592cc00b1ceaa7eba7a4349ad",
+  "configurationSha256": "8e3b5abbf8ff0c4ae60ebc2a21701bfbe68afffdcbe0a65be65629854b881064",
+  "capturedAt": "2026-09-17T16:03:54.240Z",
+  "nodeVersion": "v24.11.1",
+  "npmVersion": "11.6.2",
+  "lifecycleScriptsExecuted": false,
+  "captureCommands": {
+    "lockfile": null,
+    "audit": "npm audit --json"
+  },
+  "audit": {
+    "vulnerablePackageCount": 72,
+    "severityTotals": {
+      "info": 0,
+      "low": 15,
+      "moderate": 18,
+      "high": 35,
+      "critical": 4,
+      "total": 72
+    }
+  }
+}

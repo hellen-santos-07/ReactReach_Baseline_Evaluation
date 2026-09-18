@@ -12,8 +12,8 @@ const {
   validateGroundTruth,
 } = require("./groundTruth");
 
-const REQUIRED_REACTREACH_VERSION = "1.0.0";
-const REQUIRED_REACTREACH_TAG = "v1.0.0";
+const REQUIRED_REACTREACH_VERSION = "1.1.0";
+const REQUIRED_REACTREACH_TAG = "v1.1.0";
 
 function sha256Buffer(value) {
   return crypto.createHash("sha256").update(value).digest("hex");

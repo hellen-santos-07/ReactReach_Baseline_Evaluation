@@ -84,7 +84,7 @@ test("performance preflight verifies frozen inputs without scanning a generated 
   assert.deepEqual(result.summary.projects.map((project) => project.sourceFileCount), [50, 250, 500]);
   const metadata = readJson(path.join(evaluationRoot, "audit-data", "performance-500.metadata.json"));
   assert.equal(result.summary.reactReachCommit, metadata.reactReachCommit);
-  assert.equal(result.summary.reactReachVersion, "1.0.0");
-  assert.equal(result.summary.reactReachTag, "v1.0.0");
+  assert.equal(result.summary.reactReachVersion, "1.1.0");
+  assert.equal(result.summary.reactReachTag, "v1.1.0");
   assert.match(result.summary.evaluationCommit, /^[0-9a-f]{40}$/u);
 });

@@ -18,7 +18,7 @@ test("worker resolves scanProject from the public ReactReach API", () => {
   assert.equal(legacyLoaded, false);
 });
 
-test("worker retains compatibility with the frozen ReactReach v1.0.0 API", () => {
+test("worker retains compatibility with the historical ReactReach v1.0.0 API", () => {
   const scanProject = async () => ({ findings: [] });
   assert.equal(resolveScanProject({}, () => ({ scanProject })), scanProject);
 });

@@ -7,11 +7,11 @@ const { loadEvaluationConfig } = require("./preflight");
 /**
  * Resolve the analyser entry point from the public package API.
  *
- * The frozen v1.0.0 evaluation artefact predates that API, so the legacy
- * loader is retained only to keep the original evaluation reproducible.
+ * The legacy loader is retained only so historical v1.0.0 evaluation
+ * artefacts remain reproducible; current releases use the public API.
  *
  * @param {object} packageApi - Value exported by `require("reactreach")`.
- * @param {Function} [loadLegacyApi] - Compatibility loader for ReactReach v1.0.0.
+ * @param {Function} [loadLegacyApi] - Compatibility loader for historical releases.
  * @returns {Function} The ReactReach project scanner.
  */
 function resolveScanProject(

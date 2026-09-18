@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "studyId": "public-react-application-feasibility",
+  "reactReachVersion": "1.1.0",
+  "reactReachRoot": "../ReactReach",
+  "evaluationConfig": "config/reactreach-evaluation.config.json",
+  "timeoutMs": 120000,
+  "projects": [
+    {
+      "id": "donetick-frontend",
+      "repository": "https://github.com/donetick/frontend",
+      "checkout": "../Real React Applications/donetick-frontend",
+      "branch": "develop",
+      "commit": "22e2f4abb5173eff2bb3c6b589368f6d095c6cbc",
+      "commitDate": "2026-09-17T10:22:03-04:00",
+      "license": "AGPL-3.0",
+      "primaryLanguage": "JavaScript",
+      "applicationType": "cross-platform task and chore management application",
+      "originalLockfile": "package-lock.json",
+      "npmLockfileOrigin": "repository"
+    },
+    {
+      "id": "socialecho",
+      "repository": "https://github.com/nz-m/SocialEcho",
+      "checkout": "../Real React Applications/SocialEcho",
+      "branch": "main",
+      "commit": "4dc6c7822bfff5c0b13e1b8098e8d7ae0084939a",
+      "commitDate": "2023-09-11T20:59:06+06:00",
+      "license": "MIT",
+      "primaryLanguage": "JavaScript",
+      "applicationType": "social networking application",
+      "applicationPath": "client",
+      "originalLockfile": "package-lock.json",
+      "npmLockfileOrigin": "repository"
+    },
+    {
+      "id": "varharrie-github-io",
+      "repository": "https://github.com/varHarrie/varharrie.github.io",
+      "checkout": "../Real React Applications/varharrie.github.io",
+      "branch": "v2",
+      "commit": "5e592ebac9c6eb6642121b49487889ebbc01fb87",
+      "commitDate": "2023-03-20T20:38:29+08:00",
+      "license": "MIT",
+      "primaryLanguage": "TypeScript",
+      "applicationType": "public blog application",
+      "originalLockfile": "yarn.lock",
+      "npmLockfileOrigin": "generated-from-package-json",
+      "npmInstallArguments": ["--legacy-peer-deps"]
+    }
+  ]
+}

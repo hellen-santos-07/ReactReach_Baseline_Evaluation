@@ -1,7 +1,7 @@
 # ReactReach Baseline Evaluation
 
 Public replication package for the final evaluation of
-[ReactReach](https://github.com/hellen-santos-07/ReactReach) `v1.0.0`.
+[ReactReach](https://github.com/hellen-santos-07/ReactReach) `v1.1.0`.
 
 This project evaluates whether ReactReach can distinguish vulnerable-dependency
 usages with a demonstrated contextual path to a security-sensitive sink from
@@ -23,9 +23,9 @@ details are recorded in [`AUTHORS.md`](AUTHORS.md).
 | Field | Value |
 |---|---|
 | Project | ReactReach |
-| Version | `1.0.0` |
-| Git tag | `v1.0.0` |
-| Git commit | `0202e2c451802ea449ca576beeda7695340687d0` |
+| Version | `1.1.0` |
+| Git tag | `v1.1.0` |
+| Git commit | `d63e114dfaf78a793806984336522e73f40fab63` |
 | Runtime | Node.js 24 |
 
 The preflight rejects a different ReactReach version, tag, commit, dirty working
@@ -123,7 +123,7 @@ scenario-level error analysis.
 
 ```text
 audit-data/       Frozen npm audit snapshots and input metadata
-config/           ReactReach, performance and final-run configuration
+config/           ReactReach, performance, real-application and final-run configuration
 corpus/           Three controlled React projects
 docs/             Protocol, results and error analysis
 ground-truth/     Final labelled 54-scenario manifest
@@ -131,12 +131,17 @@ schemas/          JSON Schema for the final ground truth
 scripts/          Public command-line entry points
 src/              Evaluation and verification implementation
 test/             Harness and corpus tests
-results/          Raw and processed outputs from the final v1.0.0 evaluation
+results/          Raw and processed outputs from frozen evaluation runs
 ```
 
 Performance projects are generated deterministically and are intentionally not
 stored in Git. This avoids committing hundreds of reproducible files while preserving
 their generator, configuration, manifests and hashes.
+
+The real-application workspaces under `.work/public-applications/` are also
+generated locally and excluded from Git. Their repository commits, package
+manifests, original lockfiles, derived npm lockfiles, audit snapshots and hashes
+are recorded under `audit-data/public-applications/`.
 
 ## Setup
 
@@ -152,7 +157,7 @@ Clone and select the evaluated ReactReach release:
 
 ```powershell
 git clone https://github.com/hellen-santos-07/ReactReach.git
-git -C ReactReach checkout v1.0.0
+git -C ReactReach checkout v1.1.0
 git clone https://github.com/hellen-santos-07/ReactReach_Baseline_Evaluation.git
 cd ReactReach_Baseline_Evaluation
 npm.cmd --prefix ..\ReactReach ci --no-bin-links
@@ -244,6 +249,36 @@ The published protocol retains three complete campaigns rather than choosing
 the fastest result. To reproduce repeatability, execute `performance:run` three
 times and report every completed identifier, including all retained outliers.
 
+## Run the public-application feasibility study
+
+The unlabelled feasibility study uses three frozen public React applications
+with non-trivial analyser output: `donetick/frontend`, `nz-m/SocialEcho`, and
+`varHarrie/varharrie.github.io`. SocialEcho is analysed from its `client/`
+subdirectory. Place the three clones at the paths recorded in
+`config/public-applications.json`, then prepare and validate the frozen inputs:
+
+```powershell
+npm.cmd run public-apps:prepare
+npm.cmd run public-apps:preflight
+npm.cmd run public-apps:run
+```
+
+Preparation exports each configured commit into an ignored isolated workspace.
+It does not install dependencies or execute project lifecycle scripts.
+Donetick and SocialEcho use their repository `package-lock.json`; varHarrie
+retains its native `yarn.lock` and receives a derived npm lockfile generated with
+`--package-lock-only`. The harness then freezes `npm audit --json`, while the
+original clones remain unchanged.
+
+Each application scan runs in a separate Node process. The run records
+repository and commit provenance, Node/npm versions, frozen audit evidence,
+duration, checkpoint peak RSS, findings by reachability level, diagnostics,
+parsing errors and crashes. CRITICAL and HIGH findings are copied to a
+manual-review queue. The applications have no labelled ground truth;
+therefore the study does not compute or imply precision, recall, F1, true
+positives or false positives. See
+[`docs/public-application-study.md`](docs/public-application-study.md).
+
 ## Frozen inputs and reproducibility
 
 - `ground-truth/ground-truth.json` is the only labelled manifest used by the
@@ -260,6 +295,9 @@ times and report every completed identifier, including all retained outliers.
   date and resolved rule-catalogue fingerprint; rerunning the registry ruleset
   at a later date can produce a different catalogue and must be reported as a
   new baseline run.
+- the public-application study freezes repository commits, original and derived
+  lockfiles, `npm audit` outputs, runtime versions and source-tree fingerprints;
+  its results are feasibility observations without accuracy metrics.
 
 ## Interpretation boundary
 

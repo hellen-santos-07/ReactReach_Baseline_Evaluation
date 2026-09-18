@@ -13,3 +13,7 @@
 # Raw Semgrep outputs are evidence artefacts whose recorded byte counts and
 # SHA-256 hashes must survive Git checkouts without line-ending conversion.
 results/raw/semgrep/** -text -diff
+
+# Frozen public-application manifests and package-manager snapshots preserve
+# byte-level SHA-256 hashes captured from the source checkouts and npm.
+audit-data/public-applications/** -text -diff

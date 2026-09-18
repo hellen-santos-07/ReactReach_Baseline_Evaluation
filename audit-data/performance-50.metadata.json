@@ -27,7 +27,7 @@
   "auditDataSha256": "44252063881e2fe2e9225716ebc881bed0e8961b6b7ac3791605504acba41a4c",
   "auditSnapshotOrigin": "reused-equivalent-dependency-set",
   "sourceAuditData": "audit-data/effectiveness-core.npm-audit.json",
-  "capturedAt": "2026-08-24T20:21:00.529Z",
+  "capturedAt": "2026-09-18T14:49:06.102Z",
   "captureCommand": "npm run evaluation:metadata:refresh",
   "groundTruth": "ground-truth/ground-truth.json",
   "groundTruthDatasetSha256": "68951480a3987ef7314631d41304076807fbd220e11e1b67910cb0e8ea70aae1",
@@ -47,8 +47,8 @@
     "totalMemoryBytes": 34282192896
   },
   "reactReachRoot": "../ReactReach",
-  "reactReachVersion": "1.0.0",
-  "reactReachTag": "v1.0.0",
-  "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0",
+  "reactReachVersion": "1.1.0",
+  "reactReachTag": "v1.1.0",
+  "reactReachCommit": "d63e114dfaf78a793806984336522e73f40fab63",
   "reactReachWorkingTreeClean": true
 }

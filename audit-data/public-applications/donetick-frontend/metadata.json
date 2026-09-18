@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "frozen",
+  "projectId": "donetick-frontend",
+  "repository": "https://github.com/donetick/frontend",
+  "branch": "develop",
+  "commit": "22e2f4abb5173eff2bb3c6b589368f6d095c6cbc",
+  "commitDate": "2026-09-17T10:22:03-04:00",
+  "license": "AGPL-3.0",
+  "primaryLanguage": "JavaScript",
+  "applicationType": "cross-platform task and chore management application",
+  "checkout": "../Real React Applications/donetick-frontend",
+  "applicationPath": ".",
+  "workspace": ".work/public-applications/donetick-frontend",
+  "analysisRoot": ".work/public-applications/donetick-frontend",
+  "sourceFileCount": 323,
+  "sourceTreeSha256": "435d0f558e1dd1faa3da012d1eee7d0933733e7fdd3811a56d34fcf6bb54c3de",
+  "originalLockfile": "package-lock.json",
+  "npmLockfileOrigin": "repository",
+  "packageJsonSha256": "a1c56041e5875a34edc743870bdd9ad4f8a4f790f3c2c53861bfc1352360e8db",
+  "originalLockfileSha256": "845ae8f6a7c3f7874de17451fb8a33daead2ea5f89f5e79820335b27020d1a23",
+  "npmLockfileSha256": "845ae8f6a7c3f7874de17451fb8a33daead2ea5f89f5e79820335b27020d1a23",
+  "auditDataSha256": "1681adc2b44697e5148b7f7b8479f5f77c551fbe937c5e3d8e0480bb1d94fba8",
+  "configurationSha256": "8e3b5abbf8ff0c4ae60ebc2a21701bfbe68afffdcbe0a65be65629854b881064",
+  "capturedAt": "2026-09-17T16:03:48.685Z",
+  "nodeVersion": "v24.11.1",
+  "npmVersion": "11.6.2",
+  "lifecycleScriptsExecuted": false,
+  "captureCommands": {
+    "lockfile": null,
+    "audit": "npm audit --json"
+  },
+  "audit": {
+    "vulnerablePackageCount": 35,
+    "severityTotals": {
+      "info": 0,
+      "low": 3,
+      "moderate": 11,
+      "high": 20,
+      "critical": 1,
+      "total": 35
+    }
+  }
+}

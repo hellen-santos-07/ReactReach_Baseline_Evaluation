@@ -1,8 +1,8 @@
 # RQ04 evaluation protocol — version 1.0
 
 **Author:** Hellen Santos
-**Evaluated artefact:** ReactReach `v1.0.0`
-**ReactReach commit:** `0202e2c451802ea449ca576beeda7695340687d0`
+**Evaluated artefact:** ReactReach `v1.1.0`
+**ReactReach commit:** `d63e114dfaf78a793806984336522e73f40fab63`
 
 ## Research question and experimental dimensions
 
@@ -152,7 +152,7 @@ Three complete campaigns are planned. Every campaign is retained and reported:
 there is no selection of the fastest or most favourable run. Per-campaign
 statistics are primary, while pooled values are descriptive only. Every
 campaign must independently pass the 500-file thresholds. All final campaigns
-must evaluate the same ReactReach `v1.0.0` tag and commit.
+must evaluate the same ReactReach `v1.1.0` tag and commit.
 
 The fixed core consists of the 30 characterization scenarios distributed over
 33 source files. It is copied byte-for-byte into every generated project. The

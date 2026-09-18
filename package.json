@@ -2,7 +2,7 @@
   "name": "reactreach-baseline-evaluation",
   "version": "1.0.0",
   "private": true,
-  "description": "Public replication package for the ReactReach v1.0.0 baseline evaluation",
+  "description": "Public replication package for the ReactReach v1.1.0 baseline evaluation",
   "license": "MIT",
   "author": {
     "name": "Hellen Santos",
@@ -38,6 +38,9 @@
     "performance:run": "node scripts/runPerformanceCampaign.js",
     "performance:verify": "node scripts/verifyPerformanceRun.js",
     "performance:repeatability:check": "node scripts/checkPerformanceRepeatability.js",
+    "public-apps:prepare": "node scripts/preparePublicApplicationInputs.js",
+    "public-apps:preflight": "node scripts/preflightPublicApplications.js",
+    "public-apps:run": "node scripts/runPublicApplicationStudy.js",
     "results:verify": "node scripts/verifyFinalResults.js"
   },
   "dependencies": {

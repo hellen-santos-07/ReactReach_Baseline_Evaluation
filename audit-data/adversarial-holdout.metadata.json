@@ -22,8 +22,8 @@
   "nodeVersion": "v24.11.1",
   "npmVersion": "11.6.2",
   "reactReachRoot": "../ReactReach",
-  "reactReachCommit": "0202e2c451802ea449ca576beeda7695340687d0",
+  "reactReachCommit": "d63e114dfaf78a793806984336522e73f40fab63",
   "reactReachWorkingTreeClean": true,
-  "reactReachVersion": "1.0.0",
-  "reactReachTag": "v1.0.0"
+  "reactReachVersion": "1.1.0",
+  "reactReachTag": "v1.1.0"
 }

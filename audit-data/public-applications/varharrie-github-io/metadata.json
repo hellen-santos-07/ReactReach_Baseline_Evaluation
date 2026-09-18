@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "frozen",
+  "projectId": "varharrie-github-io",
+  "repository": "https://github.com/varHarrie/varharrie.github.io",
+  "branch": "v2",
+  "commit": "5e592ebac9c6eb6642121b49487889ebbc01fb87",
+  "commitDate": "2023-03-20T20:38:29+08:00",
+  "license": "MIT",
+  "primaryLanguage": "TypeScript",
+  "applicationType": "public blog application",
+  "checkout": "../Real React Applications/varharrie.github.io",
+  "applicationPath": ".",
+  "workspace": ".work/public-applications/varharrie-github-io",
+  "analysisRoot": ".work/public-applications/varharrie-github-io",
+  "sourceFileCount": 36,
+  "sourceTreeSha256": "749ba8f00cbfb5d466dcda07cbed60f0dd25fd5da5b26fdb13a395ea47c27c86",
+  "originalLockfile": "yarn.lock",
+  "npmLockfileOrigin": "generated-from-package-json",
+  "packageJsonSha256": "91dec90a0cb30afb432c272e83f83994447a7e5f2abaf86006900ae92f5c875c",
+  "originalLockfileSha256": "1757bc2f001cd1a1d4b47971eb95d1e0defc5ace91c0e3558d02e78f5d23313f",
+  "npmLockfileSha256": "516f67cdb86b7a94d63d01588bda455022bbdf70a8f96216819397711579b363",
+  "auditDataSha256": "203e19ff367b2cf445f4a5e5c4c854e672f465c6ed024cdca41fc485e1443cd3",
+  "configurationSha256": "8e3b5abbf8ff0c4ae60ebc2a21701bfbe68afffdcbe0a65be65629854b881064",
+  "capturedAt": "2026-09-17T16:04:11.300Z",
+  "nodeVersion": "v24.11.1",
+  "npmVersion": "11.6.2",
+  "lifecycleScriptsExecuted": false,
+  "captureCommands": {
+    "lockfile": "npm install --package-lock-only --ignore-scripts --audit=false --fund=false --legacy-peer-deps",
+    "audit": "npm audit --json"
+  },
+  "audit": {
+    "vulnerablePackageCount": 24,
+    "severityTotals": {
+      "info": 0,
+      "low": 2,
+      "moderate": 7,
+      "high": 14,
+      "critical": 1,
+      "total": 24
+    }
+  }
+}
