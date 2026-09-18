@@ -1,6 +1,6 @@
 {
   "name": "reactreach-baseline-evaluation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Public replication package for the ReactReach v1.1.0 baseline evaluation",
   "license": "MIT",
